@@ -3,13 +3,29 @@
 import nodemailer from 'nodemailer';
 
 export async function sendContactEmail(formData: FormData) {
-  const name = formData.get('name')?.toString().trim();
-  const email = formData.get('email')?.toString().trim();
-  const message = formData.get('message')?.toString().trim();
+  const raw = {
+    name: formData.get('name')?.toString().trim() ?? '',
+    email: formData.get('email')?.toString().trim() ?? '',
+    message: formData.get('message')?.toString().trim() ?? '',
+  };
 
-  if (!name || !email || !message) {
+  if (!raw.name || !raw.email || !raw.message) {
     return { success: false, error: 'missing_fields' };
   }
+
+  if (raw.name.length > 100 || raw.email.length > 254 || raw.message.length > 2000) {
+    return { success: false, error: 'missing_fields' };
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(raw.email)) {
+    return { success: false, error: 'missing_fields' };
+  }
+
+  // Strip newlines to prevent email header injection
+  const name = raw.name.replace(/[\r\n]/g, ' ');
+  const email = raw.email.replace(/[\r\n]/g, '');
+  const message = raw.message.replace(/[\r\n]/g, (c) => c === '\n' ? '<br>' : '');
 
   const appPassword = process.env.GMAIL_APP_PASSWORD?.trim();
   if (!appPassword) {
