@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "work": "Projects",
+    "about": "About",
+    "experience": "Experience",
+    "stack": "Tech Stack",
+    "contact": "Contact",
+    "cta": "Let's Talk",
+    "resume": "Download CV"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Miguel Giles",
+    "role": "Electromechanic × Developer",
+    "tagline": "Electromechanic by Trade. Developer by Passion. Builder by Nature.",
+    "cta_primary": "View My Work",
+    "cta_secondary": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "chapters": {
+      "mechanic": {
+        "title": "The Mechanic",
+        "description": "For over 13 years, I kept complex industrial systems running — first in industrial refrigeration, then in GxP pharmaceutical plants. Every machine speaks a language, every failure has a pattern, and every solution has a logic. Problem-solving became my second nature."
+      },
+      "spark": {
+        "title": "The Spark",
+        "description": "One day I discovered that the same logical thinking could create software. Programming wasn't new to me — it was the same problem-solving, but without physical limits. Vibe coding opened a door I never thought I'd walk through."
+      },
+      "builder": {
+        "title": "The Builder",
+        "description": "Today I build applications that solve real problems. My industrial experience gave me something no bootcamp can teach: understanding complex systems from their roots. Every NEX app is born from a real need I identified and solved."
+      }
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Apps forged with purpose",
+    "viewProject": "View project",
+    "comingSoon": "Coming soon",
+    "items": {
+      "nexindu": {
+        "badge": "Designed for GxP environments",
+        "description": "Industrial operating system for GxP pharmaceutical plants. Work order management, preventive maintenance, spare parts inventory, and AI assistant with RAG memory."
+      },
+      "nexkio": {
+        "badge": "Offline-first PWA",
+        "description": "Complete management system for small stores. POS with hardware barcode scanner, offline-first inventory, store credit system, financial reports, and digital receipts with QR."
+      },
+      "nexquipu": {
+        "badge": "AI parsing bank statements",
+        "description": "Family finance manager with AI. Analyzes credit card statements, detects subscriptions and hidden charges, and generates personalized financial recommendations."
+      },
+      "nexwod": {
+        "badge": "Mobile app",
+        "description": "AI-powered workout tracker. Generates personalized routines, calculates per-muscle-group fatigue, automatically detects personal records, and offers smart coaching."
+      },
+      "nexpulse": {
+        "badge": "Serverless P2P",
+        "description": "Poker tournament manager for home games. P2P remote control via WebRTC, synthesized audio engine, blind timer, and automatic prize pool calculation."
+      },
+      "nexgrid": {
+        "badge": "Automated scraping",
+        "description": "Smart price comparison tool. Paste any URL and automatically extract metadata. AI analyzes and recommends with scoring and pros/cons."
+      }
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Two paths, one mission",
+    "industrial": {
+      "title": "Industrial Career",
+      "bbraun": {
+        "period": "2017 – Present",
+        "role": "Automation & Maintenance",
+        "description": "Critical process management and maintenance in pharmaceutical production line. Daily troubleshooting application. Lean/5S mindset."
+      },
+      "coiron": {
+        "period": "2013 – 2017",
+        "role": "Industrial Refrigeration",
+        "description": "Team leadership in ground-up assembly projects. Full responsibility over complex installations."
+      }
+    },
+    "developer": {
+      "title": "Developer Path",
+      "recent": {
+        "period": "2023 – Present",
+        "role": "Full-Stack Developer",
+        "company": "NEX Apps (Independent)",
+        "description": "Self-taught since 2023. Since early 2025, 100% vibe coding — which radically scaled my app output. Building end-to-end solutions with Next.js, React, Python and AI-powered architectures."
+      }
+    }
+  },
+  "stack": {
+    "title": "Tech Stack",
+    "subtitle": "Tools I use to build",
+    "categories": {
+      "languages": "Languages",
+      "frameworks": "Frameworks",
+      "databases": "Databases",
+      "ai": "AI & Vibe Coding",
+      "tools": "Tools"
+    }
+  },
+  "contact": {
+    "title": "Let's Build Something Together",
+    "subtitle": "Got a project in mind? Let's collaborate.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@email.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "sendButton": "Send message",
+    "connectTitle": "Or find me on",
+    "connectText": "Got a problem worth solving well? Let's talk.",
+    "formSending": "Sending...",
+    "formSuccess": "Message sent! I'll get back to you soon.",
+    "formError": "Failed to send. Email me at miga.gls246@gmail.com",
+    "whatsapp": "WhatsApp"
+  },
+  "footer": {
+    "copyright": "All rights reserved.",
+    "forgedWith": "Forged with"
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "downloadPdf": "Download PDF",
+    "print": "Print",
+    "profileTitle": "Professional Profile",
+    "profileText": "Full Stack Developer & Electromechanical Technician with 13+ years of industrial experience (9 years in GxP regulated environments). I combine the rigor of industrial maintenance, process automation, and troubleshooting with web application development (Vibe Coding) to build robust software solutions that solve real-world problems.",
+    "softwareTitle": "Featured Software Projects",
+    "softwareNexIndu": "Industrial operating system designed for maintenance management in GxP pharmaceutical plants. Features an AI assistant with RAG memory.",
+    "softwareNexKio": "Offline-first PWA for complete retail store management featuring hardware barcode scanning.",
+    "industrialTitle": "Industrial Experience",
+    "bbraunRole": "Industrial Maintenance Technician",
+    "bbraunPeriod": "2017 - Present",
+    "bbraunDesc": "Maintenance in GxP pharmaceutical plant. Process control via PLC, real-time critical troubleshooting, and strict regulatory compliance.",
+    "coironRole": "Industrial Refrigeration Technician",
+    "coironPeriod": "2013 - 2017",
+    "coironDesc": "Led teams in complex cold storage assembly projects from scratch, applying complex systems logic.",
+    "techStack": "Software Stack",
+    "techStackItems": "Next.js, React, TypeScript, Python, Artificial Intelligence, Databases",
+    "hardSkills": "Industrial Skills",
+    "hardSkillsItems": "Automation (PLC), Electrical, Pneumatics, Lean/5S Management, Troubleshooting"
+  }
+}

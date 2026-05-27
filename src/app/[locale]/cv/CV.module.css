@@ -1,0 +1,386 @@
+.container {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background-color: var(--dark-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-body);
+}
+
+.printHeader {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.resumePaper {
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Sidebar (Left Column) */
+.sidebar {
+  background-color: #0E141B;
+  color: #fff;
+  padding: 50px 40px;
+}
+
+.sidebarTop {
+  margin-bottom: 50px;
+}
+
+.photoContainer {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.profilePhoto {
+  border-radius: 50%;
+  border: 3px solid rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+  object-fit: cover;
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+.role {
+  font-size: 1rem;
+  color: var(--accent);
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.sidebarSection {
+  margin-bottom: 35px;
+}
+
+.sidebarTitle {
+  font-size: 1.1rem;
+  color: #fff;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactList li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.contactList li svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 12px;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skillTags span {
+  background: rgba(0, 229, 255, 0.08);
+  color: var(--accent);
+  padding: 4px 10px;
+  border-radius: 20px; /* Pill shape */
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.qrSection {
+  margin-top: auto;
+  padding-top: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qrCode {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  padding: 5px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.qrText {
+  color: #888;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* Main Content (Right Column) */
+.mainContent {
+  background-color: #fff;
+  color: #111;
+  padding: 50px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: #111;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 8px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+}
+
+.sectionTitle::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 18px;
+  background-color: var(--accent);
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.profileText {
+  line-height: 1.7;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+.item {
+  margin-bottom: 30px;
+}
+
+.itemHeaderFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.itemTitle {
+  font-size: 1.25rem;
+  color: #111;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.itemSubtitle {
+  font-size: 1.05rem;
+  color: #555;
+  font-weight: 600;
+  display: block;
+}
+
+.itemPeriodRight {
+  color: #008899;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: right;
+  min-width: 120px;
+}
+
+.profileText {
+  line-height: 1.7;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+.item {
+  margin-bottom: 30px;
+}
+
+.itemHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.itemTitle {
+  font-size: 1.3rem;
+  color: #111;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.itemSubtitle {
+  font-size: 1.05rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.itemPeriod {
+  color: #008899; /* Darker cyan for light bg */
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.itemDesc {
+  color: #444;
+  line-height: 1.6;
+  margin: 10px 0 0 0;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    margin: 0;
+    size: A4 portrait;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .container {
+    background: none;
+    padding: 0;
+    display: block;
+    height: 100vh;
+  }
+  
+  .printHeader {
+    display: none !important;
+  }
+
+  .resumePaper {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    box-sizing: border-box;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+    page-break-before: avoid;
+    grid-template-columns: 280px 1fr !important;
+  }
+
+  .sidebar {
+    padding: 36px 28px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .sidebarTop {
+    margin-bottom: 28px;
+  }
+
+  .photoContainer {
+    margin-bottom: 14px;
+  }
+
+  .mainContent {
+    padding: 36px 44px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name {
+    font-size: 2.4rem;
+    margin-bottom: 5px;
+  }
+
+  .role {
+    font-size: 1rem;
+  }
+
+  .sidebarSection, .section {
+    margin-bottom: 22px;
+  }
+
+  .sidebarTitle, .sectionTitle {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    padding-bottom: 4px;
+  }
+
+  .profileText {
+    font-size: 0.96rem;
+    margin-bottom: 0;
+    line-height: 1.55;
+  }
+
+  .item {
+    margin-bottom: 16px;
+  }
+
+  .itemTitle {
+    font-size: 1.1rem;
+  }
+
+  .itemSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .itemDesc {
+    font-size: 0.93rem;
+    margin-top: 4px;
+    line-height: 1.45;
+  }
+
+  .skillTags span {
+    padding: 4px 10px;
+    font-size: 0.82rem;
+  }
+
+  :global(nav), :global(header), :global(footer) {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .resumePaper {
+    grid-template-columns: 1fr;
+  }
+}
