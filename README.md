@@ -1,34 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Miguel Giles — Portfolio & CV
 
-## Getting Started
+Personal portfolio and interactive CV for Miguel Giles: electromechanic with 13 years of field experience, self-taught developer since 2023.
 
-First, run the development server:
+Built with Next.js 16, React 19, TypeScript, and next-intl for ES/EN bilingual support. Deployed on Vercel.
+
+## Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Install dependencies
+pnpm install
+
+# Copy env template and fill in your Gmail App Password
+cp .env.local.example .env.local
+
+# Start dev server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Commands
 
-## Learn More
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start development server |
+| `pnpm build` | Production build |
+| `pnpm start` | Start production server locally |
+| `pnpm lint` | Run ESLint |
 
-To learn more about Next.js, take a look at the following resources:
+## Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `GMAIL_APP_PASSWORD` | Yes (contact form) | Gmail App Password for nodemailer SMTP |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Set this in `.env.local` (never commit this file). See `.env.local.example` for setup instructions.
 
-## Deploy on Vercel
+## Architecture
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+  app/[locale]/       # Next.js App Router with i18n routing (es/en)
+    cv/               # Printable CV page (window.print → PDF)
+    opengraph-image.tsx  # Dynamic OG image via Next.js ImageResponse
+  actions/
+    contact.ts        # Server Action: email via nodemailer + Gmail SMTP
+  components/
+    sections/         # Page sections: Hero, About, Projects, Experience, Contact
+    layout/           # Header, Footer
+  messages/           # i18n strings (es.json, en.json)
+  i18n/               # next-intl configuration
+public/
+  images/             # Static assets (case-sensitive on Linux/Vercel)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Key decisions:** see [docs/decisions/](docs/decisions/) for ADRs.
+
+## Deployment
+
+Deployed to Vercel. Set `GMAIL_APP_PASSWORD` in Vercel project environment variables (Production + Preview scopes).
+
+CI runs on every push/PR to `main` via GitHub Actions: lint → typecheck → build → audit.
