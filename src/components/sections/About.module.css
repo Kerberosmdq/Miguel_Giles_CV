@@ -1,284 +1,286 @@
 .aboutSection {
+  /* Provide enough height to scroll through 3 phases */
+  height: 300vh;
+  background-color: #000000;
   position: relative;
-  overflow: hidden;
-  padding: 8rem 2rem;
-  /* Next.js light section usually sets background and text color, but we assume it's set by global .section-light */
+  border-top: 1px solid var(--dark-border);
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ── Left Side: Text ── */
+.textContent {
+  flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8rem;
+  justify-content: center;
+  padding: 0 5vw;
+  position: relative;
+  z-index: 2;
 }
 
-.header {
-  text-align: center;
+.textInner {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.chapterText {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.chapterActive {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%);
+}
+
+/* Initially offset the inactive ones slightly */
+.chapterText:not(.chapterActive) {
+  transform: translateY(-40%);
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  margin-bottom: var(--space-4);
+  text-transform: uppercase;
 }
 
 .title {
-  font-family: var(--font-space-grotesk, 'Space Grotesk'), sans-serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.1;
   font-weight: 700;
+  margin-bottom: var(--space-6);
+  color: #ffffff;
   letter-spacing: -0.02em;
-  margin-bottom: 1rem;
 }
 
-.chapters {
-  display: flex;
-  flex-direction: column;
-  gap: 6rem;
-}
-
-.chapter {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-@media (min-width: 768px) {
-  .chapter {
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-  }
-  
-  .chapter:nth-child(even) .content {
-    order: 2;
-  }
-  .chapter:nth-child(even) .visual {
-    order: 1;
-  }
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.chapterHeader {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-}
-
-.chapterNumber {
-  font-family: var(--font-jetbrains-mono, 'JetBrains Mono'), monospace;
-  color: var(--accent-cyan, #00E5FF);
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-
-.chapterTitle {
-  font-family: var(--font-space-grotesk, 'Space Grotesk'), sans-serif;
-  font-size: clamp(2rem, 3vw, 2.5rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-.chapterDescription {
-  font-family: var(--font-inter, 'Inter'), sans-serif;
-  font-size: 1.125rem;
+.description {
+  font-size: clamp(1.1rem, 1.3vw, 1.25rem);
   line-height: 1.8;
-  color: var(--text-muted-light, #64748B);
+  color: var(--dark-text-secondary);
 }
 
-.visualContainer {
-  position: relative;
-  aspect-ratio: 4/3;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  display: flex;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  background: var(--dark-bg, #0A0A0A);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.visualDark {
-  width: 100%;
+/* ── Right Side: Visuals ── */
+.visualContent {
+  flex: 1;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  padding: var(--space-8);
+  background-color: #050505;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* SCADA Dashboard for Mechanic */
-.scadaDashboard {
-  width: 80%;
-  height: 80%;
-  background: #111;
-  border: 1px solid rgba(0, 229, 255, 0.2);
-  border-radius: 8px;
+.visualFrame {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.visualInner {
+  width: 100%;
+  height: 100%;
+}
+
+/* Industrial Corners */
+.cornerTL, .cornerTR, .cornerBL, .cornerBR {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--accent);
+  z-index: 10;
+}
+.cornerTL { top: 0; left: 0; border-right: none; border-bottom: none; }
+.cornerTR { top: 0; right: 0; border-left: none; border-bottom: none; }
+.cornerBL { bottom: 0; left: 0; border-right: none; border-top: none; }
+.cornerBR { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+/* ── Visual 1: SCADA ── */
+.scadaContainer {
+  width: 100%;
+  height: 100%;
+  padding: var(--space-6);
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 229, 255, 0.1);
+  gap: var(--space-4);
+  font-family: var(--font-mono);
 }
 
 .scadaHeader {
-  font-family: var(--font-jetbrains-mono, monospace);
-  color: var(--text-muted-light, #64748b);
-  font-size: 0.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: var(--space-2);
+  font-size: 0.8rem;
+  color: var(--dark-text-secondary);
 }
+
+.scadaBlink {
+  color: #ff003c;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
 
 .scadaGrid {
-  flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: var(--space-4);
+  flex: 1;
 }
 
-.scadaGauge {
+.scadaBox, .scadaBoxLarge {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--space-4);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  justify-content: space-between;
 }
 
-.circularChart {
-  width: 70%;
-  max-width: 80px;
-}
-
-.circleBg {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.05);
-  stroke-width: 3.8;
-}
-
-.circle {
-  fill: none;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  stroke: var(--accent);
-  filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.5));
+.scadaBoxLarge {
+  grid-column: span 2;
 }
 
 .scadaLabel {
-  font-family: var(--font-jetbrains-mono, monospace);
-  color: var(--accent);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.scadaBars {
+.scadaValue {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.scadaGridLines {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
   gap: 4px;
-  padding: 0 10px;
-  height: 100%;
+  height: 100px;
+  margin-top: var(--space-4);
 }
 
-.bar {
+.scadaBar {
   flex: 1;
-  background: var(--accent);
-  border-radius: 2px 2px 0 0;
-  opacity: 0.8;
-  filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.3));
+  background-color: var(--accent);
+  opacity: 0.6;
 }
 
-.scadaStatus {
-  margin-top: 1rem;
-  background: rgba(0, 229, 255, 0.05);
-  border: 1px solid rgba(0, 229, 255, 0.2);
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  color: var(--accent);
-  font-family: var(--font-jetbrains-mono, monospace);
-  font-size: 0.75rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.pulseDot {
-  width: 8px;
-  height: 8px;
-  background: var(--accent);
-  border-radius: 50%;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.4); }
-  70% { opacity: 0.4; box-shadow: 0 0 0 6px rgba(0, 229, 255, 0); }
-  100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
-}
-
-/* Spark */
+/* ── Visual 2: CIRCUIT ── */
 .circuitContainer {
+  width: 100%;
+  height: 100%;
   position: relative;
-  width: 80%;
-  height: 80%;
+  background-size: 20px 20px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
-.circuitLines {
+.circuitSvg {
   width: 100%;
   height: 100%;
 }
 
-.floatingNode {
+.circuitLabel {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(10, 10, 10, 0.9);
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  padding: 8px 16px;
-  font-family: var(--font-jetbrains-mono, monospace);
-  font-size: 0.85rem;
-  border-radius: 4px;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+  bottom: var(--space-4);
+  right: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--dark-text-secondary);
+  background: #000;
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Terminal */
-.visualTerminal {
+/* ── Visual 3: TERMINAL ── */
+.terminalContainer {
   width: 100%;
   height: 100%;
-  background: #111;
+  background: #000;
+  font-family: var(--font-mono);
   display: flex;
   flex-direction: column;
 }
 
 .termHeader {
-  height: 30px;
-  background: #222;
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-  gap: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: var(--space-4);
+  font-size: 0.85rem;
+  color: var(--dark-text-secondary);
 }
 
-.macBtn {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.termCode {
-  padding: 20px;
-  margin: 0;
-  font-family: var(--font-jetbrains-mono, monospace);
-  color: var(--accent);
-  font-size: 0.9rem;
+.termBody {
+  padding: var(--space-6);
+  flex: 1;
+  color: #fff;
+  font-size: 1rem;
   line-height: 1.5;
-  text-align: left;
-  overflow: hidden;
+  white-space: pre-wrap;
 }
 
-.cursor {
-  animation: blink 1s step-start infinite;
+.termLine {
+  margin-bottom: 4px;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
+.termCursor {
+  display: inline-block;
+  color: var(--accent);
+  margin-left: 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .aboutSection {
+    height: auto;
+  }
+  
+  .stickyContainer {
+    position: relative;
+    height: auto;
+    flex-direction: column;
+  }
+  
+  .textContent {
+    padding: var(--space-12) var(--space-6);
+    height: auto;
+  }
+  
+  .chapterText {
+    position: relative;
+    transform: none !important;
+    opacity: 1;
+    margin-bottom: var(--space-12);
+  }
+  
+  .visualContent {
+    display: none; /* Hide complex sticky visuals on small mobile, or replace with simple static image */
+  }
 }

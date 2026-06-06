@@ -1,114 +1,163 @@
 'use client';
+
 import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
-import styles from './Navbar.module.css';
-
+import { useTranslations, useLocale } from 'next-intl';
+import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import Image from 'next/image';
-
-const NAV_ITEMS = ['work', 'about', 'experience', 'stack', 'contact'] as const;
+import styles from './Navbar.module.css';
 
 export function Navbar() {
   const t = useTranslations('nav');
   const pathname = usePathname();
-  const router = useRouter();
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  
+  // Simple logic to switch locale path
+  const nextLocale = locale === 'es' ? 'en' : 'es';
+  // Fallback in case pathname is just "/" which is rare with next-intl middleware
+  const switchPath = pathname.startsWith(`/${locale}`) 
+    ? pathname.replace(`/${locale}`, `/${nextLocale}`) 
+    : `/${nextLocale}${pathname}`;
 
-  const currentLocale = pathname.startsWith('/en') ? 'en' : 'es';
-  const otherLocale = currentLocale === 'es' ? 'en' : 'es';
+  const links = [
+    { href: '#work', label: t('work') },
+    { href: '#about', label: t('about') },
+    { href: '#experience', label: t('experience') },
+    { href: '#stack', label: t('stack') },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentY = window.scrollY;
-      setScrolled(currentY > 50);
-      setHidden(currentY > lastScrollY && currentY > 200);
-      setLastScrollY(currentY);
+      setScrolled(window.scrollY > 50);
+
+      // Simple active section detection
+      const sections = ['hero', 'work', 'about', 'experience', 'stack', 'contact'];
+      for (const section of sections.reverse()) {
+        const el = document.getElementById(section);
+        if (el && window.scrollY >= el.offsetTop - 200) {
+          setActiveSection(section);
+          break;
+        }
+      }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const offset = 80;
-      const y = el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-    setMobileOpen(false);
-  };
-
-  const switchLanguage = () => {
-    const newPath = pathname.replace(`/${currentLocale}`, `/${otherLocale}`);
-    router.push(newPath);
-  };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header
-      className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${hidden ? styles.hidden : ''}`}
-    >
-      <div className={styles.inner}>
-        <a href={`/${currentLocale}`} className={styles.logo} aria-label="Miguel Giles">
-          <svg viewBox="0 0 100 100" width="60" height="60" className={styles.logoSvg}>
-            <defs>
-              <filter id="removeBg" colorInterpolationFilters="sRGB">
-                <feColorMatrix type="matrix" values="
-                  1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                  2 2 2 0 -0.6
-                " />
-              </filter>
-            </defs>
-            <image href="/images/logo.png" width="100" height="100" filter="url(#removeBg)" />
-          </svg>
-        </a>
+    <>
+      <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+        <div className={`container ${styles.navContainer}`}>
+          <a href="#hero" className={styles.logo} data-cursor-text="HOME">
+            <Image 
+              src="/images/logo_2.png" 
+              alt="Miguel Giles Logo" 
+              width={68} 
+              height={68} 
+              className={styles.logoImage} 
+              priority
+            />
+          </a>
 
-        <nav className={`${styles.nav} ${mobileOpen ? styles.navOpen : ''}`}>
-          {NAV_ITEMS.map((item) => (
-            <button
-              key={item}
-              className={styles.navLink}
-              onClick={() => scrollToSection(item)}
+          <nav className={styles.desktopNav}>
+            {links.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <a 
+                  key={link.href} 
+                  href={link.href} 
+                  className={`${styles.navLink} ${isActive ? styles.active : ''}`}
+                  data-cursor-text="GO"
+                >
+                  {link.label}
+                  {isActive && (
+                    <motion.div layoutId="activeNav" className={styles.activeIndicator} />
+                  )}
+                </a>
+              );
+            })}
+          </nav>
+
+          <div className={styles.navActions}>
+            <Link 
+              href={switchPath} 
+              className={styles.langToggle}
+              data-cursor-text="LANG"
             >
-              {t(item)}
+              <span className={locale === 'es' ? styles.activeLang : styles.inactiveLang}>ES</span>
+              <span className={styles.langSeparator}>/</span>
+              <span className={locale === 'en' ? styles.activeLang : styles.inactiveLang}>EN</span>
+            </Link>
+
+            <button 
+              className={`btn btn-primary ${styles.ctaBtn}`}
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              data-cursor-text="HI"
+            >
+              {t('cta')}
             </button>
-          ))}
-        </nav>
-
-        <div className={styles.actions}>
-          <button className={styles.langSwitch} onClick={switchLanguage}>
-            <span className={currentLocale === 'es' ? styles.langActive : ''}>
-              ES
-            </span>
-            <span className={styles.langDivider}>|</span>
-            <span className={currentLocale === 'en' ? styles.langActive : ''}>
-              EN
-            </span>
-          </button>
-
-          <button
-            className={styles.cta}
-            onClick={() => scrollToSection('contact')}
-          >
-            {t('cta')}
-          </button>
-
-          <button
-            className={`${styles.hamburger} ${mobileOpen ? styles.hamburgerOpen : ''}`}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+            <button 
+              className={styles.menuToggle} 
+              onClick={toggleMenu}
+              aria-label="Toggle Menu"
+            >
+              <div className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}>
+                <span></span>
+                <span></span>
+              </div>
+            </button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      {/* Full Screen Mobile Menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div 
+            className={styles.mobileMenu}
+            initial={{ opacity: 0, clipPath: 'circle(0% at 100% 0)' }}
+            animate={{ opacity: 1, clipPath: 'circle(150% at 100% 0)' }}
+            exit={{ opacity: 0, clipPath: 'circle(0% at 100% 0)' }}
+            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+          >
+            <div className={styles.mobileMenuContent}>
+              {links.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  className={styles.mobileNavLink}
+                  onClick={() => setMenuOpen(false)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 + i * 0.1 }}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+              <motion.a
+                href="#contact"
+                className={styles.mobileNavLink}
+                onClick={() => setMenuOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + links.length * 0.1 }}
+                style={{ color: 'var(--accent)', marginTop: 'var(--space-8)' }}
+              >
+                {t('cta')}
+              </motion.a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

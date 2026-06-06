@@ -1,195 +1,214 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion, useInView, type Variants } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import styles from './About.module.css';
 
-// 1. Mechanic Visual - SCADA PLC Dashboard
+// 1. Mechanic Visual - RAW SCADA
 const MechanicVisual = () => (
-  <div className={styles.visualDark}>
-    <div className={styles.scadaDashboard}>
-      <div className={styles.scadaHeader}>PLC_MONITOR_01</div>
-      <div className={styles.scadaGrid}>
-        <div className={styles.scadaGauge}>
-           <svg viewBox="0 0 36 36" className={styles.circularChart}>
-             <path className={styles.circleBg} d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-             <motion.path 
-               className={styles.circle} 
-               animate={{ strokeDasharray: ["0, 100", "85, 100", "45, 100", "75, 100"] }}
-               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-               d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
-             />
-           </svg>
-           <div className={styles.scadaLabel}>TEMP</div>
-        </div>
-        <div className={styles.scadaBars}>
-           <motion.div className={styles.bar} animate={{ height: ['40%', '90%', '60%'] }} transition={{ repeat: Infinity, duration: 2.1, ease: "easeInOut" }} />
-           <motion.div className={styles.bar} animate={{ height: ['80%', '30%', '85%'] }} transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }} />
-           <motion.div className={styles.bar} animate={{ height: ['50%', '100%', '30%'] }} transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }} />
-           <motion.div className={styles.bar} animate={{ height: ['90%', '50%', '95%'] }} transition={{ repeat: Infinity, duration: 2.3, ease: "easeInOut" }} />
-        </div>
+  <div className={styles.scadaContainer}>
+    <div className={styles.scadaHeader}>
+      <span>SYS_TELEMETRY</span>
+      <span className={styles.scadaBlink}>[ REC ]</span>
+    </div>
+    <div className={styles.scadaGrid}>
+      <div className={styles.scadaBox}>
+        <div className={styles.scadaLabel}>PRSS_01 // BAR</div>
+        <div className={styles.scadaValue}>124.05</div>
       </div>
-      <div className={styles.scadaStatus}>
-        <span className={styles.pulseDot}></span> SYS_RUNNING
+      <div className={styles.scadaBox}>
+        <div className={styles.scadaLabel}>TEMP_CORE // °C</div>
+        <div className={styles.scadaValue}>-18.4</div>
+      </div>
+      <div className={styles.scadaBoxLarge}>
+        <div className={styles.scadaLabel}>SYSTEM_STATE</div>
+        <div className={styles.scadaGridLines}>
+          {[...Array(10)].map((_, i) => (
+            <motion.div 
+              key={i}
+              className={styles.scadaBar}
+              animate={{ height: [`${Math.random() * 100}%`, `${Math.random() * 100}%`] }}
+              transition={{ repeat: Infinity, duration: 0.5 + Math.random(), repeatType: "mirror" }}
+            />
+          ))}
+        </div>
       </div>
     </div>
   </div>
 );
 
-// 2. Spark Visual - Data Stream / Circuit
+// 2. Spark Visual - RAW CIRCUIT
 const SparkVisual = () => (
-  <div className={styles.visualDark}>
-    <div className={styles.circuitContainer}>
-      <svg className={styles.circuitLines} viewBox="0 0 100 100" preserveAspectRatio="none">
-         <motion.path 
-           d="M0 50 L40 50 L50 20 L70 20 L100 20" 
-           stroke="var(--accent)" strokeWidth="1" fill="none"
-           initial={{ pathLength: 0 }}
-           whileInView={{ pathLength: 1 }}
-           transition={{ duration: 2, ease: "easeInOut" }}
-         />
-         <motion.path 
-           d="M0 70 L30 70 L40 90 L80 90 L100 90" 
-           stroke="rgba(0, 229, 255, 0.4)" strokeWidth="1" fill="none"
-           initial={{ pathLength: 0 }}
-           whileInView={{ pathLength: 1 }}
-           transition={{ duration: 2.5, ease: "easeInOut", delay: 0.2 }}
-         />
-      </svg>
-      <motion.div 
-        className={styles.floatingNode}
-        animate={{ y: [0, -10, 0] }}
-        transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-      >
-        VIBE_CODING_SYNC
-      </motion.div>
-    </div>
+  <div className={styles.circuitContainer}>
+    <svg width="100%" height="100%" viewBox="0 0 400 400" className={styles.circuitSvg}>
+      <motion.path 
+        d="M 50 350 L 50 200 L 150 100 L 250 100 L 350 200 L 350 50"
+        fill="none"
+        stroke="var(--accent)"
+        strokeWidth="2"
+        strokeDasharray="4 4"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 2, ease: "linear", repeat: Infinity }}
+      />
+      <motion.path 
+        d="M 100 350 L 100 250 L 200 150 L 300 150 L 300 350"
+        fill="none"
+        stroke="#ffffff"
+        strokeWidth="1"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 3, ease: "linear", repeat: Infinity }}
+      />
+      {/* Nodes */}
+      <circle cx="50" cy="350" r="4" fill="var(--accent)" />
+      <circle cx="150" cy="100" r="4" fill="var(--accent)" />
+      <circle cx="250" cy="100" r="4" fill="var(--accent)" />
+      <circle cx="350" cy="50" r="4" fill="var(--accent)" />
+      
+      <circle cx="100" cy="350" r="3" fill="#ffffff" />
+      <circle cx="200" cy="150" r="3" fill="#ffffff" />
+      <circle cx="300" cy="150" r="3" fill="#ffffff" />
+    </svg>
+    <div className={styles.circuitLabel}>LOGIC_GATE // ROUTING</div>
   </div>
 );
 
-// 3. Builder Visual - Code Terminal
+// 3. Builder Visual - PURE TERMINAL
 const BuilderVisual = () => {
-  const [text, setText] = useState('');
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  
-  const fullText = `const Miguel: Developer = {
-  stack: ["Next.js", "React", "Python"],
-  focus: "Industrial GxP Systems",
-  status: "Building NexIndu..."
-};`;
+  const codeText = `> INIT SYSTEM...
+> LOADING MODULES... [OK]
+> COMPILING LOGIC... [OK]
 
-  useEffect(() => {
-    if (!isInView) return;
-    
-    let i = 0;
-    setText(''); // Reset text when it comes into view
-    
-    const timer = setInterval(() => {
-      setText(fullText.slice(0, i));
-      i++;
-      if (i > fullText.length) clearInterval(timer);
-    }, 40);
-    return () => clearInterval(timer);
-  }, [isInView, fullText]);
+class Engineer {
+  constructor() {
+    this.skills = ["Mecánica", "Código"];
+    this.focus = "Sistemas Reales";
+  }
+
+  build() {
+    return System.deploy();
+  }
+}
+
+> DEPLOYMENT SUCCESSFUL.`;
 
   return (
-    <div ref={ref} className={styles.visualTerminal}>
+    <div className={styles.terminalContainer}>
       <div className={styles.termHeader}>
-        <span className={styles.macBtn} style={{background: '#ff5f56'}}></span>
-        <span className={styles.macBtn} style={{background: '#ffbd2e'}}></span>
-        <span className={styles.macBtn} style={{background: '#27c93f'}}></span>
+        <span>root@nex-os:~</span>
       </div>
-      <pre className={styles.termCode}>
-        <code>{text}<span className={styles.cursor}>|</span></code>
-      </pre>
+      <div className={styles.termBody}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.1 }}
+        >
+          {codeText.split('\n').map((line, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.15 }}
+              className={styles.termLine}
+            >
+              {line}
+            </motion.div>
+          ))}
+          <motion.div 
+            className={styles.termCursor}
+            animate={{ opacity: [1, 0] }}
+            transition={{ repeat: Infinity, duration: 0.8 }}
+          >
+            _
+          </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };
 
 export default function About() {
   const t = useTranslations('about');
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    return scrollYProgress.onChange((latest) => {
+      if (latest < 0.33) setActiveIndex(0);
+      else if (latest >= 0.33 && latest < 0.66) setActiveIndex(1);
+      else setActiveIndex(2);
+    });
+  }, [scrollYProgress]);
 
   const chapters = [
-    {
-      id: 'mechanic',
-      visual: <MechanicVisual />,
-    },
-    {
-      id: 'spark',
-      visual: <SparkVisual />,
-    },
-    {
-      id: 'builder',
-      visual: <BuilderVisual />,
-    },
+    { id: 'mechanic', visual: <MechanicVisual /> },
+    { id: 'spark', visual: <SparkVisual /> },
+    { id: 'builder', visual: <BuilderVisual /> },
   ];
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }
-    },
-  };
-
   return (
-    <section id="about" className={`section-light ${styles.aboutSection}`}>
-      <div className={styles.container}>
-        <motion.div 
-          className={styles.header}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className={styles.title}>{t('title')}</h2>
-        </motion.div>
+    <section id="about" ref={containerRef} className={styles.aboutSection}>
+      <div className={styles.stickyContainer}>
+        
+        {/* Left Side: Text Storytelling */}
+        <div className={styles.textContent}>
+          <div className={styles.textInner}>
+            {chapters.map((chapter, index) => {
+              // Calculate opacity based on scroll for smooth fading
+              const start = index * 0.33;
+              const end = (index + 1) * 0.33;
+              const center = (start + end) / 2;
+              
+              // We use simple CSS opacity toggled by activeIndex to keep it sharp and industrial,
+              // or smooth via motion. Since we want "corte duro / industrial", a sharp transition fits better.
+              const isActive = activeIndex === index;
 
-        <div className={styles.chapters}>
-          {chapters.map((chapter, index) => {
-            return (
-              <motion.div 
-                key={chapter.id}
-                className={styles.chapter}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                variants={containerVariants}
-              >
-                <motion.div className={styles.content} variants={itemVariants}>
-                  <div className={styles.chapterHeader}>
-                    <span className={styles.chapterNumber}>
-                      0{index + 1}
-                    </span>
-                    <h3 className={styles.chapterTitle}>
-                      {t(`chapters.${chapter.id}.title`)}
-                    </h3>
-                  </div>
-                  <p className={styles.chapterDescription}>
-                    {t(`chapters.${chapter.id}.description`)}
-                  </p>
-                </motion.div>
-
-                <motion.div className={styles.visualContainer} variants={itemVariants}>
-                  {chapter.visual}
-                </motion.div>
-              </motion.div>
-            );
-          })}
+              return (
+                <div 
+                  key={chapter.id} 
+                  className={`${styles.chapterText} ${isActive ? styles.chapterActive : ''}`}
+                >
+                  <span className={styles.eyebrow}>[ PHASE 0{index + 1} ]</span>
+                  <h2 className={styles.title}>{t(`chapters.${chapter.id}.title`)}</h2>
+                  <p className={styles.description}>{t(`chapters.${chapter.id}.description`)}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
+
+        {/* Right Side: Raw Visuals */}
+        <div className={styles.visualContent}>
+          <div className={styles.visualFrame}>
+            {/* Corner decorations for industrial feel */}
+            <div className={styles.cornerTL}></div>
+            <div className={styles.cornerTR}></div>
+            <div className={styles.cornerBL}></div>
+            <div className={styles.cornerBR}></div>
+            
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className={styles.visualInner}
+              >
+                {chapters[activeIndex].visual}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
       </div>
     </section>
   );

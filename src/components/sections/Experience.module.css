@@ -1,107 +1,295 @@
 .experienceSection {
-  padding: 6rem 2rem;
-  background-color: var(--color-light-bg, #FAFAFA);
-  color: var(--color-light-text, #0A0A0A);
+  padding: var(--space-24) 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+.header {
+  text-align: center;
+  margin-bottom: var(--space-20);
 }
 
 .title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 3rem;
-  margin-bottom: 4rem;
-  text-align: center;
+  margin-bottom: var(--space-4);
+  color: var(--light-text);
 }
 
-.timelineGrid {
+.subtitle {
+  color: var(--light-text-secondary);
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+}
+
+/* ── Dual Tracks Layout ── */
+.dualTracksContainer {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-}
-
-@media (min-width: 768px) {
-  .timelineGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-}
-
-.timelineColumn {
+  grid-template-columns: 1fr 1fr;
   position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.columnTitle {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: var(--color-accent, #00E5FF);
-  text-align: center;
-}
-
-.timelineItem {
-  display: flex;
-  position: relative;
-  margin-bottom: 3rem;
-  padding-left: 2rem;
-}
-
-.timelineItem::before {
-  content: '';
+.centerLine {
   position: absolute;
-  left: 5px;
   top: 0;
-  bottom: -3rem;
+  left: 50%;
   width: 2px;
-  background-color: rgba(0, 0, 0, 0.08);
+  height: 100%;
+  background: var(--light-border-hover);
+  transform-origin: top;
+  z-index: 0;
 }
 
-.timelineItem:last-child::before {
-  display: none;
+.track {
+  position: relative;
+  padding: 0 var(--space-8);
 }
 
-.timelineDot {
+.track:first-child {
+  text-align: right;
+  border-right: 1px solid transparent; /* Just to maintain spacing */
+}
+
+.trackTitle {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--light-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-12);
+}
+
+.track:last-child .trackTitle {
+  color: var(--accent-hover);
+}
+
+.timeline {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Entries ── */
+.entryLeft, .entryRight {
+  position: relative;
+  margin-bottom: var(--space-12);
+}
+
+.entryLeft {
+  padding-right: var(--space-8);
+}
+
+.entryRight {
+  padding-left: var(--space-8);
+  text-align: left;
+}
+
+.node {
   position: absolute;
-  left: 0;
-  top: 6px;
+  top: 24px;
   width: 12px;
   height: 12px;
+  background: var(--light-bg);
+  border: 2px solid var(--light-border-hover);
   border-radius: 50%;
-  background-color: var(--color-accent, #00E5FF);
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+  z-index: 2;
+  transition: all 0.3s ease;
 }
 
-.timelineContent {
+.entryLeft .node {
+  right: -6px; /* Half width */
+  transform: translateX(100%);
+}
+
+.entryRight .node {
+  left: -6px;
+  transform: translateX(-100%);
+  border-color: var(--accent);
+}
+
+.entryLeft:hover .node, .entryRight:hover .node {
+  transform: scale(1.5) translateX(calc(100% * (1 / 1.5)));
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+}
+
+.entryRight:hover .node {
+  transform: scale(1.5) translateX(calc(-100% * (1 / 1.5)));
+}
+
+.yearLabel {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.05);
+  position: absolute;
+  top: -10px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.entryLeft .yearLabel {
+  right: var(--space-8);
+}
+
+.entryRight .yearLabel {
+  left: var(--space-8);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--light-surface);
+  border: 1px solid var(--light-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.companyHeader {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
-.period {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.875rem;
-  color: var(--color-light-muted, #64748B);
-  margin-bottom: 0.5rem;
+.entryLeft .companyHeader {
+  justify-content: flex-end;
+}
+
+.companyLogo {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: var(--light-border-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--light-text);
+}
+
+.logoBbraun {
+  background: #00A651;
+  color: white;
+}
+
+.logoNex {
+  background: var(--dark-bg);
+  color: var(--accent);
 }
 
 .role {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.25rem;
-  margin: 0 0 0.25rem 0;
+  color: var(--light-text);
+  margin: 0;
 }
 
-.company {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--color-light-text, #0A0A0A);
-  margin: 0 0 1rem 0;
+.period {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--light-text-secondary);
+  margin-bottom: var(--space-4);
 }
 
 .description {
-  font-family: 'Inter', sans-serif;
-  color: var(--color-light-muted, #64748B);
+  font-size: 0.95rem;
+  color: var(--light-text-secondary);
   line-height: 1.6;
-  margin: 0;
+}
+
+/* ── Pivot Bridge ── */
+.bridgeContainer {
+  position: absolute;
+  top: 45%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.bridgeLine {
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--light-border-hover), var(--accent));
+  transform-origin: left;
+}
+
+.pivotPoint {
+  background: var(--dark-bg);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--accent);
+  font-size: 0.85rem;
+  z-index: 3;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .dualTracksContainer {
+    grid-template-columns: 1fr;
+    padding-left: var(--space-4);
+  }
+
+  .centerLine {
+    left: 0;
+  }
+
+  .track {
+    padding: 0 0 0 var(--space-6);
+  }
+
+  .track:first-child {
+    text-align: left;
+  }
+
+  .entryLeft {
+    padding-right: 0;
+  }
+
+  .entryLeft .node, .entryRight .node {
+    left: -22px; /* Offset to center line */
+    right: auto;
+    transform: none !important; /* Disable hover transform offset */
+  }
+
+  .entryLeft:hover .node, .entryRight:hover .node {
+    transform: scale(1.5) !important;
+  }
+
+  .entryLeft .companyHeader {
+    justify-content: flex-start;
+  }
+
+  .entryLeft .yearLabel, .entryRight .yearLabel {
+    left: var(--space-2);
+    right: auto;
+  }
+
+  .bridgeContainer {
+    display: none; /* Hide bridge on mobile, it doesn't make sense vertically */
+  }
+
+  .entryRight {
+    margin-top: var(--space-12) !important;
+  }
 }

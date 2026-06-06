@@ -4,6 +4,8 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { Preloader } from '@/components/ui/Preloader';
+import { CustomCursor } from '@/components/ui/CustomCursor';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -86,7 +88,9 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <div className="grain-overlay" aria-hidden="true" />
+          <Preloader />
+          <CustomCursor />
+          <div className="noise-overlay" aria-hidden="true" />
           {children}
         </NextIntlClientProvider>
       </body>

@@ -1,107 +1,131 @@
 'use client';
 
+import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './Projects.module.css';
 
-const projectsList = [
-  { id: 'nexindu', name: 'NexIndu', url: 'https://www.nexindu.com.ar', status: 'live' },
-  { id: 'nexkio', name: 'NexKio', status: 'coming_soon' },
-  { id: 'nexquipu', name: 'NexQuipu', status: 'coming_soon' },
-  { id: 'nexwod', name: 'NexWod', status: 'coming_soon' },
-  { id: 'nexpulse', name: 'NexPulse', status: 'coming_soon' },
-  { id: 'nexgrid', name: 'NexGrid', status: 'coming_soon' },
+const projects = [
+  { 
+    id: 'nexindu', 
+    name: 'NexIndu', 
+    hasLink: true,
+    link: 'https://www.nexindu.com.ar',
+  },
+  { id: 'nexkio', name: 'NexKio', hasLink: false },
+  { id: 'nexquipu', name: 'NexQuipu', hasLink: false },
+  { id: 'nexwod', name: 'NexWod', hasLink: false },
+  { id: 'nexpulse', name: 'NexPulse', hasLink: false },
+  { id: 'nexgrid', name: 'NexGrid', hasLink: false },
 ];
-
-const logoScales: Record<string, number> = {
-  nexindu: 1.0,
-  nexkio: 1.25,   // 125%
-  nexquipu: 0.85,
-  nexwod: 1.0,
-  nexpulse: 0.8,
-  nexgrid: 1.0,
-};
 
 export default function Projects() {
   const t = useTranslations('projects');
+  const targetRef = useRef<HTMLDivElement>(null);
+  
+  const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
+  useEffect(() => {
+    setIsMounted(true);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  // Shift horizontal scroll depending on the number of projects.
+  // 6 projects. Calculate exactly how far to move to reach the end.
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
 
   return (
-    <section className={styles.projectsSection} id="work">
-      <div className={styles.container}>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className={styles.header}
-        >
-          <h2 className={styles.title}>{t('title')}</h2>
-          <p className={styles.subtitle}>{t('subtitle')}</p>
-        </motion.div>
+    <section className={styles.projectsSection} id="work" ref={targetRef}>
+      <div className={styles.stickyContainer}>
+        
+        {/* Header stays pinned but fades slightly based on scroll if desired, or just sits on top */}
+        <div className={styles.header}>
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+            >
+              <h2 className={styles.title}>{t('title')}</h2>
+              <p className={styles.subtitle}>{t('subtitle')}</p>
+            </motion.div>
+          </div>
+        </div>
 
-        <motion.div
-          className={styles.grid}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          {projectsList.map((project) => {
-            const isLive = project.status === 'live';
-            
-            return (
-              <motion.div
-                key={project.id}
-                className={styles.card}
-                variants={cardVariants}
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
-                <div className={styles.cardHeader}>
-                  <div className={styles.titleGroup}>
+        {/* Horizontal Scroll Track */}
+        <div className={styles.scrollWrapper}>
+          <motion.div 
+            className={styles.horizontalTrack}
+            style={isMounted ? { x: isMobile ? 0 : x } : { x: 0 }}
+          >
+            {projects.map((project, idx) => (
+              <div key={project.id} className={styles.cardContainer}>
+                <div className={styles.projectCard}>
+                  
+                  {/* Left Info Column */}
+                  <div className={styles.projectInfo}>
+                    <div className={styles.projectHeader}>
+                      <h3 className={styles.projectName}>{project.name}</h3>
+                      <span className={styles.projectBadge}>
+                        {t(`items.${project.id}.badge`)}
+                      </span>
+                    </div>
+                    
+                    <p className={styles.projectDescription}>
+                      {t(`items.${project.id}.description`)}
+                    </p>
+                    
+                    <div className={styles.projectActions}>
+                      {project.hasLink ? (
+                        <a 
+                          href={project.link} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="btn btn-primary"
+                          data-cursor-text="VISIT"
+                        >
+                          {t('viewProject')}
+                          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </a>
+                      ) : (
+                        <span className={styles.comingSoon}>{t('comingSoon')}</span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Right Visual Column */}
+                  <div className={styles.projectVisual}>
                     <div className={styles.logoWrapper}>
                       <Image 
                         src={`/images/Projects/${project.id}.png`} 
                         alt={`${project.name} Logo`}
-                        width={72}
-                        height={72}
-                        className={styles.projectLogoImg}
-                        style={{ transform: `scale(${logoScales[project.id] || 1})` }}
+                        width={200}
+                        height={200}
+                        className={styles.projectLogo}
                       />
                     </div>
-                    <h3 className={styles.cardTitle}>{project.name}</h3>
+                    {/* Decorative glow matching the logo */}
+                    <div className={styles.visualGlow} />
                   </div>
-                  <span className={styles.badge}>{t(`items.${project.id}.badge`)}</span>
+
                 </div>
-                <p className={styles.description}>{t(`items.${project.id}.description`)}</p>
-                <div className={styles.cta}>
-                  {isLive ? (
-                    <a href={project.url} target="_blank" rel="noopener noreferrer" className={styles.link}>
-                      {t('viewProject')}
-                      <span className={styles.arrow}>→</span>
-                    </a>
-                  ) : (
-                    <span className={styles.linkDisabled}>
-                      {t('comingSoon')}
-                    </span>
-                  )}
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
       </div>
     </section>
   );

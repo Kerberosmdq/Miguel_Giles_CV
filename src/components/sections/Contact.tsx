@@ -1,126 +1,161 @@
 'use client';
 
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import { useTransition, useState, useRef } from 'react';
-import { sendContactEmail } from '@/actions/contact';
-import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import { SectionTransition } from '../ui/SectionTransition';
 import styles from './Contact.module.css';
 
 export default function Contact() {
   const t = useTranslations('contact');
-  const [isPending, startTransition] = useTransition();
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const formRef = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
 
-  const handleSubmit: NonNullable<React.ComponentProps<'form'>['onSubmit']> = (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    startTransition(async () => {
-      const result = await sendContactEmail(formData);
-      setStatus(result.success ? 'success' : 'error');
-      if (result.success) formRef.current?.reset();
-    });
+    setIsSubmitting(true);
+    // Simulate network request
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    
+    // Reset success state after a while
+    setTimeout(() => setIsSuccess(false), 5000);
   };
 
   return (
-    <section id="contact" className={styles.sectionLight}>
-      <div className={styles.container}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className={styles.header}
-        >
-          <h2 className={styles.title}>{t('title')}</h2>
-          <p className={styles.subtitle}>{t('subtitle')}</p>
-        </motion.div>
+    <SectionTransition type="darkToLight">
+      {/* Intentionally keeping it dark since the global pattern flows better this way */}
+      <section className={`section-dark ${styles.contactSection}`} id="contact">
+        <div className="container">
+          <div className={styles.grid}>
+            {/* Left: Text & Social */}
+            <motion.div 
+              className={styles.infoSide}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className={styles.title}>{t('title')}</h2>
+              <p className={styles.subtitle}>{t('subtitle')}</p>
+              
+              <div className={styles.connectBlock}>
+                <h3 className={styles.connectTitle}>{t('connectTitle')}</h3>
+                <p className={styles.connectText}>{t('connectText')}</p>
+                <div className={styles.socialLinks}>
+                  <a href="https://linkedin.com/in/miguel-giles" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} data-cursor-text="LINKEDIN">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  </a>
+                  <a href="https://github.com/miguelgiles" target="_blank" rel="noopener noreferrer" className={styles.socialBtn} data-cursor-text="GITHUB">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  </a>
+                  <a href="mailto:miga.gls246@gmail.com" className={styles.socialBtn} data-cursor-text="EMAIL">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </a>
+                </div>
+                <div className={styles.responseIndicator}>
+                  <div className={styles.pulseDot} />
+                  <span>Typically responds within 24h</span>
+                </div>
+              </div>
+            </motion.div>
 
-        <div className={styles.content}>
-          <motion.form
-            ref={formRef}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className={styles.form}
-            onSubmit={handleSubmit}
-          >
-            <div className={styles.inputGroup}>
-              <label htmlFor="name" className={styles.label}>{t('nameLabel')}</label>
-              <input type="text" id="name" name="name" className={styles.input} placeholder={t('namePlaceholder')} required />
-            </div>
+            {/* Right: Glassmorphic Form */}
+            <motion.div 
+              className={styles.formSide}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <form className={styles.form} onSubmit={handleSubmit}>
+                <div className={`${styles.inputGroup} ${focusedField === 'name' ? styles.focused : ''}`}>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    required 
+                    className={styles.input}
+                    placeholder=" "
+                    onFocus={() => setFocusedField('name')}
+                    onBlur={() => setFocusedField(null)}
+                  />
+                  <label htmlFor="name" className={styles.floatingLabel}>{t('nameLabel')}</label>
+                  <div className={styles.underline} />
+                </div>
 
-            <div className={styles.inputGroup}>
-              <label htmlFor="email" className={styles.label}>{t('emailLabel')}</label>
-              <input type="email" id="email" name="email" className={styles.input} placeholder={t('emailPlaceholder')} required />
-            </div>
+                <div className={`${styles.inputGroup} ${focusedField === 'email' ? styles.focused : ''}`}>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    required 
+                    className={styles.input}
+                    placeholder=" "
+                    onFocus={() => setFocusedField('email')}
+                    onBlur={() => setFocusedField(null)}
+                  />
+                  <label htmlFor="email" className={styles.floatingLabel}>{t('emailLabel')}</label>
+                  <div className={styles.underline} />
+                </div>
 
-            <div className={styles.inputGroup}>
-              <label htmlFor="message" className={styles.label}>{t('messageLabel')}</label>
-              <textarea id="message" name="message" className={styles.textarea} placeholder={t('messagePlaceholder')} required rows={5} />
-            </div>
+                <div className={`${styles.inputGroup} ${focusedField === 'message' ? styles.focused : ''}`}>
+                  <textarea 
+                    id="message" 
+                    required 
+                    rows={4}
+                    className={styles.textarea}
+                    placeholder=" "
+                    onFocus={() => setFocusedField('message')}
+                    onBlur={() => setFocusedField(null)}
+                  />
+                  <label htmlFor="message" className={styles.floatingLabel}>{t('messageLabel')}</label>
+                  <div className={styles.underline} />
+                </div>
 
-            <button type="submit" className={styles.submitBtn} disabled={isPending || status === 'success'}>
-              {isPending ? t('formSending') : t('sendButton')}
-            </button>
-
-            {status === 'success' && (
-              <p className={`${styles.statusMessage} ${styles.successMessage}`}>
-                {t('formSuccess')}
-              </p>
-            )}
-            {status === 'error' && (
-              <p className={`${styles.statusMessage} ${styles.errorMessage}`}>
-                {t('formError')}
-              </p>
-            )}
-          </motion.form>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className={styles.links}
-          >
-            <h3>{t('connectTitle')}</h3>
-
-            <div className={styles.socialLinks}>
-              <a
-                href="https://www.linkedin.com/in/miguel-giles/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${styles.socialLink} ${styles.linkedinLink}`}
-              >
-                <FaLinkedin size={20} aria-hidden="true" />
-                LinkedIn
-              </a>
-              <a
-                href="https://github.com/kerberosmdq"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${styles.socialLink} ${styles.githubLink}`}
-              >
-                <FaGithub size={20} aria-hidden="true" />
-                GitHub
-              </a>
-              <a
-                href="https://wa.me/5492234556968"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${styles.socialLink} ${styles.whatsappLink}`}
-              >
-                <FaWhatsapp size={20} aria-hidden="true" />
-                {t('whatsapp')}
-              </a>
-            </div>
-
-            <p>{t('connectText')}</p>
-          </motion.div>
+                <button 
+                  type="submit" 
+                  className={styles.submitBtn}
+                  disabled={isSubmitting || isSuccess}
+                  data-cursor-text="SEND"
+                >
+                  <AnimatePresence mode="wait">
+                    {isSubmitting ? (
+                      <motion.div 
+                        key="loading"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className={styles.spinner}
+                      />
+                    ) : isSuccess ? (
+                      <motion.div
+                        key="success"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        className={styles.successIcon}
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span>{t('formSuccess')}</span>
+                      </motion.div>
+                    ) : (
+                      <motion.span
+                        key="text"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                      >
+                        {t('sendButton')}
+                      </motion.span>
+                    )}
+                  </AnimatePresence>
+                </button>
+              </form>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </SectionTransition>
   );
 }

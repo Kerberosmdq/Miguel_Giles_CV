@@ -6,7 +6,7 @@ import Projects from '@/components/sections/Projects';
 import Experience from '@/components/sections/Experience';
 import TechStack from '@/components/sections/TechStack';
 import Contact from '@/components/sections/Contact';
-import Footer from '@/components/layout/Footer';
+import { Footer } from '@/components/layout/Footer';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 
 export default async function HomePage({

@@ -1,0 +1,18 @@
+.transitionContainer {
+  position: relative;
+  width: 100%;
+}
+
+.underlyingSection {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.transitionWrapper {
+  transform-origin: center top;
+  will-change: transform, opacity;
+}
