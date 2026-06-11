@@ -51,10 +51,11 @@
 .navLink {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--light-text); /* Dark text for the light background of the Hero right side */
+  color: var(--dark-text);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
   position: relative;
   height: 100%;
   display: flex;
@@ -66,7 +67,8 @@
 }
 
 .scrolled .navLink {
-  color: var(--dark-text); /* White text when the navbar turns dark */
+  color: var(--dark-text);
+  text-shadow: none;
 }
 
 .scrolled .navLink:hover {
@@ -185,15 +187,17 @@
   font-family: var(--font-mono);
   font-size: 0.85rem;
   letter-spacing: 0.05em;
-  color: var(--light-text); /* Dark text when at top */
+  color: var(--dark-text);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
   text-decoration: none;
   padding: 4px 8px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, text-shadow 0.3s ease;
   margin-right: var(--space-4);
 }
 
 .scrolled .langToggle {
-  color: var(--dark-text); /* White text when scrolled */
+  color: var(--dark-text);
+  text-shadow: none;
 }
 
 .langToggle:hover {
