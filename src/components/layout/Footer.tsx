@@ -45,15 +45,6 @@ export function Footer() {
           </div>
         </div>
 
-        <div className={styles.bottomRow}>
-          <p className={styles.forged}>
-            © {currentYear} Miguel Giles
-          </p>
-          <div className={styles.links}>
-            <a href="https://linkedin.com/in/miguel-giles" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com/kerberosmdq" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-        </div>
       </div>
     </footer>
   );
