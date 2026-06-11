@@ -3,8 +3,6 @@
    Contrast Split Theme
    ═══════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 /* ── CSS Reset ── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -159,6 +157,26 @@ button {
   button {
     cursor: pointer;
   }
+}
+
+/* ── Skip-to-content ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--accent);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: var(--z-cursor);
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 /* ── Utility Classes ── */

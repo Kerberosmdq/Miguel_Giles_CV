@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+import { Link, usePathname } from '@/i18n/navigation';
 import Image from 'next/image';
 import styles from './Navbar.module.css';
 
@@ -18,10 +17,6 @@ export function Navbar() {
   
   // Simple logic to switch locale path
   const nextLocale = locale === 'es' ? 'en' : 'es';
-  // Fallback in case pathname is just "/" which is rare with next-intl middleware
-  const switchPath = pathname.startsWith(`/${locale}`) 
-    ? pathname.replace(`/${locale}`, `/${nextLocale}`) 
-    : `/${nextLocale}${pathname}`;
 
   const links = [
     { href: '#work', label: t('work') },
@@ -55,14 +50,15 @@ export function Navbar() {
     <>
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
         <div className={`container ${styles.navContainer}`}>
-          <a href="#hero" className={styles.logo} data-cursor-text="HOME">
-            <Image 
-              src="/images/logo_2.png" 
-              alt="Miguel Giles Logo" 
-              width={68} 
-              height={68} 
-              className={styles.logoImage} 
+          <a href="#hero" className={styles.logo} data-cursor-text="HOME" aria-label="Miguel Giles, inicio">
+            <Image
+              src="/images/logo_2.png"
+              alt=""
+              width={68}
+              height={68}
+              className={styles.logoImage}
               priority
+              aria-hidden="true"
             />
           </a>
 
@@ -86,8 +82,9 @@ export function Navbar() {
           </nav>
 
           <div className={styles.navActions}>
-            <Link 
-              href={switchPath} 
+            <Link
+              href={pathname}
+              locale={nextLocale}
               className={styles.langToggle}
               data-cursor-text="LANG"
             >

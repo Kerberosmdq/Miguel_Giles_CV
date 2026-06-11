@@ -21,7 +21,7 @@ export default async function HomePage({
     <>
       <ScrollProgress />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Projects />

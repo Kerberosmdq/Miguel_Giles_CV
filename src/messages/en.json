@@ -117,31 +117,81 @@
     "formSending": "Sending...",
     "formSuccess": "Message sent! I'll get back to you soon.",
     "formError": "Failed to send. Email me at miga.gls246@gmail.com",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "responseTime": "Typically responds within 24h"
   },
   "footer": {
     "copyright": "All rights reserved.",
     "forgedWith": "Forged with"
   },
   "cv": {
-    "title": "Curriculum Vitae",
-    "downloadPdf": "Download PDF",
-    "print": "Print",
-    "profileTitle": "Professional Profile",
-    "profileText": "Full Stack Developer & Electromechanical Technician with 13+ years of industrial experience (9 years in GxP regulated environments). I combine the rigor of industrial maintenance, process automation, and troubleshooting with web application development (Vibe Coding) to build robust software solutions that solve real-world problems.",
-    "softwareTitle": "Featured Software Projects",
-    "softwareNexIndu": "Industrial operating system designed for maintenance management in GxP pharmaceutical plants. Features an AI assistant with RAG memory.",
-    "softwareNexKio": "Offline-first PWA for complete retail store management featuring hardware barcode scanning.",
-    "industrialTitle": "Industrial Experience",
-    "bbraunRole": "Industrial Maintenance Technician",
-    "bbraunPeriod": "2017 - Present",
-    "bbraunDesc": "Maintenance in GxP pharmaceutical plant. Process control via PLC, real-time critical troubleshooting, and strict regulatory compliance.",
-    "coironRole": "Industrial Refrigeration Technician",
-    "coironPeriod": "2013 - 2017",
-    "coironDesc": "Led teams in complex cold storage assembly projects from scratch, applying complex systems logic.",
-    "techStack": "Software Stack",
-    "techStackItems": "Next.js, React, TypeScript, Python, Artificial Intelligence, Databases",
-    "hardSkills": "Industrial Skills",
-    "hardSkillsItems": "Automation (PLC), Electrical, Pneumatics, Lean/5S Management, Troubleshooting"
+    "back": "Home",
+    "print": "Print / PDF",
+    "role": "Full Stack Developer & Electromechanical Technician",
+    "sidebar": {
+      "contactTitle": "Contact",
+      "techTitle": "Software Stack",
+      "hardSkillsTitle": "Industrial Skills",
+      "educationTitle": "Education",
+      "languagesTitle": "Languages"
+    },
+    "profile": {
+      "title": "Professional Profile",
+      "text": "Full Stack Developer and Electromechanical Technician with 13+ years of industrial experience, 9 of them in a GxP-regulated pharmaceutical plant. I build software end to end with Next.js, React and AI, applying the discipline of industrial maintenance: systematic diagnosis, reliability and continuous improvement."
+    },
+    "software": {
+      "title": "Featured Software Projects",
+      "nexindu": {
+        "period": "2024 – Present",
+        "link": "nexindu.com.ar",
+        "bullets": [
+          "Designed and built, solo, a management system for GxP pharmaceutical plants: work orders, preventive maintenance and spare parts inventory.",
+          "Integrated an AI assistant with RAG memory over plant technical documentation.",
+          "Live at nexindu.com.ar — Next.js, TypeScript, fully AI-assisted development."
+        ]
+      },
+      "nexkio": {
+        "status": "In development",
+        "bullets": [
+          "Offline-first PWA for retail stores: POS with hardware barcode scanner, inventory, store credit system and financial reports."
+        ]
+      },
+      "more": "Also in development: NexQuipu, NexWod, NexPulse, NexGrid."
+    },
+    "industrial": {
+      "title": "Industrial Experience",
+      "bbraun": {
+        "role": "Industrial Maintenance Technician",
+        "company": "B.Braun Medical Argentina",
+        "period": "2017 – Present",
+        "bullets": [
+          "Maintain pharmaceutical production lines in a GxP-regulated environment.",
+          "Diagnose and resolve critical failures in real time on PLC-automated systems.",
+          "Apply Lean/5S methodology to continuous improvement of maintenance processes."
+        ]
+      },
+      "coiron": {
+        "role": "Industrial Refrigeration Technician",
+        "company": "Coiron",
+        "period": "2013 – 2017",
+        "bullets": [
+          "Led assembly teams building industrial cold-storage installations from the ground up.",
+          "Took end-to-end responsibility for complex installations: refrigeration, electrical and pneumatics."
+        ]
+      }
+    },
+    "education": {
+      "title": "Electromechanical Technician",
+      "school": "Instituto Industrial Pablo Tavelli",
+      "year": "Graduated 2009",
+      "selfTaught": "Software development: self-taught",
+      "selfTaughtPeriod": "2023 – Present"
+    },
+    "languages": {
+      "spanish": "Spanish",
+      "spanishLevel": "Native",
+      "english": "English",
+      "englishLevel": "Intermediate"
+    }
   }
 }

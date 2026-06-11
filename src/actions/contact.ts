@@ -22,14 +22,20 @@ export async function sendContactEmail(formData: FormData) {
     return { success: false, error: 'missing_fields' };
   }
 
-  // Strip newlines to prevent email header injection
+  // Strip newlines to prevent header injection; escape HTML entities in user content
   const name = raw.name.replace(/[\r\n]/g, ' ');
   const email = raw.email.replace(/[\r\n]/g, '');
-  const message = raw.message.replace(/[\r\n]/g, (c) => c === '\n' ? '<br>' : '');
+  const messageSafe = raw.message
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\n/g, '<br>');
 
   const appPassword = process.env.GMAIL_APP_PASSWORD?.trim();
   if (!appPassword) {
-    console.error('[contact] GMAIL_APP_PASSWORD not set');
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('[contact] GMAIL_APP_PASSWORD not set');
+    }
     return { success: false, error: 'not_configured' };
   }
 
@@ -47,21 +53,23 @@ export async function sendContactEmail(formData: FormData) {
       to: 'miga.gls246@gmail.com',
       replyTo: email,
       subject: `[Portfolio] Mensaje de ${name}`,
-      text: `Nombre: ${name}\nEmail: ${email}\n\n${message}`,
+      text: `Nombre: ${name}\nEmail: ${email}\n\n${raw.message}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px;">
           <h2 style="color: #0A0A0A;">Nuevo mensaje desde tu portfolio</h2>
           <p><strong>Nombre:</strong> ${name}</p>
           <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
           <hr style="border-color: #eee;" />
-          <p style="white-space: pre-line;">${message}</p>
+          <p style="white-space: pre-line;">${messageSafe}</p>
         </div>
       `,
     });
 
     return { success: true };
   } catch (err) {
-    console.error('[contact] nodemailer error:', err);
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('[contact] nodemailer error:', err);
+    }
     return { success: false, error: 'send_failed' };
   }
 }
