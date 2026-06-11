@@ -18,7 +18,6 @@ const icons = {
   sql: <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 7v10c0 1.66 3.58 3 8 3s8-1.34 8-3V7"/><path d="M12 10c4.42 0 8-1.34 8-3s-3.58-3-8-3-8 1.34-8 3 3.58 3 8 3z"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>,
   nosql: <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8v8M16 8v8M8 12h8"/></svg>,
   i18n: <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M11 9H9M11 13H9M15 9h-2M15 13h-2M13 11h2"/></svg>,
-  claude: <svg viewBox="0 0 128 128" width="32" height="32"><path fill="#D97757" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 115.2C35.8 115.2 12.8 92.2 12.8 64S35.8 12.8 64 12.8 115.2 35.8 115.2 64 92.2 115.2 64 115.2z"/><path fill="#D97757" d="M64 25.6c-21.2 0-38.4 17.2-38.4 38.4S42.8 102.4 64 102.4 102.4 85.2 102.4 64 85.2 25.6 64 25.6z"/></svg>,
 };
 
 export default function TechStack() {
@@ -37,7 +36,6 @@ export default function TechStack() {
     { id: 'i18n', name: 'i18n', icon: icons.i18n, size: 'small', color: '#ba68c8' },
     { id: 'supabase', name: 'Supabase', icon: icons.supabase, size: 'medium', color: '#3ECF8E' },
     { id: 'tailwind', name: 'Tailwind CSS', icon: icons.tailwind, size: 'medium', color: '#06B6D4' },
-    { id: 'claude', name: 'Claude / Vibe Coding', icon: icons.claude, size: 'large', color: '#D97757' },
   ];
 
   return (

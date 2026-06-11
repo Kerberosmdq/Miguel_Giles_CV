@@ -47,7 +47,7 @@ export function Footer() {
 
         <div className={styles.bottomRow}>
           <p className={styles.forged}>
-            {t('forgedWith')} <span className={styles.accent}>Vibe Coding</span>
+            © {currentYear} Miguel Giles
           </p>
           <div className={styles.links}>
             <a href="https://linkedin.com/in/miguel-giles" target="_blank" rel="noopener noreferrer">LinkedIn</a>
