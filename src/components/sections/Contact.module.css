@@ -240,6 +240,13 @@
   height: 20px;
 }
 
+.errorMsg {
+  margin-top: 10px;
+  color: #ff5c5c;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
   .grid {

@@ -117,31 +117,81 @@
     "formSending": "Enviando...",
     "formSuccess": "¡Mensaje enviado! Te contacto pronto.",
     "formError": "Error al enviar. Escribime directo a miga.gls246@gmail.com",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "responseTime": "Suelo responder en menos de 24 h"
   },
   "footer": {
     "copyright": "Todos los derechos reservados.",
     "forgedWith": "Forjado con"
   },
   "cv": {
-    "title": "Currículum Vitae",
-    "downloadPdf": "Descargar PDF",
-    "print": "Imprimir",
-    "profileTitle": "Perfil Profesional",
-    "profileText": "Desarrollador Full Stack y Técnico Electromecánico con más de 13 años de experiencia industrial (9 años en entornos regulados GxP). Combino el rigor del mantenimiento industrial, la automatización de procesos y el troubleshooting con el desarrollo de aplicaciones web (Vibe Coding) para crear soluciones de software robustas enfocadas en problemas del mundo real.",
-    "softwareTitle": "Proyectos de Software Destacados",
-    "softwareNexIndu": "Sistema operativo industrial diseñado para la gestión de mantenimiento en plantas farmacéuticas GxP. Incorpora asistente de IA con memoria RAG.",
-    "softwareNexKio": "PWA offline-first para gestión completa de comercios minoristas con lectura de códigos de barras.",
-    "industrialTitle": "Experiencia Industrial",
-    "bbraunRole": "Técnico de Mantenimiento Industrial",
-    "bbraunPeriod": "2017 - Presente",
-    "bbraunDesc": "Mantenimiento en planta farmacéutica GxP. Control de procesos mediante PLC, resolución de fallas críticas en tiempo real (Troubleshooting) y cumplimiento de normativas estrictas.",
-    "coironRole": "Técnico Frigorista Industrial",
-    "coironPeriod": "2013 - 2017",
-    "coironDesc": "Liderazgo de equipos en proyectos de montaje de cámaras frigoríficas desde cero, aplicando lógica de sistemas complejos.",
-    "techStack": "Stack de Software",
-    "techStackItems": "Next.js, React, TypeScript, Python, Inteligencia Artificial, Bases de Datos",
-    "hardSkills": "Habilidades Industriales",
-    "hardSkillsItems": "Automatización (PLC), Electricidad, Neumática, Gestión Lean/5S, Diagnóstico de Fallas"
+    "back": "Inicio",
+    "print": "Imprimir / PDF",
+    "role": "Full Stack Developer & Técnico Electromecánico",
+    "sidebar": {
+      "contactTitle": "Contacto",
+      "techTitle": "Stack de Software",
+      "hardSkillsTitle": "Habilidades Industriales",
+      "educationTitle": "Formación",
+      "languagesTitle": "Idiomas"
+    },
+    "profile": {
+      "title": "Perfil Profesional",
+      "text": "Desarrollador Full Stack y Técnico Electromecánico con más de 13 años de experiencia industrial, 9 de ellos en planta farmacéutica regulada GxP. Construyo software end-to-end con Next.js, React e IA, aplicando la disciplina del mantenimiento industrial: diagnóstico sistemático, fiabilidad y mejora continua."
+    },
+    "software": {
+      "title": "Proyectos de Software Destacados",
+      "nexindu": {
+        "period": "2024 – Presente",
+        "link": "nexindu.com.ar",
+        "bullets": [
+          "Diseñé y construí en solitario un sistema de gestión para plantas farmacéuticas GxP: órdenes de trabajo, mantenimiento preventivo e inventario de repuestos.",
+          "Integré un asistente de IA con memoria RAG sobre documentación técnica de planta.",
+          "En producción en nexindu.com.ar — Next.js, TypeScript, desarrollo 100% asistido por IA."
+        ]
+      },
+      "nexkio": {
+        "status": "En desarrollo",
+        "bullets": [
+          "PWA offline-first para comercios: POS con lector de códigos de barras, inventario, sistema de fiado y reportes financieros."
+        ]
+      },
+      "more": "Otras apps en desarrollo: NexQuipu, NexWod, NexPulse, NexGrid."
+    },
+    "industrial": {
+      "title": "Experiencia Industrial",
+      "bbraun": {
+        "role": "Técnico de Mantenimiento Industrial",
+        "company": "B.Braun Medical Argentina",
+        "period": "2017 – Presente",
+        "bullets": [
+          "Mantengo líneas de producción farmacéutica en entorno regulado GxP.",
+          "Diagnostico y resuelvo fallas críticas en tiempo real sobre sistemas automatizados con PLC.",
+          "Aplico metodología Lean/5S a la mejora continua de los procesos de mantenimiento."
+        ]
+      },
+      "coiron": {
+        "role": "Técnico Frigorista Industrial",
+        "company": "Coiron",
+        "period": "2013 – 2017",
+        "bullets": [
+          "Lideré equipos de montaje de cámaras frigoríficas industriales construidas desde cero.",
+          "Responsabilidad integral sobre instalaciones complejas: refrigeración, electricidad y neumática."
+        ]
+      }
+    },
+    "education": {
+      "title": "Técnico Electromecánico",
+      "school": "Instituto Industrial Pablo Tavelli",
+      "year": "Egresado 2009",
+      "selfTaught": "Desarrollo de software: autodidacta",
+      "selfTaughtPeriod": "2023 – Presente"
+    },
+    "languages": {
+      "spanish": "Español",
+      "spanishLevel": "Nativo",
+      "english": "Inglés",
+      "englishLevel": "Intermedio"
+    }
   }
 }
