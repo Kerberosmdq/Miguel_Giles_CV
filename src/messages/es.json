@@ -25,7 +25,7 @@
       },
       "spark": {
         "title": "La Chispa",
-        "description": "Un día descubrí que ese mismo pensamiento lógico podía crear software. La programación no era algo nuevo para mí — era la misma resolución de problemas, pero sin límites físicos. El vibe coding me abrió una puerta que jamás pensé cruzar."
+        "description": "Un día descubrí que ese mismo pensamiento lógico podía crear software. La programación no era algo nuevo para mí — era la misma resolución de problemas, pero sin límites físicos. Y me abrió una puerta que jamás pensé cruzar."
       },
       "builder": {
         "title": "El Constructor",
@@ -76,7 +76,7 @@
         "description": "Gestión de procesos críticos y mantenimiento en línea farmacéutica. Aplicación diaria de troubleshooting. Mentalidad Lean/5S."
       },
       "coiron": {
-        "period": "2013 – 2017",
+        "period": "2014 – 2017",
         "role": "Frigorista Industrial",
         "description": "Liderazgo de equipos en proyectos de montaje desde cero. Responsabilidad total sobre instalaciones complejas."
       }
@@ -87,7 +87,7 @@
         "period": "2023 – Presente",
         "role": "Full-Stack Developer",
         "company": "NEX Apps (Independiente)",
-        "description": "Autodidacta desde 2023. Desde principios de 2025 trabajo 100% con vibe coding, lo que escaló mi producción de apps radicalmente. Creación de soluciones end-to-end con Next.js, React, Python y arquitecturas de IA."
+        "description": "Autodidacta desde 2023. Diseño y construyo aplicaciones end-to-end con Next.js, React, TypeScript, PostgreSQL y Python. Uso herramientas de IA como parte de mi flujo de trabajo, pero la arquitectura, la revisión del código y la responsabilidad sobre lo que entrego son mías."
       }
     }
   },
@@ -98,7 +98,7 @@
       "languages": "Lenguajes",
       "frameworks": "Frameworks",
       "databases": "Bases de Datos",
-      "ai": "IA & Vibe Coding",
+      "ai": "IA y herramientas",
       "tools": "Herramientas"
     }
   },
@@ -173,7 +173,7 @@
       "coiron": {
         "role": "Técnico Frigorista Industrial",
         "company": "Coiron",
-        "period": "2013 – 2017",
+        "period": "2014 – 2017",
         "bullets": [
           "Lideré equipos de montaje de cámaras frigoríficas industriales construidas desde cero.",
           "Responsabilidad integral sobre instalaciones complejas: refrigeración, electricidad y neumática."

@@ -49,7 +49,7 @@ export default function Experience() {
               <h3 className={styles.trackTitle}>{t('industrial.title')}</h3>
               
               <div className={styles.timeline}>
-                {/* 2013-2017: Coiron */}
+                {/* 2014-2017: Coiron */}
                 <motion.div 
                   className={styles.entryLeft}
                   initial={{ opacity: 0, x: -30 }}
@@ -58,7 +58,7 @@ export default function Experience() {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                   <div className={styles.node} />
-                  <div className={styles.yearLabel}>2013</div>
+                  <div className={styles.yearLabel}>2014</div>
                   <div className={styles.card}>
                     <div className={styles.companyHeader}>
                       <div className={styles.companyLogo}>C</div>

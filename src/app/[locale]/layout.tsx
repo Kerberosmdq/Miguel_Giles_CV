@@ -56,7 +56,6 @@ export async function generateMetadata({
       'portfolio',
       'Next.js',
       'TypeScript',
-      'vibe coding',
       'NEX apps',
       'GxP',
       'Mar del Plata',

@@ -25,7 +25,7 @@
       },
       "spark": {
         "title": "The Spark",
-        "description": "One day I discovered that the same logical thinking could create software. Programming wasn't new to me — it was the same problem-solving, but without physical limits. Vibe coding opened a door I never thought I'd walk through."
+        "description": "One day I discovered that the same logical thinking could create software. Programming wasn't new to me — it was the same problem-solving, but without physical limits. It opened a door I never thought I'd walk through."
       },
       "builder": {
         "title": "The Builder",
@@ -76,7 +76,7 @@
         "description": "Critical process management and maintenance in pharmaceutical production line. Daily troubleshooting application. Lean/5S mindset."
       },
       "coiron": {
-        "period": "2013 – 2017",
+        "period": "2014 – 2017",
         "role": "Industrial Refrigeration",
         "description": "Team leadership in ground-up assembly projects. Full responsibility over complex installations."
       }
@@ -87,7 +87,7 @@
         "period": "2023 – Present",
         "role": "Full-Stack Developer",
         "company": "NEX Apps (Independent)",
-        "description": "Self-taught since 2023. Since early 2025, 100% vibe coding — which radically scaled my app output. Building end-to-end solutions with Next.js, React, Python and AI-powered architectures."
+        "description": "Self-taught since 2023. I design and build end-to-end applications with Next.js, React, TypeScript, PostgreSQL and Python. I use AI tools as part of my workflow, but the architecture, code review and ownership of what I ship are mine."
       }
     }
   },
@@ -98,7 +98,7 @@
       "languages": "Languages",
       "frameworks": "Frameworks",
       "databases": "Databases",
-      "ai": "AI & Vibe Coding",
+      "ai": "AI & Tooling",
       "tools": "Tools"
     }
   },
@@ -173,7 +173,7 @@
       "coiron": {
         "role": "Industrial Refrigeration Technician",
         "company": "Coiron",
-        "period": "2013 – 2017",
+        "period": "2014 – 2017",
         "bullets": [
           "Led assembly teams building industrial cold-storage installations from the ground up.",
           "Took end-to-end responsibility for complex installations: refrigeration, electrical and pneumatics."
