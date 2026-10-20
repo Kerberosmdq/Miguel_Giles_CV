@@ -20,9 +20,9 @@ export function Navbar() {
 
   const links = [
     { href: '#work', label: t('work') },
-    { href: '#about', label: t('about') },
     { href: '#experience', label: t('experience') },
     { href: '#stack', label: t('stack') },
+    { href: '#about', label: t('about') },
   ];
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export function Navbar() {
       setScrolled(window.scrollY > 50);
 
       // Simple active section detection
-      const sections = ['hero', 'work', 'about', 'experience', 'stack', 'contact'];
+      const sections = ['hero', 'work', 'experience', 'stack', 'about', 'contact'];
       for (const section of sections.reverse()) {
         const el = document.getElementById(section);
         if (el && window.scrollY >= el.offsetTop - 200) {
@@ -91,6 +91,10 @@ export function Navbar() {
               <span className={locale === 'en' ? styles.activeLang : styles.inactiveLang}>EN</span>
             </Link>
 
+            {/* TODO(fase 4): apuntar a /cv/Miguel_Giles_CV_{ES|EN}.pdf con download */}
+            <Link href="/cv" className={styles.cvLink}>
+              {t('resume')}
+            </Link>
             <button 
               className={`btn btn-primary ${styles.ctaBtn}`}
               onClick={() => {
@@ -137,6 +141,13 @@ export function Navbar() {
                   {link.label}
                 </motion.a>
               ))}
+              <Link
+                href="/cv"
+                className={styles.mobileNavLink}
+                onClick={() => setMenuOpen(false)}
+              >
+                {t('resume')}
+              </Link>
               <motion.a
                 href="#contact"
                 className={styles.mobileNavLink}

@@ -27,9 +27,6 @@ export function Hero() {
       <motion.div className={styles.darkSide} style={isMounted ? { width: darkWidth } : { width: '40%' }}>
         <motion.div
           className={styles.photoContainer}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
           style={isMounted ? { opacity: opacityFade } : { opacity: 1 }}
         >
           <div className={styles.photoWrapper}>
@@ -75,10 +72,16 @@ export function Hero() {
           </div>
 
           <p className={styles.role}>{t('role')}</p>
+          <p className={styles.stackLine}>{t('stackLine')}</p>
 
           <div className={styles.divider} />
 
           <p className={styles.tagline}>{t('tagline')}</p>
+
+          <p className={styles.availability}>
+            <span className={styles.availabilityDot} aria-hidden="true" />
+            {t('availability')}
+          </p>
 
           <div className={styles.lightCta}>
             <Link href="/cv" className="btn btn-outline-light">

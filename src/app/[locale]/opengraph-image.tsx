@@ -2,7 +2,7 @@ import { SITE_URL } from '@/lib/site';
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Miguel Giles — Electromechanic × Developer';
+export const alt = 'Miguel Giles — Desarrollador Full Stack';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -36,10 +36,10 @@ export default function Image() {
           Miguel Giles
         </div>
         <div style={{ color: '#94A3B8', fontSize: 30, letterSpacing: '0.05em' }}>
-          Electromechanic × Developer
+          Desarrollador Full Stack
         </div>
         <div style={{ display: 'flex', gap: 14, marginTop: 28 }}>
-          {['Next.js', 'TypeScript', 'React', 'Python'].map((tech) => (
+          {['Next.js', 'TypeScript', 'Supabase'].map((tech) => (
             <div
               key={tech}
               style={{

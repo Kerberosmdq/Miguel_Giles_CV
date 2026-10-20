@@ -1,286 +1,52 @@
 .aboutSection {
-  /* Provide enough height to scroll through 3 phases */
-  height: 300vh;
-  background-color: #000000;
-  position: relative;
+  padding: var(--space-24) 0;
   border-top: 1px solid var(--dark-border);
 }
 
-.stickyContainer {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* ── Left Side: Text ── */
-.textContent {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 5vw;
-  position: relative;
-  z-index: 2;
-}
-
-.textInner {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-}
-
-.chapterText {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.chapterActive {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(-50%);
-}
-
-/* Initially offset the inactive ones slightly */
-.chapterText:not(.chapterActive) {
-  transform: translateY(-40%);
-}
-
-.eyebrow {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--accent);
-  letter-spacing: 0.2em;
-  margin-bottom: var(--space-4);
-  text-transform: uppercase;
+.inner {
+  max-width: 800px;
 }
 
 .title {
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 5vw, 5rem);
-  line-height: 1.1;
-  font-weight: 700;
   margin-bottom: var(--space-6);
-  color: #ffffff;
-  letter-spacing: -0.02em;
 }
 
-.description {
-  font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+.text {
+  color: var(--dark-text-secondary);
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
   line-height: 1.8;
-  color: var(--dark-text-secondary);
+  margin-bottom: var(--space-12);
 }
 
-/* ── Right Side: Visuals ── */
-.visualContent {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8);
-  background-color: #050505;
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.visualFrame {
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 1 / 1;
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: #000;
-}
-
-.visualInner {
-  width: 100%;
-  height: 100%;
-}
-
-/* Industrial Corners */
-.cornerTL, .cornerTR, .cornerBL, .cornerBR {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border: 1px solid var(--accent);
-  z-index: 10;
-}
-.cornerTL { top: 0; left: 0; border-right: none; border-bottom: none; }
-.cornerTR { top: 0; right: 0; border-left: none; border-bottom: none; }
-.cornerBL { bottom: 0; left: 0; border-right: none; border-top: none; }
-.cornerBR { bottom: 0; right: 0; border-left: none; border-top: none; }
-
-/* ── Visual 1: SCADA ── */
-.scadaContainer {
-  width: 100%;
-  height: 100%;
-  padding: var(--space-6);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  font-family: var(--font-mono);
-}
-
-.scadaHeader {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: var(--space-2);
-  font-size: 0.8rem;
-  color: var(--dark-text-secondary);
-}
-
-.scadaBlink {
-  color: #ff003c;
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink { 50% { opacity: 0; } }
-
-.scadaGrid {
+.stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
-  flex: 1;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin: 0;
 }
 
-.scadaBox, .scadaBoxLarge {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: var(--space-4);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.stat {
+  border-top: 2px solid var(--accent);
+  padding-top: var(--space-3);
 }
 
-.scadaBoxLarge {
-  grid-column: span 2;
+.value {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--dark-text);
 }
 
-.scadaLabel {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.scadaValue {
-  font-size: 2.5rem;
-  color: #fff;
-}
-
-.scadaGridLines {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  height: 100px;
-  margin-top: var(--space-4);
-}
-
-.scadaBar {
-  flex: 1;
-  background-color: var(--accent);
-  opacity: 0.6;
-}
-
-/* ── Visual 2: CIRCUIT ── */
-.circuitContainer {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background-size: 20px 20px;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-}
-
-.circuitSvg {
-  width: 100%;
-  height: 100%;
-}
-
-.circuitLabel {
-  position: absolute;
-  bottom: var(--space-4);
-  right: var(--space-4);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--dark-text-secondary);
-  background: #000;
-  padding: 4px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* ── Visual 3: TERMINAL ── */
-.terminalContainer {
-  width: 100%;
-  height: 100%;
-  background: #000;
-  font-family: var(--font-mono);
-  display: flex;
-  flex-direction: column;
-}
-
-.termHeader {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: var(--space-4);
+.label {
+  margin: var(--space-2) 0 0;
   font-size: 0.85rem;
   color: var(--dark-text-secondary);
+  line-height: 1.4;
 }
 
-.termBody {
-  padding: var(--space-6);
-  flex: 1;
-  color: #fff;
-  font-size: 1rem;
-  line-height: 1.5;
-  white-space: pre-wrap;
-}
-
-.termLine {
-  margin-bottom: 4px;
-}
-
-.termCursor {
-  display: inline-block;
-  color: var(--accent);
-  margin-left: 8px;
-}
-
-/* ── Responsive ── */
-@media (max-width: 900px) {
-  .aboutSection {
-    height: auto;
-  }
-  
-  .stickyContainer {
-    position: relative;
-    height: auto;
-    flex-direction: column;
-  }
-  
-  .textContent {
-    padding: var(--space-12) var(--space-6);
-    height: auto;
-  }
-  
-  .chapterText {
-    position: relative;
-    transform: none !important;
-    opacity: 1;
-    margin-bottom: var(--space-12);
-  }
-  
-  .visualContent {
-    display: none; /* Hide complex sticky visuals on small mobile, or replace with simple static image */
+@media (max-width: 768px) {
+  .stats {
+    grid-template-columns: 1fr 1fr;
   }
 }

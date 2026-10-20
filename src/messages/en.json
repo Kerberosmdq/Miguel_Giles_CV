@@ -3,65 +3,83 @@
     "work": "Projects",
     "about": "About",
     "experience": "Experience",
-    "stack": "Tech Stack",
+    "stack": "Stack",
     "contact": "Contact",
     "cta": "Let's Talk",
-    "resume": "Download CV"
+    "resume": "CV"
   },
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Miguel Giles",
-    "role": "Electromechanic × Developer",
-    "tagline": "Electromechanic by Trade. Developer by Passion. Builder by Nature.",
-    "cta_primary": "View My Work",
-    "cta_secondary": "Download CV"
+    "role": "Full Stack Developer",
+    "stackLine": "Next.js · TypeScript · Supabase",
+    "tagline": "I build apps people use every day: a point-of-sale system running in 4 shops, a finance tracker used by 3 families, and maintenance software for pharmaceutical plants. Before coding, I spent 13 years in industry, 9 of them in regulated pharma (GxP).",
+    "availability": "Open to remote roles · part-time or full-time",
+    "cta_primary": "See projects",
+    "cta_secondary": "Download resume (PDF)"
   },
   "about": {
-    "title": "About Me",
-    "chapters": {
-      "mechanic": {
-        "title": "The Mechanic",
-        "description": "For over 13 years, I kept complex industrial systems running — first in industrial refrigeration, then in GxP pharmaceutical plants. Every machine speaks a language, every failure has a pattern, and every solution has a logic. Problem-solving became my second nature."
+    "title": "About me",
+    "text": "I'm an electromechanical technician and have worked in industry since 2013: first in industrial refrigeration and, since 2017, at B.Braun in a regulated pharmaceutical plant. In 2023 I started teaching myself to code, and today I build full apps, using AI as a working tool. From industry I bring a methodical approach to troubleshooting, a habit of documenting and working under strict standards, and a focus on things working every single day.",
+    "stats": [
+      {
+        "value": "13",
+        "label": "years in industry"
       },
-      "spark": {
-        "title": "The Spark",
-        "description": "One day I discovered that the same logical thinking could create software. Programming wasn't new to me — it was the same problem-solving, but without physical limits. Vibe coding opened a door I never thought I'd walk through."
+      {
+        "value": "9",
+        "label": "years in GxP pharma"
       },
-      "builder": {
-        "title": "The Builder",
-        "description": "Today I build applications that solve real problems. My industrial experience gave me something no bootcamp can teach: understanding complex systems from their roots. Every NEX app is born from a real need I identified and solved."
+      {
+        "value": "2",
+        "label": "apps in daily use"
+      },
+      {
+        "value": "2",
+        "label": "languages (ES native / EN intermediate)"
       }
-    }
+    ]
   },
   "projects": {
-    "title": "My Projects",
-    "subtitle": "Apps forged with purpose",
-    "viewProject": "View project",
-    "comingSoon": "Coming soon",
+    "title": "Projects",
+    "subtitle": "Real apps, real users",
+    "live": "Live demo",
+    "code": "Code",
+    "otherTitle": "Other live projects",
     "items": {
       "nexindu": {
-        "badge": "Designed for GxP environments",
-        "description": "Industrial operating system for GxP pharmaceutical plants. Work order management, preventive maintenance, spare parts inventory, and AI assistant with RAG memory."
+        "badge": "Pre-launch",
+        "line": "Maintenance management software (CMMS) for regulated pharmaceutical plants.",
+        "bullets": [
+          "Work orders, preventive maintenance and spare-parts inventory",
+          "Immutable audit trail with e-signatures (FDA 21 CFR Part 11, ALCOA+)",
+          "AI assistant (Gemini) with RAG over plant documentation",
+          "Playwright E2E tests and CI with security scanning (CodeQL, OWASP ZAP)"
+        ]
       },
       "nexkio": {
-        "badge": "Offline-first PWA",
-        "description": "Complete management system for small stores. POS with hardware barcode scanner, offline-first inventory, store credit system, financial reports, and digital receipts with QR."
+        "badge": "Used daily in 4 shops",
+        "line": "Offline-first point-of-sale system for small shops.",
+        "bullets": [
+          "Barcode-scanner checkout",
+          "Inventory, store credit and reports",
+          "PWA: keeps selling when the internet goes down"
+        ]
       },
       "nexquipu": {
-        "badge": "AI parsing bank statements",
-        "description": "Family finance manager with AI. Analyzes credit card statements, detects subscriptions and hidden charges, and generates personalized financial recommendations."
-      },
-      "nexwod": {
-        "badge": "Mobile app",
-        "description": "AI-powered workout tracker. Generates personalized routines, calculates per-muscle-group fatigue, automatically detects personal records, and offers smart coaching."
+        "badge": "Used by 3 families",
+        "line": "Family finances built from credit-card statements.",
+        "bullets": [
+          "Reads the PDF statement and categorizes spending",
+          "Detects subscriptions and hidden charges",
+          "Push-notification alerts"
+        ]
       },
       "nexpulse": {
-        "badge": "Serverless P2P",
-        "description": "Poker tournament manager for home games. P2P remote control via WebRTC, synthesized audio engine, blind timer, and automatic prize pool calculation."
+        "line": "Blind timer for home poker tournaments, with P2P remote control over WebRTC."
       },
-      "nexgrid": {
-        "badge": "Automated scraping",
-        "description": "Smart price comparison tool. Paste any URL and automatically extract metadata. AI analyzes and recommends with scoring and pros/cons."
+      "nexplay": {
+        "line": "Real-time online board games for family play (Supabase Realtime)."
       }
     }
   },
@@ -103,33 +121,43 @@
     }
   },
   "stack": {
-    "title": "Tech Stack",
+    "title": "Stack",
     "subtitle": "Tools I use to build",
-    "categories": {
-      "languages": "Languages",
-      "frameworks": "Frameworks",
-      "databases": "Databases",
-      "ai": "AI & Vibe Coding",
-      "tools": "Tools"
-    }
+    "cards": {
+      "frontend": "Frontend",
+      "backend": "Backend & data",
+      "quality": "Quality & DevOps",
+      "ai": "AI",
+      "industry": "Industry"
+    },
+    "industryItems": [
+      "PLC / automation",
+      "GxP · FDA 21 CFR Part 11",
+      "Lean / 5S",
+      "Pneumatics",
+      "Electrical systems",
+      "Industrial refrigeration"
+    ]
   },
   "contact": {
-    "title": "Let's Build Something Together",
-    "subtitle": "Got a project in mind? Let's collaborate.",
+    "title": "Let's talk",
+    "subtitle": "Looking to add a developer to your team? I'm open to remote roles, part-time or full-time.",
     "nameLabel": "Name",
     "namePlaceholder": "Your name",
     "emailLabel": "Email",
     "emailPlaceholder": "you@email.com",
-    "messageLabel": "Message",
-    "messagePlaceholder": "Tell me about your project...",
+    "messageLabel": "Tell me about the role or project…",
+    "messagePlaceholder": "Tell me about the role or project…",
     "sendButton": "Send message",
     "connectTitle": "Or find me on",
-    "connectText": "Got a problem worth solving well? Let's talk.",
+    "connectText": "I reply within 24 h.",
     "formSending": "Sending...",
     "formSuccess": "Message sent! I'll get back to you soon.",
     "formError": "Failed to send. Email me at miga.gls246@gmail.com",
     "whatsapp": "WhatsApp",
-    "responseTime": "Typically responds within 24h"
+    "responseTime": "Typically responds within 24h",
+    "copyEmail": "Copy",
+    "emailCopied": "Copied!"
   },
   "footer": {
     "copyright": "All rights reserved.",
@@ -138,7 +166,7 @@
   "cv": {
     "back": "Home",
     "print": "Print / PDF",
-    "role": "Full Stack Developer & Electromechanical Technician",
+    "role": "Full Stack Developer | Electromechanical & Automation Technician",
     "sidebar": {
       "contactTitle": "Contact",
       "techTitle": "Software Stack",
@@ -158,21 +186,21 @@
         "bullets": [
           "Designed and built, solo, a management system for GxP pharmaceutical plants: work orders, preventive maintenance and spare parts inventory.",
           "Integrated an AI assistant with RAG memory over plant technical documentation.",
-          "Live at nexindu.com.ar — Next.js, TypeScript, fully AI-assisted development."
+          "Online at nexindu.com.ar, in pre-launch — Next.js, TypeScript, AI-assisted development."
         ]
       },
       "nexkio": {
-        "status": "In development",
+        "status": "Used in 4 shops",
         "bullets": [
           "Offline-first PWA for retail stores: POS with hardware barcode scanner, inventory, store credit system and financial reports."
         ]
       },
-      "more": "Also in development: NexQuipu, NexWod, NexPulse, NexGrid."
+      "more": "Other live apps: NexKio (used in 4 shops), NexQuipu (used by 3 families), NexPulse and NexPlay."
     },
     "industrial": {
       "title": "Industrial Experience",
       "bbraun": {
-        "role": "Industrial Maintenance Technician",
+        "role": "Electromechanical & Automation Technician",
         "company": "B.Braun Medical Argentina",
         "period": "2017 – Present",
         "bullets": [

@@ -230,3 +230,26 @@
   opacity: 0.3;
   font-weight: 300;
 }
+
+.cvLink {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark-text);
+  border: 1px solid var(--dark-border-hover);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-4);
+  transition: border-color var(--duration-fast), color var(--duration-fast);
+}
+
+.cvLink:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .cvLink {
+    display: none;
+  }
+}

@@ -258,3 +258,34 @@
     padding: var(--space-6);
   }
 }
+
+.emailRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.emailText {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  color: var(--accent);
+  user-select: all;
+}
+
+.copyBtn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--dark-text);
+  border: 1px solid var(--dark-border-hover);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+}
+
+.copyBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

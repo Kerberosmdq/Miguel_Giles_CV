@@ -23,10 +23,10 @@ export default async function HomePage({
       <Navbar />
       <main id="main-content">
         <Hero />
-        <About />
         <Projects />
         <Experience />
         <TechStack />
+        <About />
         <Contact />
       </main>
       <Footer />

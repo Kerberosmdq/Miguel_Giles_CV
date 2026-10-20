@@ -43,19 +43,18 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE_URL),
     title: isEs
-      ? 'Miguel Giles — Electromecánico & Desarrollador | Apps NEX'
-      : 'Miguel Giles — Electromechanic & Developer | NEX Apps',
+      ? 'Miguel Giles — Desarrollador Full Stack | Next.js · TypeScript'
+      : 'Miguel Giles — Full Stack Developer | Next.js · TypeScript',
     description: isEs
-      ? 'Portfolio de Miguel Giles. +13 años en mantenimiento industrial. Desarrollador Full Stack autodidacta creando apps que resuelven problemas reales.'
-      : 'Miguel Giles Portfolio. 13+ years in industrial maintenance. Self-taught Full Stack developer building apps that solve real problems.',
+      ? 'Desarrollador Full Stack con 13 años en la industria (9 en farma GxP). Apps en uso real con Next.js, TypeScript y Supabase. Disponible para trabajo remoto.'
+      : 'Full Stack Developer with 13 years in industry (9 in GxP pharma). Apps in real use built with Next.js, TypeScript and Supabase. Open to remote work.',
     keywords: [
       'Miguel Giles',
-      'developer',
-      'electromechanic',
-      'portfolio',
+      'Full Stack Developer',
+      'Desarrollador Full Stack',
       'Next.js',
       'TypeScript',
-      'NEX apps',
+      'Supabase',
       'GxP',
       'Mar del Plata',
     ],
@@ -67,15 +66,15 @@ export async function generateMetadata({
       url: `${SITE_URL}/${locale}`,
       siteName: 'Miguel Giles',
       title: isEs
-        ? 'Miguel Giles — Electromecánico & Desarrollador'
-        : 'Miguel Giles — Electromechanic & Developer',
+        ? 'Miguel Giles — Desarrollador Full Stack'
+        : 'Miguel Giles — Full Stack Developer',
       description: isEs
-        ? 'De arreglar máquinas a construirlas digitalmente. Conocé mi historia y mis proyectos.'
-        : 'From fixing machines to building them digitally. Discover my story and projects.',
+        ? 'Apps en uso real con Next.js, TypeScript y Supabase. 13 años en la industria, 9 en farma GxP.'
+        : 'Apps in real use built with Next.js, TypeScript and Supabase. 13 years in industry, 9 in GxP pharma.',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Miguel Giles — Electromechanic × Developer',
+      title: isEs ? 'Miguel Giles — Desarrollador Full Stack' : 'Miguel Giles — Full Stack Developer',
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}`,
@@ -95,7 +94,8 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Miguel Giles',
-  jobTitle: 'Full Stack Developer & Electromechanical Technician',
+  jobTitle: 'Full Stack Developer',
+  knowsAbout: ['Next.js', 'React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Playwright', 'PLC automation', 'GxP'],
   url: SITE_URL,
   email: EMAIL,
   address: {

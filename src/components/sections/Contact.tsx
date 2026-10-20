@@ -14,6 +14,17 @@ export default function Contact() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // sin permiso de portapapeles: el email sigue visible y seleccionable
+    }
+  };
 
   const handleSubmit = async (e: { currentTarget: HTMLFormElement; preventDefault(): void }) => {
     e.preventDefault();
@@ -50,6 +61,13 @@ export default function Contact() {
             >
               <h2 className={styles.title}>{t('title')}</h2>
               <p className={styles.subtitle}>{t('subtitle')}</p>
+
+              <div className={styles.emailRow}>
+                <a href={`mailto:${EMAIL}`} className={styles.emailText}>{EMAIL}</a>
+                <button type="button" className={styles.copyBtn} onClick={copyEmail}>
+                  {copied ? t('emailCopied') : t('copyEmail')}
+                </button>
+              </div>
               
               <div className={styles.connectBlock}>
                 <h3 className={styles.connectTitle}>{t('connectTitle')}</h3>
