@@ -198,3 +198,16 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Tarjeta destacada: texto arriba, demo a todo el ancho abajo */
+.featured {
+  grid-template-columns: 1fr;
+}
+
+.featured:nth-child(even) {
+  grid-template-columns: 1fr;
+}
+
+.demo {
+  min-width: 0;
+}

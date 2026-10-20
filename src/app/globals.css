@@ -3,6 +3,9 @@
    Contrast Split Theme
    ═══════════════════════════════════════════════ */
 
+@layer theme, base, components, utilities;
+
+@layer base {
 /* ── CSS Reset ── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -357,4 +360,6 @@ button {
   .skip-link {
     display: none !important;
   }
+}
+
 }

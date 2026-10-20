@@ -1,12 +1,15 @@
 'use client';
 
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { mainProjects, otherProjects } from '@/data/projects';
 import styles from './Projects.module.css';
 
-// TODO(fase 2): reemplazar el logo por la mini demo (ProjectDemo)
+const NexinduDemo = dynamic(() => import('@/demo/NexinduDemo'), { ssr: false });
+
+// TODO(fase 2): demos de NexKio y NexQuipu (por ahora muestran el logo)
 export default function Projects() {
   const t = useTranslations('projects');
 
@@ -57,15 +60,21 @@ export default function Projects() {
                     </a>
                   )}
                 </div>
-                <div className={styles.visual}>
-                  <Image
-                    src={`/images/Projects/${project.id}.png`}
-                    alt={`${project.name} logo`}
-                    width={160}
-                    height={160}
-                    className={styles.logo}
-                  />
-                </div>
+                {project.id === 'nexindu' ? (
+                  <div className={styles.demo}>
+                    <NexinduDemo />
+                  </div>
+                ) : (
+                  <div className={styles.visual}>
+                    <Image
+                      src={`/images/Projects/${project.id}.png`}
+                      alt={`${project.name} logo`}
+                      width={160}
+                      height={160}
+                      className={styles.logo}
+                    />
+                  </div>
+                )}
               </motion.article>
             );
           })}
