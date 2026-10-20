@@ -17,6 +17,7 @@ export function Navbar() {
   
   // Simple logic to switch locale path
   const nextLocale = locale === 'es' ? 'en' : 'es';
+  const cvHref = `/cv/Miguel_Giles_CV_${locale.toUpperCase()}.pdf`;
 
   const links = [
     { href: '#work', label: t('work') },
@@ -91,10 +92,9 @@ export function Navbar() {
               <span className={locale === 'en' ? styles.activeLang : styles.inactiveLang}>EN</span>
             </Link>
 
-            {/* TODO(fase 4): apuntar a /cv/Miguel_Giles_CV_{ES|EN}.pdf con download */}
-            <Link href="/cv" className={styles.cvLink}>
+            <a href={cvHref} download className={styles.cvLink}>
               {t('resume')}
-            </Link>
+            </a>
             <button 
               className={`btn btn-primary ${styles.ctaBtn}`}
               onClick={() => {
@@ -141,13 +141,14 @@ export function Navbar() {
                   {link.label}
                 </motion.a>
               ))}
-              <Link
-                href="/cv"
+              <a
+                href={cvHref}
+                download
                 className={styles.mobileNavLink}
                 onClick={() => setMenuOpen(false)}
               >
                 {t('resume')}
-              </Link>
+              </a>
               <motion.a
                 href="#contact"
                 className={styles.mobileNavLink}

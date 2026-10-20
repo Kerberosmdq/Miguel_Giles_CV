@@ -165,60 +165,42 @@
   },
   "cv": {
     "back": "Home",
-    "print": "Print / PDF",
+    "download": "Download PDF",
     "role": "Full Stack Developer | Electromechanical & Automation Technician",
-    "sidebar": {
-      "contactTitle": "Contact",
-      "techTitle": "Software Stack",
-      "hardSkillsTitle": "Industrial Skills",
-      "educationTitle": "Education",
-      "languagesTitle": "Languages"
-    },
+    "location": "Mar del Plata, Argentina",
+    "available": "Available: remote, part-time or full-time",
     "profile": {
-      "title": "Professional Profile",
-      "text": "Full Stack Developer and Electromechanical Technician with 13+ years of industrial experience, 9 of them in a GxP-regulated pharmaceutical plant. I build software end to end with Next.js, React and AI, applying the discipline of industrial maintenance: systematic diagnosis, reliability and continuous improvement."
+      "title": "Profile",
+      "text": "Full Stack Developer (Next.js, TypeScript, Supabase) with 13 years of experience in industry, 9 of them in a regulated GxP pharmaceutical plant. I build and maintain web apps used every day —a point-of-sale system in 4 shops and a finance tracker for 3 families— and maintenance software for pharmaceutical plants aligned with FDA 21 CFR Part 11. I'm looking to join a development team, remotely."
     },
-    "software": {
-      "title": "Featured Software Projects",
-      "nexindu": {
-        "period": "2024 – Present",
-        "link": "nexindu.com.ar",
-        "bullets": [
-          "Designed and built, solo, a management system for GxP pharmaceutical plants: work orders, preventive maintenance and spare parts inventory.",
-          "Integrated an AI assistant with RAG memory over plant technical documentation.",
-          "Online at nexindu.com.ar, in pre-launch — Next.js, TypeScript, AI-assisted development."
-        ]
-      },
-      "nexkio": {
-        "status": "Used in 4 shops",
-        "bullets": [
-          "Offline-first PWA for retail stores: POS with hardware barcode scanner, inventory, store credit system and financial reports."
-        ]
-      },
-      "more": "Other live apps: NexKio (used in 4 shops), NexQuipu (used by 3 families), NexPulse and NexPlay."
+    "projectsTitle": "Software projects",
+    "experienceTitle": "Work experience",
+    "skills": {
+      "title": "Technical skills",
+      "items": [
+        {
+          "label": "Frontend",
+          "text": "Next.js, React, TypeScript, Tailwind CSS, Framer Motion"
+        },
+        {
+          "label": "Backend & data",
+          "text": "Supabase (PostgreSQL, Auth, Realtime), Zod, React Hook Form, Resend"
+        },
+        {
+          "label": "Quality & DevOps",
+          "text": "Playwright, Vitest, GitHub Actions (CodeQL, OWASP ZAP), Vercel, Git"
+        },
+        {
+          "label": "AI",
+          "text": "Gemini API, RAG with embeddings"
+        },
+        {
+          "label": "Industry",
+          "text": "PLC / automation, GxP and FDA 21 CFR Part 11, Lean/5S, pneumatics, electrical systems, industrial refrigeration"
+        }
+      ]
     },
-    "industrial": {
-      "title": "Industrial Experience",
-      "bbraun": {
-        "role": "Electromechanical & Automation Technician",
-        "company": "B.Braun Medical Argentina",
-        "period": "2017 – Present",
-        "bullets": [
-          "Maintain pharmaceutical production lines in a GxP-regulated environment.",
-          "Diagnose and resolve critical failures in real time on PLC-automated systems.",
-          "Apply Lean/5S methodology to continuous improvement of maintenance processes."
-        ]
-      },
-      "coiron": {
-        "role": "Industrial Refrigeration Technician",
-        "company": "Coiron",
-        "period": "2013 – 2017",
-        "bullets": [
-          "Led assembly teams building industrial cold-storage installations from the ground up.",
-          "Took end-to-end responsibility for complex installations: refrigeration, electrical and pneumatics."
-        ]
-      }
-    },
+    "educationTitle": "Education",
     "education": {
       "title": "Electromechanical Technician",
       "school": "Instituto Industrial Pablo Tavelli",
@@ -226,6 +208,7 @@
       "selfTaught": "Software development: self-taught",
       "selfTaughtPeriod": "2023 – Present"
     },
+    "languagesTitle": "Languages",
     "languages": {
       "spanish": "Spanish",
       "spanishLevel": "Native",

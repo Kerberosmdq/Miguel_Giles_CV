@@ -41,7 +41,7 @@ Set this in `.env.local` (never commit this file). See `.env.local.example` for 
 ```
 src/
   app/[locale]/       # Next.js App Router with i18n routing (es/en)
-    cv/               # Printable CV page (window.print → PDF)
+    cv/               # Single-column CV page, source for the static PDFs in public/cv/
     opengraph-image.tsx  # Dynamic OG image via Next.js ImageResponse
   actions/
     contact.ts        # Server Action: email via nodemailer + Gmail SMTP
@@ -61,3 +61,18 @@ public/
 Deployed to Vercel. Set `GMAIL_APP_PASSWORD` in Vercel project environment variables (Production + Preview scopes).
 
 CI runs on every push/PR to `main` via GitHub Actions: lint → typecheck → build → audit.
+
+## Regenerar el CV después de cambiar textos
+
+Los PDFs descargables (`public/cv/Miguel_Giles_CV_ES.pdf` y `_EN.pdf`) son archivos estáticos generados desde `/es/cv` y `/en/cv`. Hay que regenerarlos cada vez que cambie el contenido del CV.
+
+```powershell
+pnpm build; pnpm start   # en una terminal
+
+# en otra terminal (usar rutas absolutas)
+$c = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+& $c --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=5000 "--print-to-pdf=C:\AppsMiga\NexCV\public\cv\Miguel_Giles_CV_ES.pdf" http://localhost:3000/es/cv
+& $c --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=5000 "--print-to-pdf=C:\AppsMiga\NexCV\public\cv\Miguel_Giles_CV_EN.pdf" http://localhost:3000/en/cv
+```
+
+Después hay que reiniciar `pnpm start` para que sirva los archivos nuevos. Verificá que cada PDF tenga como máximo 2 páginas y texto seleccionable.

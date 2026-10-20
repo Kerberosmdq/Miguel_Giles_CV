@@ -1,7 +1,7 @@
 # ADR-004: Print-to-PDF for CV Download
 
 ## Status
-Accepted
+Superseded by ADR-005
 
 ## Date
 2026-05-27

@@ -165,60 +165,42 @@
   },
   "cv": {
     "back": "Inicio",
-    "print": "Imprimir / PDF",
+    "download": "Descargar PDF",
     "role": "Desarrollador Full Stack | Técnico Electromecánico y de Automatización",
-    "sidebar": {
-      "contactTitle": "Contacto",
-      "techTitle": "Stack de Software",
-      "hardSkillsTitle": "Habilidades Industriales",
-      "educationTitle": "Formación",
-      "languagesTitle": "Idiomas"
-    },
+    "location": "Mar del Plata, Argentina",
+    "available": "Disponible: remoto, part-time o full-time",
     "profile": {
-      "title": "Perfil Profesional",
-      "text": "Desarrollador Full Stack y Técnico Electromecánico con más de 13 años de experiencia industrial, 9 de ellos en planta farmacéutica regulada GxP. Construyo software end-to-end con Next.js, React e IA, aplicando la disciplina del mantenimiento industrial: diagnóstico sistemático, fiabilidad y mejora continua."
+      "title": "Perfil",
+      "text": "Desarrollador Full Stack (Next.js, TypeScript, Supabase) con 13 años de experiencia en la industria, 9 de ellos en una planta farmacéutica regulada GxP. Construyo y mantengo apps web que se usan a diario —un sistema de ventas en 4 kioscos y un gestor de finanzas para 3 familias— y un software de mantenimiento para plantas farmacéuticas alineado con FDA 21 CFR Part 11. Busco sumarme a un equipo de desarrollo, en remoto."
     },
-    "software": {
-      "title": "Proyectos de Software Destacados",
-      "nexindu": {
-        "period": "2024 – Presente",
-        "link": "nexindu.com.ar",
-        "bullets": [
-          "Diseñé y construí en solitario un sistema de gestión para plantas farmacéuticas GxP: órdenes de trabajo, mantenimiento preventivo e inventario de repuestos.",
-          "Integré un asistente de IA con memoria RAG sobre documentación técnica de planta.",
-          "Online en nexindu.com.ar, en pre-lanzamiento — Next.js, TypeScript, desarrollo asistido por IA."
-        ]
-      },
-      "nexkio": {
-        "status": "En uso en 4 kioscos",
-        "bullets": [
-          "PWA offline-first para comercios: POS con lector de códigos de barras, inventario, sistema de fiado y reportes financieros."
-        ]
-      },
-      "more": "Otras apps online: NexKio (en uso en 4 kioscos), NexQuipu (usada por 3 familias), NexPulse y NexPlay."
+    "projectsTitle": "Proyectos de software",
+    "experienceTitle": "Experiencia laboral",
+    "skills": {
+      "title": "Habilidades técnicas",
+      "items": [
+        {
+          "label": "Frontend",
+          "text": "Next.js, React, TypeScript, Tailwind CSS, Framer Motion"
+        },
+        {
+          "label": "Backend y datos",
+          "text": "Supabase (PostgreSQL, Auth, Realtime), Zod, React Hook Form, Resend"
+        },
+        {
+          "label": "Calidad y DevOps",
+          "text": "Playwright, Vitest, GitHub Actions (CodeQL, OWASP ZAP), Vercel, Git"
+        },
+        {
+          "label": "IA",
+          "text": "Gemini API, RAG con embeddings"
+        },
+        {
+          "label": "Industria",
+          "text": "PLC / automatización, GxP y FDA 21 CFR Part 11, Lean/5S, neumática, electricidad, refrigeración industrial"
+        }
+      ]
     },
-    "industrial": {
-      "title": "Experiencia Industrial",
-      "bbraun": {
-        "role": "Técnico Electromecánico y de Automatización",
-        "company": "B.Braun Medical Argentina",
-        "period": "2017 – Presente",
-        "bullets": [
-          "Mantengo líneas de producción farmacéutica en entorno regulado GxP.",
-          "Diagnostico y resuelvo fallas críticas en tiempo real sobre sistemas automatizados con PLC.",
-          "Aplico metodología Lean/5S a la mejora continua de los procesos de mantenimiento."
-        ]
-      },
-      "coiron": {
-        "role": "Técnico Frigorista Industrial",
-        "company": "Coiron",
-        "period": "2013 – 2017",
-        "bullets": [
-          "Lideré equipos de montaje de cámaras frigoríficas industriales construidas desde cero.",
-          "Responsabilidad integral sobre instalaciones complejas: refrigeración, electricidad y neumática."
-        ]
-      }
-    },
+    "educationTitle": "Formación",
     "education": {
       "title": "Técnico Electromecánico",
       "school": "Instituto Industrial Pablo Tavelli",
@@ -226,6 +208,7 @@
       "selfTaught": "Desarrollo de software: autodidacta",
       "selfTaughtPeriod": "2023 – Presente"
     },
+    "languagesTitle": "Idiomas",
     "languages": {
       "spanish": "Español",
       "spanishLevel": "Nativo",

@@ -1,13 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { Link } from '@/i18n/navigation';
 import styles from './Hero.module.css';
 
 export function Hero() {
   const t = useTranslations('hero');
+  const locale = useLocale();
   const { scrollY } = useScroll();
 
   // Scroll-driven morphs
@@ -84,12 +84,12 @@ export function Hero() {
           </p>
 
           <div className={styles.lightCta}>
-            <Link href="/cv" className="btn btn-outline-light">
+            <a href={`/cv/Miguel_Giles_CV_${locale.toUpperCase()}.pdf`} download className="btn btn-outline-light">
               <span className={styles.btnText}>{t('cta_secondary')}</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 13l10-10M6 3h7v7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </Link>
+            </a>
           </div>
         </motion.div>
       </motion.div>
