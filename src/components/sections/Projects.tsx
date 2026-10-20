@@ -92,7 +92,6 @@ export default function Projects() {
                           target="_blank" 
                           rel="noopener noreferrer" 
                           className="btn btn-primary"
-                          data-cursor-text="VISIT"
                         >
                           {t('viewProject')}
                           <svg width="14" height="14" viewBox="0 0 16 16" fill="none">

@@ -50,7 +50,7 @@ export function Navbar() {
     <>
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
         <div className={`container ${styles.navContainer}`}>
-          <a href="#hero" className={styles.logo} data-cursor-text="HOME" aria-label="Miguel Giles, inicio">
+          <a href="#hero" className={styles.logo} aria-label="Miguel Giles, inicio">
             <Image
               src="/images/logo_2.png"
               alt=""
@@ -70,7 +70,6 @@ export function Navbar() {
                   key={link.href} 
                   href={link.href} 
                   className={`${styles.navLink} ${isActive ? styles.active : ''}`}
-                  data-cursor-text="GO"
                 >
                   {link.label}
                   {isActive && (
@@ -86,7 +85,6 @@ export function Navbar() {
               href={pathname}
               locale={nextLocale}
               className={styles.langToggle}
-              data-cursor-text="LANG"
             >
               <span className={locale === 'es' ? styles.activeLang : styles.inactiveLang}>ES</span>
               <span className={styles.langSeparator}>/</span>
@@ -98,7 +96,6 @@ export function Navbar() {
               onClick={() => {
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
-              data-cursor-text="HI"
             >
               {t('cta')}
             </button>

@@ -5,8 +5,7 @@ import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
-import { Preloader } from '@/components/ui/Preloader';
-import { CustomCursor } from '@/components/ui/CustomCursor';
+import { SITE_URL, EMAIL, GITHUB_URL, LINKEDIN_URL } from '@/lib/site';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -42,7 +41,7 @@ export async function generateMetadata({
   const isEs = locale === 'es';
 
   return {
-    metadataBase: new URL('https://miguelgiles.dev'),
+    metadataBase: new URL(SITE_URL),
     title: isEs
       ? 'Miguel Giles — Electromecánico & Desarrollador | Apps NEX'
       : 'Miguel Giles — Electromechanic & Developer | NEX Apps',
@@ -56,7 +55,6 @@ export async function generateMetadata({
       'portfolio',
       'Next.js',
       'TypeScript',
-      'vibe coding',
       'NEX apps',
       'GxP',
       'Mar del Plata',
@@ -66,7 +64,7 @@ export async function generateMetadata({
     openGraph: {
       type: 'website',
       locale: isEs ? 'es_AR' : 'en_US',
-      url: `https://miguelgiles.dev/${locale}`,
+      url: `${SITE_URL}/${locale}`,
       siteName: 'Miguel Giles',
       title: isEs
         ? 'Miguel Giles — Electromecánico & Desarrollador'
@@ -80,10 +78,10 @@ export async function generateMetadata({
       title: 'Miguel Giles — Electromechanic × Developer',
     },
     alternates: {
-      canonical: `https://miguelgiles.dev/${locale}`,
+      canonical: `${SITE_URL}/${locale}`,
       languages: {
-        es: 'https://miguelgiles.dev/es',
-        en: 'https://miguelgiles.dev/en',
+        es: `${SITE_URL}/es`,
+        en: `${SITE_URL}/en`,
       },
     },
     robots: {
@@ -98,16 +96,16 @@ const jsonLd = {
   '@type': 'Person',
   name: 'Miguel Giles',
   jobTitle: 'Full Stack Developer & Electromechanical Technician',
-  url: 'https://miguelgiles.dev',
-  email: 'miga.gls246@gmail.com',
+  url: SITE_URL,
+  email: EMAIL,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Mar del Plata',
     addressCountry: 'AR',
   },
   sameAs: [
-    'https://linkedin.com/in/miguel-giles',
-    'https://github.com/kerberosmdq',
+    LINKEDIN_URL,
+    GITHUB_URL,
   ],
 };
 
@@ -144,8 +142,6 @@ export default async function LocaleLayout({
           <a href="#main-content" className="skip-link">
             {locale === 'es' ? 'Ir al contenido' : 'Skip to content'}
           </a>
-          <Preloader />
-          <CustomCursor />
           <div className="noise-overlay" aria-hidden="true" />
           {children}
         </NextIntlClientProvider>

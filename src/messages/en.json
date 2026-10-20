@@ -67,27 +67,38 @@
   },
   "experience": {
     "title": "Experience",
-    "subtitle": "Two paths, one mission",
-    "industrial": {
-      "title": "Industrial Career",
+    "subtitle": "13 years in industry, now building software",
+    "items": {
+      "dev": {
+        "role": "Full Stack Developer",
+        "company": "Independent projects (NEX Apps)",
+        "period": "2023 – Present",
+        "meta": "Remote, alongside B.Braun",
+        "bullets": [
+          "Design, build and deploy full web apps with Next.js, TypeScript and Supabase",
+          "Two apps in daily use: NexKio (4 shops) and NexQuipu (3 families)",
+          "AI-assisted development backed by tests (Playwright, Vitest), GitHub Actions CI and documented decisions"
+        ]
+      },
       "bbraun": {
+        "role": "Electromechanical & Automation Technician",
+        "company": "B.Braun Medical Argentina",
         "period": "2017 – Present",
-        "role": "Automation & Maintenance",
-        "description": "Critical process management and maintenance in pharmaceutical production line. Daily troubleshooting application. Lean/5S mindset."
+        "meta": "Mar del Plata",
+        "bullets": [
+          "Maintenance and PLC automation of pharmaceutical production lines in a GxP-regulated plant",
+          "Real-time diagnosis and resolution of critical failures",
+          "Continuous improvement with Lean/5S"
+        ]
       },
       "coiron": {
+        "role": "Industrial Refrigeration Technician",
+        "company": "Coiron",
         "period": "2013 – 2017",
-        "role": "Industrial Refrigeration",
-        "description": "Team leadership in ground-up assembly projects. Full responsibility over complex installations."
-      }
-    },
-    "developer": {
-      "title": "Developer Path",
-      "recent": {
-        "period": "2023 – Present",
-        "role": "Full-Stack Developer",
-        "company": "NEX Apps (Independent)",
-        "description": "Self-taught since 2023. Since early 2025, 100% vibe coding — which radically scaled my app output. Building end-to-end solutions with Next.js, React, Python and AI-powered architectures."
+        "bullets": [
+          "Led installation teams building industrial cold rooms from scratch",
+          "Responsible for refrigeration, electrical and pneumatic systems"
+        ]
       }
     }
   },

@@ -1,3 +1,4 @@
+import { SITE_URL } from '@/lib/site';
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
@@ -22,7 +23,7 @@ export default function Image() {
         }}
       >
         <div style={{ color: '#00E5FF', fontSize: 20, letterSpacing: '0.15em' }}>
-          miguelgiles.dev
+          {SITE_URL.replace('https://', '')}
         </div>
         <div
           style={{

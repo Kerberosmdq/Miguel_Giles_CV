@@ -6,7 +6,7 @@
 
 .header {
   text-align: center;
-  margin-bottom: var(--space-20);
+  margin-bottom: var(--space-16);
 }
 
 .title {
@@ -20,180 +20,73 @@
   font-size: clamp(1.1rem, 1.3vw, 1.25rem);
 }
 
-/* ── Dual Tracks Layout ── */
-.dualTracksContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.centerLine {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 2px;
-  height: 100%;
-  background: var(--light-border-hover);
-  transform-origin: top;
-  z-index: 0;
-}
-
-.track {
-  position: relative;
-  padding: 0 var(--space-8);
-}
-
-.track:first-child {
-  text-align: right;
-  border-right: 1px solid transparent; /* Just to maintain spacing */
-}
-
-.trackTitle {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: var(--light-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: var(--space-12);
-}
-
-.track:last-child .trackTitle {
-  color: var(--accent-hover);
-}
-
+/* ── Single vertical timeline (newest first) ── */
 .timeline {
+  list-style: none;
   position: relative;
-  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 0 0 var(--space-8);
 }
 
-/* ── Entries ── */
-.entryLeft, .entryRight {
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 6px;
+  width: 2px;
+  background: var(--light-border-hover);
+}
+
+.entry {
   position: relative;
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-8);
 }
 
-.entryLeft {
-  padding-right: var(--space-8);
-}
-
-.entryRight {
-  padding-left: var(--space-8);
-  text-align: left;
+.entry:last-child {
+  margin-bottom: 0;
 }
 
 .node {
   position: absolute;
-  top: 24px;
-  width: 12px;
-  height: 12px;
+  top: 28px;
+  left: calc(-1 * var(--space-8));
+  width: 14px;
+  height: 14px;
   background: var(--light-bg);
   border: 2px solid var(--light-border-hover);
   border-radius: 50%;
-  z-index: 2;
-  transition: all 0.3s ease;
+  z-index: 1;
 }
 
-.entryLeft .node {
-  right: -6px; /* Half width */
-  transform: translateX(100%);
-}
-
-.entryRight .node {
-  left: -6px;
-  transform: translateX(-100%);
+.entry:first-child .node {
   border-color: var(--accent);
-}
-
-.entryLeft:hover .node, .entryRight:hover .node {
-  transform: scale(1.5) translateX(calc(100% * (1 / 1.5)));
   background: var(--accent);
-  border-color: var(--accent);
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
 }
 
-.entryRight:hover .node {
-  transform: scale(1.5) translateX(calc(-100% * (1 / 1.5)));
-}
-
-.yearLabel {
-  font-family: var(--font-heading);
-  font-size: 3rem;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.05);
-  position: absolute;
-  top: -10px;
-  line-height: 1;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.entryLeft .yearLabel {
-  right: var(--space-8);
-}
-
-.entryRight .yearLabel {
-  left: var(--space-8);
-}
-
-/* ── Cards ── */
 .card {
   background: var(--light-surface);
   border: 1px solid var(--light-border);
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  z-index: 2;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-}
-
-.companyHeader {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-2);
-}
-
-.entryLeft .companyHeader {
-  justify-content: flex-end;
-}
-
-.companyLogo {
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
-  background: var(--light-border-hover);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 0.8rem;
-  color: var(--light-text);
-}
-
-.logoBbraun {
-  background: #00A651;
-  color: white;
-}
-
-.logoNex {
-  background: var(--dark-bg);
-  color: var(--accent);
 }
 
 .role {
   font-family: var(--font-heading);
   font-size: 1.25rem;
   color: var(--light-text);
-  margin: 0;
+  margin: 0 0 var(--space-1);
+}
+
+.company {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--accent-hover);
+  margin: 0 0 var(--space-1);
 }
 
 .period {
@@ -203,93 +96,32 @@
   margin-bottom: var(--space-4);
 }
 
-.description {
-  font-size: 0.95rem;
+.bullets {
+  margin: 0;
+  padding-left: var(--space-5);
   color: var(--light-text-secondary);
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
-/* ── Pivot Bridge ── */
-.bridgeContainer {
-  position: absolute;
-  top: 45%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
+.bullets li + li {
+  margin-top: var(--space-2);
 }
 
-.bridgeLine {
-  position: absolute;
-  width: 50%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--light-border-hover), var(--accent));
-  transform-origin: left;
-}
-
-.pivotPoint {
-  background: var(--dark-bg);
-  color: var(--accent);
-  font-family: var(--font-mono);
-  font-weight: 600;
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  border: 1px solid var(--accent);
-  font-size: 0.85rem;
-  z-index: 3;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
-}
-
-/* ── Mobile ── */
 @media (max-width: 768px) {
-  .dualTracksContainer {
-    grid-template-columns: 1fr;
-    padding-left: var(--space-4);
+  .timeline {
+    padding-left: var(--space-6);
   }
 
-  .centerLine {
-    left: 0;
+  .node {
+    left: calc(-1 * var(--space-6));
   }
 
-  .track {
-    padding: 0 0 0 var(--space-6);
+  .timeline::before {
+    left: 6px;
   }
 
-  .track:first-child {
-    text-align: left;
-  }
-
-  .entryLeft {
-    padding-right: 0;
-  }
-
-  .entryLeft .node, .entryRight .node {
-    left: -22px; /* Offset to center line */
-    right: auto;
-    transform: none !important; /* Disable hover transform offset */
-  }
-
-  .entryLeft:hover .node, .entryRight:hover .node {
-    transform: scale(1.5) !important;
-  }
-
-  .entryLeft .companyHeader {
-    justify-content: flex-start;
-  }
-
-  .entryLeft .yearLabel, .entryRight .yearLabel {
-    left: var(--space-2);
-    right: auto;
-  }
-
-  .bridgeContainer {
-    display: none; /* Hide bridge on mobile, it doesn't make sense vertically */
-  }
-
-  .entryRight {
-    margin-top: var(--space-12) !important;
+  .card {
+    padding: var(--space-4);
   }
 }
