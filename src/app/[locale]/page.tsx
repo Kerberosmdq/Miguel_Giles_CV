@@ -7,6 +7,7 @@ import { HowIWork } from '@/components/sections/HowIWork';
 import { OtherProjects } from '@/components/sections/OtherProjects';
 import { Career } from '@/components/sections/Career';
 import { Education } from '@/components/sections/Education';
+import { Contact } from '@/components/sections/Contact';
 
 export default async function HomePage({
   params,
@@ -26,6 +27,7 @@ export default async function HomePage({
         <OtherProjects />
         <Career />
         <Education />
+        <Contact />
       </main>
       <Footer />
     </>
