@@ -1,44 +1,145 @@
 {
   "nav": {
-    "work": "Projects",
-    "about": "About",
-    "experience": "Experience",
-    "stack": "Stack",
+    "nexindu": "NexIndu case",
+    "method": "How I work",
+    "career": "Career",
     "contact": "Contact",
-    "cta": "Let's Talk",
-    "resume": "CV"
+    "cv": "CV",
+    "primary": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Switch language to Spanish",
+    "home": "Miguel Giles, home"
+  },
+  "ui": {
+    "skip": "Skip to content"
   },
   "hero": {
-    "greeting": "Hi, I'm",
-    "name": "Miguel Giles",
-    "role": "Full Stack Developer",
-    "stackLine": "Next.js · TypeScript · Supabase",
-    "tagline": "I build apps people use every day: a point-of-sale system running in 4 shops, a finance tracker used by 3 families, and maintenance software for pharmaceutical plants. Before coding, I spent 13 years in industry, 9 of them in regulated pharma (GxP).",
-    "availability": "Open to remote roles · part-time or full-time",
-    "cta_primary": "See projects",
-    "cta_secondary": "Download resume (PDF)"
+    "meta": "DOC-001 · Applied AI Engineer · Rev. 2026-11",
+    "title": "Auditable AI for regulated manufacturing.",
+    "lead": "I design and build AI software for regulated plants: RAG with cited sources, full traceability and electronic signatures under 21 CFR Part 11 — backed by 13+ years working inside industrial plants.",
+    "tags": [
+      "RAG",
+      "LLMs",
+      "Multi-agent orchestration",
+      "GxP",
+      "21 CFR Part 11"
+    ],
+    "ctaPrimary": "See the NexIndu case",
+    "ctaSecondary": "Download CV (PDF)",
+    "availability": "Open to remote work · part-time or full-time",
+    "ragMini": [
+      "document",
+      "local embeddings",
+      "pgvector + RLS",
+      "Gemini",
+      "answer with citations"
+    ],
+    "ragMiniLabel": "Summary of the RAG flow"
   },
-  "about": {
-    "title": "About me",
-    "text": "I'm an electromechanical technician and have worked in industry since 2013: first in industrial refrigeration and, since 2017, at B.Braun in a regulated pharmaceutical plant. In 2023 I started teaching myself to code, and today I build full apps, using AI as a working tool. From industry I bring a methodical approach to troubleshooting, a habit of documenting and working under strict standards, and a focus on things working every single day.",
-    "stats": [
+  "footer": {
+    "contact": "Contact"
+  },
+  "nexindu": {
+    "label": "§1 · Case study",
+    "title": "NexIndu — AI-powered CMMS/EAM for regulated plants",
+    "status": "Status: pre-launch · Personal project, built in my own time ·",
+    "problemTitle": "Problem",
+    "problem": "In a regulated plant, every maintenance task produces records that must be traceable, signed and searchable for years. A generic AI assistant doesn't fit that context: it doesn't cite where its answers come from, leaves no auditable trail and requires sending documentation to external services.",
+    "approachTitle": "Approach",
+    "approach": [
       {
-        "value": "13",
-        "label": "years in industry"
+        "k": "RAG",
+        "v": "Semantic search on pgvector with multilingual embeddings computed locally (ONNX, 384 dimensions)."
       },
       {
-        "value": "9",
-        "label": "years in GxP pharma"
+        "k": "ROUTING",
+        "v": "About 40 intents are resolved deterministically; everything else goes to the LLM (Gemini), which answers with cited sources."
       },
       {
-        "value": "2",
-        "label": "apps in daily use"
+        "k": "PART 11",
+        "v": "Electronic signatures with re-authentication and passkeys, an immutable hash-chained audit trail and soft deletes only."
       },
       {
-        "value": "2",
-        "label": "languages (ES native / EN intermediate)"
+        "k": "LLMOPS",
+        "v": "Automated prompt evaluations, a fallback model, usage logging and a per-company AI budget."
       }
-    ]
+    ],
+    "rag": {
+      "figLabel": "RAG flow",
+      "indexingLabel": "Indexing",
+      "indexing": [
+        "Plant document",
+        "Chunking",
+        "Local embeddings · ONNX · 384-dim",
+        "pgvector · per-company isolation (RLS)"
+      ],
+      "queryLabel": "Query",
+      "query": [
+        "Question",
+        "Local embedding",
+        "Similarity search",
+        "Gemini + retrieved chunks",
+        "Answer with citations"
+      ],
+      "caption": "Indexing runs locally: documents never leave the system to be embedded. The model only receives the chunks needed to answer, and every answer cites its source."
+    },
+    "routing": {
+      "figLabel": "Hybrid routing",
+      "query": "User query",
+      "classifier": "Intent classifier",
+      "aIntents": "~40 known intents",
+      "aAction": "Deterministic handling · direct data query, no LLM",
+      "bIntents": "All other queries",
+      "bAction": "LLM (Gemini) + RAG · answers with cited sources",
+      "bFallback": "Fallback model on failure",
+      "bar": "Usage logging · Per-company AI budget · Automated prompt evaluations",
+      "caption": "Predictable requests skip the LLM: faster, cheaper and always reproducible. The LLM is reserved for what actually needs language."
+    },
+    "blocks": [
+      {
+        "title": "Compliance · 21 CFR Part 11",
+        "items": [
+          "electronic signatures with re-authentication and passkeys",
+          "immutable, hash-chained audit trail",
+          "soft deletes only, nothing is physically erased"
+        ]
+      },
+      {
+        "title": "Security",
+        "items": [
+          "multi-tenant with PostgreSQL Row Level Security",
+          "column-level permissions",
+          "strict Content Security Policy",
+          "documented SSDLC",
+          "pentest-ready"
+        ]
+      },
+      {
+        "title": "LLMOps",
+        "items": [
+          "automated prompt evaluations",
+          "fallback model",
+          "usage logging",
+          "per-company AI budget"
+        ]
+      }
+    ],
+    "demoCaption": "Animated demo with sample data.",
+    "demoLabel": "NexIndu animated demo",
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Supabase / PostgreSQL",
+      "pgvector",
+      "Gemini API",
+      "Vercel",
+      "GitHub Actions",
+      "6 languages"
+    ],
+    "stackLabel": "Stack",
+    "cta": "Visit nexindu.com.ar"
   },
   "projects": {
     "title": "Projects",
@@ -120,25 +221,6 @@
       }
     }
   },
-  "stack": {
-    "title": "Stack",
-    "subtitle": "Tools I use to build",
-    "cards": {
-      "frontend": "Frontend",
-      "backend": "Backend & data",
-      "quality": "Quality & DevOps",
-      "ai": "AI",
-      "industry": "Industry"
-    },
-    "industryItems": [
-      "PLC / automation",
-      "GxP · FDA 21 CFR Part 11",
-      "Lean / 5S",
-      "Pneumatics",
-      "Electrical systems",
-      "Industrial refrigeration"
-    ]
-  },
   "contact": {
     "title": "Let's talk",
     "subtitle": "Looking to add a developer to your team? I'm open to remote roles, part-time or full-time.",
@@ -158,10 +240,6 @@
     "responseTime": "Typically responds within 24h",
     "copyEmail": "Copy",
     "emailCopied": "Copied!"
-  },
-  "footer": {
-    "copyright": "All rights reserved.",
-    "forgedWith": "Forged with"
   },
   "cv": {
     "back": "Home",

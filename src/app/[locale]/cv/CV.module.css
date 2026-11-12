@@ -1,11 +1,11 @@
 .container {
   min-height: 100vh;
   padding: 80px 20px;
-  background-color: var(--dark-bg);
+  background-color: var(--bg);
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
 }
 
 .printHeader {
@@ -44,7 +44,7 @@
 }
 
 .role {
-  font-family: var(--font-heading);
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 1rem;
   color: #333;

@@ -1,13 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
-import { Navbar } from '@/components/layout/Navbar';
-import { Hero } from '@/components/sections/Hero';
-import About from '@/components/sections/About';
-import Projects from '@/components/sections/Projects';
-import Experience from '@/components/sections/Experience';
-import TechStack from '@/components/sections/TechStack';
-import Contact from '@/components/sections/Contact';
+import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { ScrollProgress } from '@/components/ui/ScrollProgress';
 
 export default async function HomePage({
   params,
@@ -19,16 +12,8 @@ export default async function HomePage({
 
   return (
     <>
-      <ScrollProgress />
-      <Navbar />
-      <main id="main-content">
-        <Hero />
-        <Projects />
-        <Experience />
-        <TechStack />
-        <About />
-        <Contact />
-      </main>
+      <Header />
+      <main id="main-content" />
       <Footer />
     </>
   );

@@ -4,6 +4,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './CV.module.css';
+import btn from '@/components/ui/Button.module.css';
 import { SITE_URL, EMAIL, PHONE_DISPLAY, LINKEDIN_URL, GITHUB_URL, NEXINDU_URL } from '@/lib/site';
 
 const strip = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '');
@@ -27,11 +28,11 @@ export default function CVPage() {
         <a
           href={`/cv/Miguel_Giles_CV_${locale.toUpperCase()}.pdf`}
           download
-          className="btn btn-primary"
+          className={`${btn.btn} ${btn.primary}`}
         >
           {t('download')}
         </a>
-        <Link href={`/${locale}`} className="btn btn-outline-dark">
+        <Link href={`/${locale}`} className={`${btn.btn} ${btn.secondary}`}>
           {t('back')}
         </Link>
       </div>

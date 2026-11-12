@@ -1,44 +1,145 @@
 {
   "nav": {
-    "work": "Proyectos",
-    "about": "Sobre mí",
-    "experience": "Experiencia",
-    "stack": "Stack",
+    "nexindu": "Caso NexIndu",
+    "method": "Método",
+    "career": "Trayectoria",
     "contact": "Contacto",
-    "cta": "Hablemos",
-    "resume": "CV"
+    "cv": "CV",
+    "primary": "Navegación principal",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "language": "Cambiar idioma a inglés",
+    "home": "Miguel Giles, inicio"
+  },
+  "ui": {
+    "skip": "Ir al contenido"
   },
   "hero": {
-    "greeting": "Hola, soy",
-    "name": "Miguel Giles",
-    "role": "Desarrollador Full Stack",
-    "stackLine": "Next.js · TypeScript · Supabase",
-    "tagline": "Construyo apps que se usan todos los días: un sistema de ventas en 4 kioscos, un gestor de finanzas para 3 familias y un software de mantenimiento para plantas farmacéuticas. Antes de programar, pasé 13 años en la industria, 9 de ellos en farma regulada (GxP).",
+    "meta": "DOC-001 · Applied AI Engineer · Rev. 2026-11",
+    "title": "IA que se puede auditar, para manufactura regulada.",
+    "lead": "Diseño y construyo software con IA para plantas reguladas: RAG con fuentes citadas, trazabilidad completa y firma electrónica según 21 CFR Part 11. Lo respaldan más de 13 años trabajando dentro de plantas industriales.",
+    "tags": [
+      "RAG",
+      "LLMs",
+      "Orquestación multiagente",
+      "GxP",
+      "21 CFR Part 11"
+    ],
+    "ctaPrimary": "Ver caso NexIndu",
+    "ctaSecondary": "Descargar CV (PDF)",
     "availability": "Disponible para trabajo remoto · part-time o full-time",
-    "cta_primary": "Ver proyectos",
-    "cta_secondary": "Descargar CV (PDF)"
+    "ragMini": [
+      "documento",
+      "embeddings locales",
+      "pgvector + RLS",
+      "Gemini",
+      "respuesta con citas"
+    ],
+    "ragMiniLabel": "Flujo RAG resumido"
   },
-  "about": {
-    "title": "Sobre mí",
-    "text": "Soy técnico electromecánico y trabajo en la industria desde 2013: primero en refrigeración industrial y desde 2017 en B.Braun, en una planta farmacéutica regulada. En 2023 empecé a programar por mi cuenta y hoy construyo apps completas, usando la IA como herramienta de trabajo. De la industria traigo método para diagnosticar fallas, la costumbre de documentar y trabajar bajo normas estrictas, y el foco en que las cosas funcionen todos los días.",
-    "stats": [
+  "footer": {
+    "contact": "Contacto"
+  },
+  "nexindu": {
+    "label": "§1 · Caso de estudio",
+    "title": "NexIndu — CMMS/EAM con IA para plantas reguladas",
+    "status": "Estado: pre-lanzamiento · Proyecto propio, desarrollado en mi tiempo libre ·",
+    "problemTitle": "Problema",
+    "problem": "En una planta regulada, cada intervención de mantenimiento genera registros que tienen que ser trazables, firmados y consultables durante años. Un asistente de IA genérico no sirve en ese contexto: no cita de dónde saca la respuesta, no deja un registro auditable y obliga a mandar la documentación a servicios externos.",
+    "approachTitle": "Enfoque",
+    "approach": [
       {
-        "value": "13",
-        "label": "años en la industria"
+        "k": "RAG",
+        "v": "Búsqueda semántica sobre pgvector con embeddings multilingües calculados localmente (ONNX, 384 dimensiones)."
       },
       {
-        "value": "9",
-        "label": "años en farma GxP"
+        "k": "ROUTING",
+        "v": "Unas 40 intenciones se resuelven de forma determinista; el resto va al LLM (Gemini), que responde citando fuentes."
       },
       {
-        "value": "2",
-        "label": "apps en uso diario"
+        "k": "PART 11",
+        "v": "Firma electrónica con reautenticación y passkeys, auditoría inmutable con cadena de hash y bajas solo lógicas."
       },
       {
-        "value": "2",
-        "label": "idiomas (ES nativo / EN intermedio)"
+        "k": "LLMOPS",
+        "v": "Evaluaciones automáticas de prompts, modelo de respaldo, registro de uso y presupuesto de IA por empresa."
       }
-    ]
+    ],
+    "rag": {
+      "figLabel": "Flujo RAG",
+      "indexingLabel": "Indexación",
+      "indexing": [
+        "Documento de planta",
+        "Fragmentación",
+        "Embeddings locales · ONNX · 384 dim",
+        "pgvector · aislado por empresa (RLS)"
+      ],
+      "queryLabel": "Consulta",
+      "query": [
+        "Pregunta",
+        "Embedding local",
+        "Búsqueda por similitud",
+        "Gemini + fragmentos recuperados",
+        "Respuesta con citas"
+      ],
+      "caption": "La indexación es local: los documentos no salen del sistema para generar embeddings. Al modelo solo llegan los fragmentos necesarios para responder, y cada respuesta indica su fuente."
+    },
+    "routing": {
+      "figLabel": "Enrutamiento híbrido",
+      "query": "Consulta del usuario",
+      "classifier": "Clasificador de intención",
+      "aIntents": "~40 intenciones conocidas",
+      "aAction": "Resolución determinista · consulta directa a datos, sin LLM",
+      "bIntents": "Resto de las consultas",
+      "bAction": "LLM (Gemini) + RAG · responde citando fuentes",
+      "bFallback": "Modelo de respaldo si falla",
+      "bar": "Registro de uso · Presupuesto de IA por empresa · Evaluaciones automáticas de prompts",
+      "caption": "Lo predecible se resuelve sin LLM: es más rápido, más barato y da siempre el mismo resultado. El LLM queda para lo que de verdad necesita lenguaje."
+    },
+    "blocks": [
+      {
+        "title": "Cumplimiento · 21 CFR Part 11",
+        "items": [
+          "firma electrónica con reautenticación y passkeys",
+          "auditoría inmutable con cadena de hash",
+          "bajas solo lógicas, nada se borra físicamente"
+        ]
+      },
+      {
+        "title": "Seguridad",
+        "items": [
+          "multi-tenant con Row Level Security en PostgreSQL",
+          "permisos por columna",
+          "Content Security Policy estricta",
+          "SSDLC documentado",
+          "preparado para pentest"
+        ]
+      },
+      {
+        "title": "LLMOps",
+        "items": [
+          "evaluaciones automáticas de prompts",
+          "modelo de respaldo",
+          "registro de uso",
+          "presupuesto de IA por empresa"
+        ]
+      }
+    ],
+    "demoCaption": "Demo animada con datos ficticios.",
+    "demoLabel": "Demo animada de NexIndu",
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Supabase / PostgreSQL",
+      "pgvector",
+      "Gemini API",
+      "Vercel",
+      "GitHub Actions",
+      "6 idiomas"
+    ],
+    "stackLabel": "Stack",
+    "cta": "Visitar nexindu.com.ar"
   },
   "projects": {
     "title": "Proyectos",
@@ -120,25 +221,6 @@
       }
     }
   },
-  "stack": {
-    "title": "Stack",
-    "subtitle": "Herramientas que uso para construir",
-    "cards": {
-      "frontend": "Frontend",
-      "backend": "Backend y datos",
-      "quality": "Calidad y DevOps",
-      "ai": "IA",
-      "industry": "Industria"
-    },
-    "industryItems": [
-      "PLC / automatización",
-      "GxP · FDA 21 CFR Part 11",
-      "Lean / 5S",
-      "Neumática",
-      "Electricidad",
-      "Refrigeración industrial"
-    ]
-  },
   "contact": {
     "title": "Hablemos",
     "subtitle": "¿Buscás sumar un desarrollador a tu equipo? Estoy disponible para roles remotos, part-time o full-time.",
@@ -158,10 +240,6 @@
     "responseTime": "Suelo responder en menos de 24 h",
     "copyEmail": "Copiar",
     "emailCopied": "¡Copiado!"
-  },
-  "footer": {
-    "copyright": "Todos los derechos reservados.",
-    "forgedWith": "Forjado con"
   },
   "cv": {
     "back": "Inicio",

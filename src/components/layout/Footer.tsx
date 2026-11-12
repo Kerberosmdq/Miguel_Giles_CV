@@ -1,49 +1,18 @@
-'use client';
-
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import { EMAIL, LINKEDIN_URL, GITHUB_URL } from '@/lib/site';
 import styles from './Footer.module.css';
 
-export function Footer() {
-  const t = useTranslations('footer');
-  const currentYear = new Date().getFullYear();
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export async function Footer() {
+  const t = await getTranslations('footer');
   return (
     <footer className={styles.footer}>
-      {/* Top Gradient Border */}
-      <div className={styles.topBorder} />
-
-      {/* Massive Watermark Text */}
-      <div className={styles.watermarkContainer}>
-        <span className={styles.watermark}>MIGUEL GILES</span>
-      </div>
-
-      <div className={`container ${styles.content}`}>
-        <div className={styles.mainRow}>
-          <div className={styles.brand}>
-            <span className={styles.logo}>NEX.</span>
-            <p className={styles.copyright}>
-              © {currentYear} Miguel Giles. {t('copyright')}
-            </p>
-          </div>
-
-          <div className={styles.actions}>
-            <button
-              onClick={scrollToTop}
-              className={styles.backToTop}
-              aria-label="Volver al inicio"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="12" y1="19" x2="12" y2="5"></line>
-                <polyline points="5 12 12 5 19 12"></polyline>
-              </svg>
-            </button>
-          </div>
-        </div>
-
+      <div className={`container ${styles.inner}`}>
+        <p className="mono">© 2026 Miguel Giles · DOC-001 Rev. 2026-11</p>
+        <ul className={styles.links} aria-label={t('contact')}>
+          <li><a href={`mailto:${EMAIL}`}>Email</a></li>
+          <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
       </div>
     </footer>
   );
