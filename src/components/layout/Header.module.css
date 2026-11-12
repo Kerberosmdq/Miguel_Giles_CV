@@ -1,0 +1,94 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-h);
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 1rem;
+}
+.logo {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.nav {
+  display: none;
+  position: absolute;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.5rem var(--gutter) 1rem;
+}
+.nav.open { display: block; }
+.links { display: flex; flex-direction: column; }
+.link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: color 150ms;
+}
+.link:hover { color: var(--accent); text-decoration: none; }
+.actions { display: flex; align-items: center; gap: 0.5rem; margin-left: auto; }
+.lang {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+  text-decoration: none;
+  white-space: pre;
+}
+.lang span[aria-current] { color: var(--ink); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+.lang:hover { color: var(--accent); text-decoration: none; }
+.toggle {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.bars, .bars::before, .bars::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--ink);
+  content: '';
+  position: relative;
+}
+.bars::before { position: absolute; top: -6px; }
+.bars::after { position: absolute; top: 6px; }
+
+@media (min-width: 900px) {
+  .toggle { display: none; }
+  .actions { margin-left: 0; }
+  .bar { gap: 2rem; }
+  .nav {
+    display: block;
+    position: static;
+    border: 0;
+    padding: 0;
+    background: none;
+    margin-left: auto;
+  }
+  .links { flex-direction: row; gap: 1.5rem; }
+}

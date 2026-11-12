@@ -5,6 +5,16 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  // Código portado de la landing de NexIndu (src/demo): se mantiene casi tal cual,
+  // por eso se relajan las reglas del React Compiler que ese proyecto no aplica.
+  {
+    files: ["src/demo/**"],
+    rules: {
+      "react-hooks/refs": "off",
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/purity": "off",
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

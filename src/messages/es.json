@@ -1,197 +1,307 @@
 {
   "nav": {
-    "work": "Proyectos",
-    "about": "Sobre mí",
-    "experience": "Experiencia",
-    "stack": "Tech Stack",
+    "nexindu": "Caso NexIndu",
+    "method": "Método",
+    "career": "Trayectoria",
     "contact": "Contacto",
-    "cta": "Hablemos",
-    "resume": "Descargar CV"
+    "cv": "CV",
+    "primary": "Navegación principal",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "language": "Cambiar idioma a inglés",
+    "home": "Miguel Giles, inicio"
+  },
+  "ui": {
+    "skip": "Ir al contenido"
   },
   "hero": {
-    "greeting": "Hola, soy",
-    "name": "Miguel Giles",
-    "role": "Electromecánico × Desarrollador",
-    "tagline": "Técnico electromecánico de profesión. Desarrollador por pasión. Constructor por naturaleza.",
-    "cta_primary": "Ver mis proyectos",
-    "cta_secondary": "Descargar CV"
-  },
-  "about": {
-    "title": "Sobre Mí",
-    "chapters": {
-      "mechanic": {
-        "title": "El Mecánico",
-        "description": "Durante más de 13 años, mantuve funcionando sistemas industriales complejos — refrigeración industrial y luego planta farmacéutica GxP. Aprendí que cada máquina tiene un lenguaje, cada falla un patrón, y cada solución una lógica. La resolución de problemas se convirtió en mi segunda naturaleza."
-      },
-      "spark": {
-        "title": "La Chispa",
-        "description": "Un día descubrí que ese mismo pensamiento lógico podía crear software. La programación no era algo nuevo para mí — era la misma resolución de problemas, pero sin límites físicos. Y me abrió una puerta que jamás pensé cruzar."
-      },
-      "builder": {
-        "title": "El Constructor",
-        "description": "Hoy construyo aplicaciones que resuelven problemas reales. Mi experiencia industrial me dio algo que ningún bootcamp puede enseñar: entender sistemas complejos desde sus raíces. Cada app NEX nace de una necesidad real que identifiqué y resolví."
-      }
-    }
-  },
-  "projects": {
-    "title": "Mis Proyectos",
-    "subtitle": "Apps forjadas con propósito",
-    "viewProject": "Ver proyecto",
-    "comingSoon": "Próximamente",
-    "items": {
-      "nexindu": {
-        "badge": "Diseñado para entornos GxP",
-        "description": "Sistema operativo industrial para plantas farmacéuticas GxP. Gestión de órdenes de trabajo, mantenimiento preventivo, inventario de repuestos y asistente IA con memoria RAG."
-      },
-      "nexkio": {
-        "badge": "PWA offline-first",
-        "description": "Sistema de gestión completo para kioscos. POS con scanner de código de barras, inventario offline-first, sistema de fiado, reportes financieros y recibos digitales con QR."
-      },
-      "nexquipu": {
-        "badge": "IA que parsea estados de cuenta",
-        "description": "Gestor de finanzas familiares con IA. Analiza estados de tarjeta de crédito, detecta suscripciones y gastos ocultos, y genera recomendaciones financieras personalizadas."
-      },
-      "nexwod": {
-        "badge": "App mobile",
-        "description": "Tracker de entrenamiento con IA. Genera rutinas personalizadas, calcula fatiga muscular por grupo, detecta récords personales automáticamente y ofrece coaching inteligente."
-      },
-      "nexpulse": {
-        "badge": "P2P sin servidor",
-        "description": "Gestor de torneos de poker para partidas caseras. Control remoto P2P via WebRTC, motor de audio sintetizado, timer de ciegas y cálculo automático de premios."
-      },
-      "nexgrid": {
-        "badge": "Scraping automático",
-        "description": "Herramienta inteligente de comparación de precios. Pega cualquier URL y extrae metadata automáticamente. La IA analiza y recomienda con scoring y pros/contras."
-      }
-    }
-  },
-  "experience": {
-    "title": "Experiencia",
-    "subtitle": "Dos caminos, una misión",
-    "industrial": {
-      "title": "Carrera Industrial",
-      "bbraun": {
-        "period": "2017 – Presente",
-        "role": "Automatización y Mantenimiento",
-        "description": "Gestión de procesos críticos y mantenimiento en línea farmacéutica. Aplicación diaria de troubleshooting. Mentalidad Lean/5S."
-      },
-      "coiron": {
-        "period": "2014 – 2017",
-        "role": "Frigorista Industrial",
-        "description": "Liderazgo de equipos en proyectos de montaje desde cero. Responsabilidad total sobre instalaciones complejas."
-      }
-    },
-    "developer": {
-      "title": "Camino Developer",
-      "recent": {
-        "period": "2023 – Presente",
-        "role": "Full-Stack Developer",
-        "company": "NEX Apps (Independiente)",
-        "description": "Autodidacta desde 2023. Diseño y construyo aplicaciones end-to-end con Next.js, React, TypeScript, PostgreSQL y Python. Uso herramientas de IA como parte de mi flujo de trabajo, pero la arquitectura, la revisión del código y la responsabilidad sobre lo que entrego son mías."
-      }
-    }
-  },
-  "stack": {
-    "title": "Tech Stack",
-    "subtitle": "Herramientas que uso para construir",
-    "categories": {
-      "languages": "Lenguajes",
-      "frameworks": "Frameworks",
-      "databases": "Bases de Datos",
-      "ai": "IA y herramientas",
-      "tools": "Herramientas"
-    }
-  },
-  "contact": {
-    "title": "Construyamos Algo Juntos",
-    "subtitle": "¿Tenés un proyecto en mente? ¿Querés colaborar?",
-    "nameLabel": "Nombre",
-    "namePlaceholder": "Tu nombre",
-    "emailLabel": "Email",
-    "emailPlaceholder": "tu@email.com",
-    "messageLabel": "Mensaje",
-    "messagePlaceholder": "Contame sobre tu proyecto...",
-    "sendButton": "Enviar mensaje",
-    "connectTitle": "O encontrame en",
-    "connectText": "¿Tenés un problema que merezca una buena solución? Hablemos.",
-    "formSending": "Enviando...",
-    "formSuccess": "¡Mensaje enviado! Te contacto pronto.",
-    "formError": "Error al enviar. Escribime directo a miga.gls246@gmail.com",
-    "whatsapp": "WhatsApp",
-    "responseTime": "Suelo responder en menos de 24 h"
+    "meta": "DOC-001 · Applied AI Engineer · Rev. 2026-11",
+    "title": "IA que se puede auditar, para manufactura regulada.",
+    "lead": "Diseño y construyo software con IA para plantas reguladas: RAG con fuentes citadas, trazabilidad completa y firma electrónica según 21 CFR Part 11. Lo respaldan más de 13 años trabajando dentro de plantas industriales.",
+    "tags": [
+      "RAG",
+      "LLMs",
+      "Orquestación multiagente",
+      "GxP",
+      "21 CFR Part 11"
+    ],
+    "ctaPrimary": "Ver caso NexIndu",
+    "ctaSecondary": "Descargar CV (PDF)",
+    "availability": "Disponible para trabajo remoto · part-time o full-time",
+    "ragMini": [
+      "documento",
+      "embeddings locales",
+      "pgvector + RLS",
+      "Gemini",
+      "respuesta con citas"
+    ],
+    "ragMiniLabel": "Flujo RAG resumido"
   },
   "footer": {
-    "copyright": "Todos los derechos reservados.",
-    "forgedWith": "Forjado con"
+    "contact": "Contacto"
+  },
+  "nexindu": {
+    "label": "§1 · Caso de estudio",
+    "title": "NexIndu — CMMS/EAM con IA para plantas reguladas",
+    "status": "Estado: pre-lanzamiento · Proyecto propio, desarrollado en mi tiempo libre ·",
+    "problemTitle": "Problema",
+    "problem": "En una planta regulada, cada intervención de mantenimiento genera registros que tienen que ser trazables, firmados y consultables durante años. Un asistente de IA genérico no sirve en ese contexto: no cita de dónde saca la respuesta, no deja un registro auditable y obliga a mandar la documentación a servicios externos.",
+    "approachTitle": "Enfoque",
+    "approach": [
+      {
+        "k": "RAG",
+        "v": "Búsqueda semántica sobre pgvector con embeddings multilingües calculados localmente (ONNX, 384 dimensiones)."
+      },
+      {
+        "k": "ROUTING",
+        "v": "Unas 40 intenciones se resuelven de forma determinista; el resto va al LLM (Gemini), que responde citando fuentes."
+      },
+      {
+        "k": "PART 11",
+        "v": "Firma electrónica con reautenticación y passkeys, auditoría inmutable con cadena de hash y bajas solo lógicas."
+      },
+      {
+        "k": "LLMOPS",
+        "v": "Evaluaciones automáticas de prompts, modelo de respaldo, registro de uso y presupuesto de IA por empresa."
+      }
+    ],
+    "rag": {
+      "figLabel": "Flujo RAG",
+      "indexingLabel": "Indexación",
+      "indexing": [
+        "Documento de planta",
+        "Fragmentación",
+        "Embeddings locales · ONNX · 384 dim",
+        "pgvector · aislado por empresa (RLS)"
+      ],
+      "queryLabel": "Consulta",
+      "query": [
+        "Pregunta",
+        "Embedding local",
+        "Búsqueda por similitud",
+        "Gemini + fragmentos recuperados",
+        "Respuesta con citas"
+      ],
+      "caption": "La indexación es local: los documentos no salen del sistema para generar embeddings. Al modelo solo llegan los fragmentos necesarios para responder, y cada respuesta indica su fuente."
+    },
+    "routing": {
+      "figLabel": "Enrutamiento híbrido",
+      "query": "Consulta del usuario",
+      "classifier": "Clasificador de intención",
+      "aIntents": "~40 intenciones conocidas",
+      "aAction": "Resolución determinista · consulta directa a datos, sin LLM",
+      "bIntents": "Resto de las consultas",
+      "bAction": "LLM (Gemini) + RAG · responde citando fuentes",
+      "bFallback": "Modelo de respaldo si falla",
+      "aLabel": "A · determinista",
+      "bLabel": "B · LLM",
+      "bar": "Registro de uso · Presupuesto de IA por empresa · Evaluaciones automáticas de prompts",
+      "caption": "Lo predecible se resuelve sin LLM: es más rápido, más barato y da siempre el mismo resultado. El LLM queda para lo que de verdad necesita lenguaje."
+    },
+    "blocks": [
+      {
+        "title": "Cumplimiento · 21 CFR Part 11",
+        "items": [
+          "firma electrónica con reautenticación y passkeys",
+          "auditoría inmutable con cadena de hash",
+          "bajas solo lógicas, nada se borra físicamente"
+        ]
+      },
+      {
+        "title": "Seguridad",
+        "items": [
+          "multi-tenant con Row Level Security en PostgreSQL",
+          "permisos por columna",
+          "Content Security Policy estricta",
+          "SSDLC documentado",
+          "preparado para pentest"
+        ]
+      },
+      {
+        "title": "LLMOps",
+        "items": [
+          "evaluaciones automáticas de prompts",
+          "modelo de respaldo",
+          "registro de uso",
+          "presupuesto de IA por empresa"
+        ]
+      }
+    ],
+    "demoCaption": "Demo animada con datos ficticios.",
+    "demoLabel": "Demo animada de NexIndu",
+    "stack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Supabase / PostgreSQL",
+      "pgvector",
+      "Gemini API",
+      "Vercel",
+      "GitHub Actions",
+      "6 idiomas"
+    ],
+    "stackLabel": "Stack",
+    "cta": "Visitar nexindu.com.ar"
+  },
+  "contact": {
+    "label": "§6 · Contacto",
+    "title": "Hablemos",
+    "lead": "Busco roles de Applied AI o de software para manufactura regulada, en remoto.",
+    "photoAlt": "Miguel Giles",
+    "listLabel": "Datos de contacto",
+    "nameLabel": "Nombre",
+    "emailLabel": "Email",
+    "messageLabel": "Mensaje",
+    "messageHint": "Contame sobre el puesto o el proyecto.",
+    "sendButton": "Enviar mensaje",
+    "formSending": "Enviando…",
+    "formSuccess": "Mensaje enviado. Te contacto pronto.",
+    "formError": "No se pudo enviar. Escribime directo a miga.gls246@gmail.com",
+    "copyEmail": "Copiar",
+    "emailCopied": "Copiado",
+    "copyLabel": "Copiar email al portapapeles",
+    "phoneLabel": "Teléfono"
   },
   "cv": {
     "back": "Inicio",
-    "print": "Imprimir / PDF",
-    "role": "Full Stack Developer & Técnico Electromecánico",
-    "sidebar": {
-      "contactTitle": "Contacto",
-      "techTitle": "Stack de Software",
-      "hardSkillsTitle": "Habilidades Industriales",
-      "educationTitle": "Formación",
-      "languagesTitle": "Idiomas"
-    },
+    "download": "Descargar PDF",
+    "role": "Applied AI Engineer · Software para manufactura regulada (GxP · 21 CFR Part 11)",
+    "location": "Mar del Plata, Argentina",
+    "available": "Disponible: remoto, part-time o full-time",
     "profile": {
-      "title": "Perfil Profesional",
-      "text": "Desarrollador Full Stack y Técnico Electromecánico con más de 13 años de experiencia industrial, 9 de ellos en planta farmacéutica regulada GxP. Construyo software end-to-end con Next.js, React e IA, aplicando la disciplina del mantenimiento industrial: diagnóstico sistemático, fiabilidad y mejora continua."
+      "title": "Perfil",
+      "text": "Applied AI Engineer con más de 13 años en mantenimiento y automatización industrial, 9 de ellos en una planta farmacéutica regulada (GxP). Creador de NexIndu, un CMMS/EAM con IA para plantas reguladas: RAG sobre pgvector con embeddings locales, enrutamiento híbrido determinista/LLM, LLMOps y controles de 21 CFR Part 11. Busco roles remotos de Applied AI o de software para manufactura regulada."
     },
-    "software": {
-      "title": "Proyectos de Software Destacados",
-      "nexindu": {
-        "period": "2024 – Presente",
-        "link": "nexindu.com.ar",
-        "bullets": [
-          "Diseñé y construí en solitario un sistema de gestión para plantas farmacéuticas GxP: órdenes de trabajo, mantenimiento preventivo e inventario de repuestos.",
-          "Integré un asistente de IA con memoria RAG sobre documentación técnica de planta.",
-          "En producción en nexindu.com.ar — Next.js, TypeScript, desarrollo 100% asistido por IA."
-        ]
-      },
-      "nexkio": {
-        "status": "En desarrollo",
-        "bullets": [
-          "PWA offline-first para comercios: POS con lector de códigos de barras, inventario, sistema de fiado y reportes financieros."
-        ]
-      },
-      "more": "Otras apps en desarrollo: NexQuipu, NexWod, NexPulse, NexGrid."
+    "nexinduTitle": "Caso de estudio: NexIndu",
+    "nexinduMeta": "Pre-lanzamiento · Proyecto propio · ",
+    "othersTitle": "Otros proyectos propios",
+    "experienceTitle": "Experiencia",
+    "skills": {
+      "title": "Habilidades",
+      "items": [
+        {
+          "label": "IA",
+          "text": "RAG, pgvector, embeddings ONNX, Gemini API, LLMOps, orquestación multiagente"
+        },
+        {
+          "label": "Desarrollo",
+          "text": "Next.js, React, TypeScript, Supabase/PostgreSQL, Vercel, GitHub Actions"
+        },
+        {
+          "label": "Regulado",
+          "text": "GxP, 21 CFR Part 11, ALCOA+, auditoría, firma electrónica"
+        },
+        {
+          "label": "Industria",
+          "text": "PLC/automatización, Lean/5S, neumática, electricidad, refrigeración"
+        }
+      ]
     },
-    "industrial": {
-      "title": "Experiencia Industrial",
-      "bbraun": {
-        "role": "Técnico de Mantenimiento Industrial",
-        "company": "B.Braun Medical Argentina",
-        "period": "2017 – Presente",
-        "bullets": [
-          "Mantengo líneas de producción farmacéutica en entorno regulado GxP.",
-          "Diagnostico y resuelvo fallas críticas en tiempo real sobre sistemas automatizados con PLC.",
-          "Aplico metodología Lean/5S a la mejora continua de los procesos de mantenimiento."
-        ]
+    "educationTitle": "Formación",
+    "languagesTitle": "Idiomas"
+  },
+  "method": {
+    "label": "§2 · Método",
+    "title": "Agentes de IA en paralelo, con controles de ingeniería",
+    "intro": "Uso varios agentes de IA a la vez, pero con las mismas reglas que en una planta regulada: cada uno trabaja aislado, nada se integra sin revisión y la aprobación final la da una persona.",
+    "figLabel": "Flujo de trabajo con agentes",
+    "steps": [
+      {
+        "title": "Ejecución en paralelo",
+        "desc": "Cada agente trabaja en su propia rama aislada."
       },
-      "coiron": {
-        "role": "Técnico Frigorista Industrial",
-        "company": "Coiron",
-        "period": "2014 – 2017",
-        "bullets": [
-          "Lideré equipos de montaje de cámaras frigoríficas industriales construidas desde cero.",
-          "Responsabilidad integral sobre instalaciones complejas: refrigeración, electricidad y neumática."
-        ]
+      {
+        "title": "Revisión cruzada",
+        "desc": "El trabajo de un agente lo revisa otro."
+      },
+      {
+        "title": "Verificación adversarial",
+        "desc": "Un agente intenta refutar o romper el cambio antes de aceptarlo."
+      },
+      {
+        "title": "Aprobación humana",
+        "desc": "Reviso y apruebo yo. Nada se integra sin esa firma."
       }
+    ],
+    "caption": "Es el principio de doble verificación de las BPF, aplicado al desarrollo de software."
+  },
+  "others": {
+    "label": "§3 · Otros proyectos",
+    "title": "Otros proyectos",
+    "note": "Proyectos propios",
+    "live": "Sitio",
+    "code": "Código",
+    "nexkio": {
+      "badge": "En uso en 4 kioscos",
+      "line": "Punto de venta offline-first para kioscos: sigue vendiendo aunque se corte internet.",
+      "bullets": [
+        "venta con lector de códigos de barras",
+        "inventario, fiado y reportes",
+        "PWA que sincroniza al volver la conexión"
+      ]
     },
-    "education": {
+    "nexquipu": {
+      "badge": "Usada por 3 familias",
+      "line": "Finanzas personales con análisis por IA de los resúmenes de tarjeta.",
+      "bullets": [
+        "lee el resumen en PDF y categoriza los gastos",
+        "detecta suscripciones y gastos ocultos",
+        "alertas con notificaciones push"
+      ]
+    },
+    "nexpulse": "Reloj de ciegas para torneos de póker caseros, con control remoto P2P por WebRTC.",
+    "nexplay": "Juegos de mesa online en tiempo real para jugar en familia (Supabase Realtime)."
+  },
+  "career": {
+    "label": "§4 · Trayectoria",
+    "title": "De planta a IA",
+    "intro": "Trece años diagnosticando fallas en planta me enseñaron a trabajar con evidencia, a documentar cada intervención y a respetar procedimientos validados. Hoy aplico ese mismo criterio al software con IA: que cada respuesta tenga una fuente, cada cambio quede registrado y cada decisión crítica la firme una persona.",
+    "timelineLabel": "Línea de tiempo",
+    "items": [
+      {
+        "period": "2013 – 2017",
+        "role": "Técnico Frigorista Industrial",
+        "org": "Coiron",
+        "text": "Lideré equipos de montaje de cámaras frigoríficas industriales; refrigeración, electricidad y neumática."
+      },
+      {
+        "period": "2017 – hoy",
+        "role": "Técnico de Mantenimiento y Automatización",
+        "org": "B.Braun Medical Argentina, Mar del Plata",
+        "text": "Mantenimiento y automatización (PLC) de líneas de producción en una planta farmacéutica regulada (GxP). Diagnóstico y resolución de fallas críticas. Mejora continua con Lean/5S."
+      },
+      {
+        "period": "2023 – hoy",
+        "role": "Desarrollo de software propio",
+        "org": "",
+        "text": "En mi tiempo libre: NexIndu, NexKio, NexQuipu, NexPulse y NexPlay."
+      },
+      {
+        "period": "2026",
+        "role": "Diplomado Python & Inteligencia Artificial",
+        "org": "UTN FRD + Instituto Linux",
+        "text": ""
+      }
+    ]
+  },
+  "education": {
+    "label": "§5 · Formación",
+    "title": "Formación",
+    "featured": {
+      "title": "Diplomado Python & Inteligencia Artificial",
+      "org": "UTN Facultad Regional Delta + Instituto Linux",
+      "meta": [
+        "144 h",
+        "Calificación 100/100",
+        "Noviembre 2026"
+      ]
+    },
+    "tech": {
       "title": "Técnico Electromecánico",
-      "school": "Instituto Industrial Pablo Tavelli",
-      "year": "Egresado 2009",
-      "selfTaught": "Desarrollo de software: autodidacta",
-      "selfTaughtPeriod": "2023 – Presente"
+      "org": "Instituto Industrial Pablo Tavelli",
+      "year": "2009"
     },
-    "languages": {
-      "spanish": "Español",
-      "spanishLevel": "Nativo",
-      "english": "Inglés",
-      "englishLevel": "Intermedio"
-    }
+    "languagesLabel": "Idiomas",
+    "languages": "Español (nativo) · Inglés (intermedio)"
   }
 }

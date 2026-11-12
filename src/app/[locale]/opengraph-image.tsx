@@ -1,69 +1,46 @@
+import { SITE_URL } from '@/lib/site';
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Miguel Giles — Electromechanic × Developer';
+export const alt = 'Miguel Giles — Applied AI Engineer';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-export default function Image() {
+const TITLES = {
+  es: 'IA que se puede auditar, para manufactura regulada.',
+  en: 'Auditable AI for regulated manufacturing.',
+} as const;
+
+export default async function Image({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const title = TITLES[locale === 'en' ? 'en' : 'es'];
+
   return new ImageResponse(
     (
       <div
         style={{
-          background: '#0A0A0A',
+          background: '#F7F6F2',
           width: '100%',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center',
           justifyContent: 'center',
-          gap: 20,
+          padding: '0 80px',
           fontFamily: 'sans-serif',
+          borderTop: '12px solid #1F4E8C',
         }}
       >
-        <div style={{ color: '#00E5FF', fontSize: 20, letterSpacing: '0.15em' }}>
-          miguelgiles.dev
+        <div style={{ color: '#1F4E8C', fontSize: 24, letterSpacing: '0.06em', marginBottom: 32 }}>
+          DOC-001 · Applied AI Engineer · Rev. 2026-11
         </div>
-        <div
-          style={{
-            color: '#F1F5F9',
-            fontSize: 72,
-            fontWeight: 700,
-            lineHeight: 1.0,
-          }}
-        >
+        <div style={{ color: '#1B1F27', fontSize: 40, fontWeight: 500, marginBottom: 16 }}>
           Miguel Giles
         </div>
-        <div style={{ color: '#94A3B8', fontSize: 30, letterSpacing: '0.05em' }}>
-          Electromechanic × Developer
+        <div style={{ color: '#1B1F27', fontSize: 72, fontWeight: 700, lineHeight: 1.1 }}>
+          {title}
         </div>
-        <div style={{ display: 'flex', gap: 14, marginTop: 28 }}>
-          {['Next.js', 'TypeScript', 'React', 'Python'].map((tech) => (
-            <div
-              key={tech}
-              style={{
-                background: '#141414',
-                border: '1px solid rgba(0,229,255,0.3)',
-                borderRadius: 8,
-                padding: '8px 18px',
-                color: '#00E5FF',
-                fontSize: 18,
-              }}
-            >
-              {tech}
-            </div>
-          ))}
-        </div>
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 40,
-            right: 60,
-            color: '#475569',
-            fontSize: 16,
-          }}
-        >
-          Mar del Plata, Argentina
+        <div style={{ color: '#5A6070', fontSize: 22, marginTop: 48 }}>
+          {SITE_URL.replace('https://', '')}
         </div>
       </div>
     ),

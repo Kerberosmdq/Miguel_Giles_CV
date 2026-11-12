@@ -1,13 +1,13 @@
 import { setRequestLocale } from 'next-intl/server';
-import { Navbar } from '@/components/layout/Navbar';
-import { Hero } from '@/components/sections/Hero';
-import About from '@/components/sections/About';
-import Projects from '@/components/sections/Projects';
-import Experience from '@/components/sections/Experience';
-import TechStack from '@/components/sections/TechStack';
-import Contact from '@/components/sections/Contact';
+import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { ScrollProgress } from '@/components/ui/ScrollProgress';
+import { Hero } from '@/components/sections/Hero';
+import { CaseNexindu } from '@/components/sections/CaseNexindu';
+import { HowIWork } from '@/components/sections/HowIWork';
+import { OtherProjects } from '@/components/sections/OtherProjects';
+import { Career } from '@/components/sections/Career';
+import { Education } from '@/components/sections/Education';
+import { Contact } from '@/components/sections/Contact';
 
 export default async function HomePage({
   params,
@@ -19,14 +19,14 @@ export default async function HomePage({
 
   return (
     <>
-      <ScrollProgress />
-      <Navbar />
+      <Header />
       <main id="main-content">
         <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <TechStack />
+        <CaseNexindu />
+        <HowIWork />
+        <OtherProjects />
+        <Career />
+        <Education />
         <Contact />
       </main>
       <Footer />

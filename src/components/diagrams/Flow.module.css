@@ -1,0 +1,96 @@
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.node {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.625rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.key { border-color: var(--accent); }
+.ok { border-color: var(--ok); }
+.title { font-weight: 500; color: var(--ink); overflow-wrap: anywhere; }
+.desc { color: var(--ink-2); }
+.num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+
+/* flecha entre nodos (decorativa: sin texto alternativo) */
+.node:not(:last-child)::after {
+  content: '↓' / '';
+  position: absolute;
+  left: 50%;
+  bottom: -1.25rem;
+  height: 1.25rem;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  color: var(--ink-3);
+}
+
+/* compact: en celular, una sola línea de texto mono que hace wrap, sin cajas */
+.compact {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.8;
+}
+.compact .node {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: inherit;
+}
+.compact .node.key .title { color: var(--accent); }
+.compact .node:not(:last-child)::after {
+  content: ' → ' / '';
+  position: static;
+  display: inline;
+  transform: none;
+  height: auto;
+  white-space: pre;
+}
+
+@media (min-width: 900px) {
+  .flow:not(.vertical) { flex-direction: row; gap: 1.5rem; }
+  .flow:not(.vertical) .node:not(:last-child)::after {
+    content: '→' / '';
+    left: auto;
+    bottom: auto;
+    top: 50%;
+    right: -1.5rem;
+    width: 1.5rem;
+    height: auto;
+    transform: translateY(-50%);
+    justify-content: center;
+  }
+  .compact:not(.vertical) { display: flex; gap: 1.25rem; line-height: 1.4; }
+  .compact:not(.vertical) .node {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--rule-strong);
+    background: var(--surface);
+  }
+  .compact:not(.vertical) .node.key { border-color: var(--accent); }
+  .compact:not(.vertical) .node.key .title { color: var(--ink); }
+  .compact:not(.vertical) .node:not(:last-child)::after {
+    position: absolute;
+    display: flex;
+    right: -1.25rem;
+    width: 1.25rem;
+  }
+}

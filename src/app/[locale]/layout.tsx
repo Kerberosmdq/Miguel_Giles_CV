@@ -4,27 +4,19 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
-import { Preloader } from '@/components/ui/Preloader';
-import { CustomCursor } from '@/components/ui/CustomCursor';
+import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
+import { SITE_URL, EMAIL, GITHUB_URL, LINKEDIN_URL } from '@/lib/site';
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-body',
-  display: 'swap',
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-heading',
-  display: 'swap',
-});
-
-const jetbrainsMono = JetBrains_Mono({
+const plexSans = IBM_Plex_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
   variable: '--font-mono',
   display: 'swap',
 });
@@ -42,22 +34,23 @@ export async function generateMetadata({
   const isEs = locale === 'es';
 
   return {
-    metadataBase: new URL('https://miguelgiles.dev'),
+    metadataBase: new URL(SITE_URL),
     title: isEs
-      ? 'Miguel Giles — Electromecánico & Desarrollador | Apps NEX'
-      : 'Miguel Giles — Electromechanic & Developer | NEX Apps',
+      ? 'Miguel Giles — Applied AI Engineer · Software para manufactura regulada (GxP)'
+      : 'Miguel Giles — Applied AI Engineer · Software for regulated manufacturing (GxP)',
     description: isEs
-      ? 'Portfolio de Miguel Giles. +13 años en mantenimiento industrial. Desarrollador Full Stack autodidacta creando apps que resuelven problemas reales.'
-      : 'Miguel Giles Portfolio. 13+ years in industrial maintenance. Self-taught Full Stack developer building apps that solve real problems.',
+      ? 'Applied AI Engineer: RAG, LLMs y orquestación multiagente para manufactura regulada (GxP, 21 CFR Part 11). Creador de NexIndu. 13+ años en mantenimiento y automatización industrial.'
+      : 'Applied AI Engineer: RAG, LLMs and multi-agent orchestration for regulated manufacturing (GxP, 21 CFR Part 11). Creator of NexIndu. 13+ years in industrial maintenance and automation.',
     keywords: [
-      'Miguel Giles',
-      'developer',
-      'electromechanic',
-      'portfolio',
-      'Next.js',
-      'TypeScript',
-      'NEX apps',
+      'Applied AI Engineer',
+      'RAG',
+      'LLM',
+      'pgvector',
+      'multi-agent',
       'GxP',
+      '21 CFR Part 11',
+      'CMMS',
+      'NexIndu',
       'Mar del Plata',
     ],
     authors: [{ name: 'Miguel Giles' }],
@@ -65,24 +58,25 @@ export async function generateMetadata({
     openGraph: {
       type: 'website',
       locale: isEs ? 'es_AR' : 'en_US',
-      url: `https://miguelgiles.dev/${locale}`,
+      url: `${SITE_URL}/${locale}`,
       siteName: 'Miguel Giles',
       title: isEs
-        ? 'Miguel Giles — Electromecánico & Desarrollador'
-        : 'Miguel Giles — Electromechanic & Developer',
+        ? 'Miguel Giles — Applied AI Engineer'
+        : 'Miguel Giles — Applied AI Engineer',
       description: isEs
-        ? 'De arreglar máquinas a construirlas digitalmente. Conocé mi historia y mis proyectos.'
-        : 'From fixing machines to building them digitally. Discover my story and projects.',
+        ? 'IA que se puede auditar, para manufactura regulada. RAG, trazabilidad y 21 CFR Part 11.'
+        : 'Auditable AI for regulated manufacturing. RAG, traceability and 21 CFR Part 11.',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Miguel Giles — Electromechanic × Developer',
+      title: 'Miguel Giles — Applied AI Engineer',
     },
     alternates: {
-      canonical: `https://miguelgiles.dev/${locale}`,
+      canonical: `${SITE_URL}/${locale}`,
       languages: {
-        es: 'https://miguelgiles.dev/es',
-        en: 'https://miguelgiles.dev/en',
+        es: `${SITE_URL}/es`,
+        en: `${SITE_URL}/en`,
+        'x-default': `${SITE_URL}/es`,
       },
     },
     robots: {
@@ -96,17 +90,39 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Miguel Giles',
-  jobTitle: 'Full Stack Developer & Electromechanical Technician',
-  url: 'https://miguelgiles.dev',
-  email: 'miga.gls246@gmail.com',
+  jobTitle: 'Applied AI Engineer',
+  knowsAbout: [
+    'Retrieval-Augmented Generation',
+    'Large Language Models',
+    'pgvector',
+    'Multi-agent orchestration',
+    'GxP',
+    '21 CFR Part 11',
+    'CMMS',
+    'PLC automation',
+    'Next.js',
+    'TypeScript',
+    'PostgreSQL',
+  ],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'Diplomado Python & Inteligencia Artificial',
+    credentialCategory: 'Diploma',
+    recognizedBy: {
+      '@type': 'EducationalOrganization',
+      name: 'UTN Facultad Regional Delta + Instituto Linux',
+    },
+  },
+  url: SITE_URL,
+  email: EMAIL,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Mar del Plata',
     addressCountry: 'AR',
   },
   sameAs: [
-    'https://linkedin.com/in/miguel-giles',
-    'https://github.com/kerberosmdq',
+    LINKEDIN_URL,
+    GITHUB_URL,
   ],
 };
 
@@ -129,7 +145,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`${plexSans.variable} ${plexMono.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -141,11 +157,8 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <a href="#main-content" className="skip-link">
-            {locale === 'es' ? 'Ir al contenido' : 'Skip to content'}
+            {(messages as { ui: { skip: string } }).ui.skip}
           </a>
-          <Preloader />
-          <CustomCursor />
-          <div className="noise-overlay" aria-hidden="true" />
           {children}
         </NextIntlClientProvider>
       </body>

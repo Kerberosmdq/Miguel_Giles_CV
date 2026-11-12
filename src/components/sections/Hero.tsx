@@ -1,168 +1,49 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import Image from 'next/image';
-import { Link } from '@/i18n/navigation';
+import { getTranslations, getLocale } from 'next-intl/server';
+import { Flow } from '@/components/diagrams/Flow';
+import { Button } from '@/components/ui/Button';
+import { LINKEDIN_URL } from '@/lib/site';
 import styles from './Hero.module.css';
 
-export function Hero() {
-  const t = useTranslations('hero');
-  const { scrollY } = useScroll();
-
-  // Scroll-driven morphs
-  const lightWidth = useTransform(scrollY, [0, 400], ['60%', '0%']);
-  const darkWidth = useTransform(scrollY, [0, 400], ['40%', '100%']);
-  const titleY = useTransform(scrollY, [0, 300], [0, 100]);
-  const opacityFade = useTransform(scrollY, [0, 300], [1, 0]);
-
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  // Framer motion variants for text reveal
-  const titleVariants = {
-    hidden: { clipPath: 'inset(100% 0 0 0)' },
-    visible: { 
-      clipPath: 'inset(0% 0 0 0)',
-      transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] as [number, number, number, number], staggerChildren: 0.1 }
-    }
-  };
-
-  const lineVariants = {
-    hidden: { y: '100%' },
-    visible: { 
-      y: '0%',
-      transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] }
-    }
-  };
+export async function Hero() {
+  const t = await getTranslations('hero');
+  const locale = await getLocale();
+  const tags = t.raw('tags') as string[];
+  const rag = t.raw('ragMini') as string[];
 
   return (
-    <section id="hero" className={styles.hero}>
-      {/* ── Dark Side (Left - 40%) ── */}
-      <motion.div className={styles.darkSide} style={isMounted ? { width: darkWidth } : { width: '40%' }}>
-        <motion.div
-          className={styles.photoContainer}
-          initial={{ opacity: 0, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 1.5, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
-          style={isMounted ? { opacity: opacityFade } : { opacity: 1 }}
-        >
-          <div className={styles.photoWrapper}>
-            <Image
-              src="/images/miguel-profile.png"
-              alt="Miguel Giles"
-              width={400}
-              height={500}
-              priority
-              className={styles.photo}
-            />
-            <div className={styles.photoAccentLine} />
-          </div>
-        </motion.div>
+    <section id="top" className={styles.hero} aria-labelledby="hero-title">
+      <div className="container">
+        <p className="mono">{t('meta')}</p>
+        <h1 id="hero-title" className={styles.title}>{t('title')}</h1>
+        <p className={styles.lead}>{t('lead')}</p>
+        <p className={`mono ${styles.tags}`}>{tags.join(' · ')}</p>
 
-        <motion.div
-          className={styles.darkCta}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          style={isMounted ? { opacity: opacityFade } : { opacity: 1 }}
-        >
-          <button
-            className="btn btn-primary"
-            data-cursor-text="EXPLORE"
-            onClick={() => {
-              document.getElementById('work')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
+        <div className={styles.ctas}>
+          <Button href="#nexindu">{t('ctaPrimary')}</Button>
+          <Button
+            variant="secondary"
+            href={`/cv/Miguel_Giles_CV_${locale.toUpperCase()}.pdf`}
+            download
           >
-            <span className={styles.btnText}>{t('cta_primary')}</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-        </motion.div>
-      </motion.div>
+            {t('ctaSecondary')}
+          </Button>
+          <a className={styles.link} href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </div>
+        <p className={`mono ${styles.availability}`}>{t('availability')}</p>
 
-      {/* ── Light Side (Right - 60%) ── */}
-      <motion.div className={styles.lightSide} style={isMounted ? { width: lightWidth } : { width: '60%' }}>
-        <motion.div className={styles.textContent} style={isMounted ? { y: titleY, opacity: opacityFade } : { y: 0, opacity: 1 }}>
-          <motion.p
-            className={styles.greeting}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
-          >
-            {t('greeting')}
-          </motion.p>
-
-          <motion.div 
-            className={styles.nameContainer}
-            variants={titleVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {/* Split name for animated lines if needed, or single block */}
-            <motion.div className={styles.lineMask}>
-              <motion.h1 variants={lineVariants} className={styles.name}>
-                {t('name')}
-              </motion.h1>
-            </motion.div>
-          </motion.div>
-
-          <motion.p
-            className={styles.role}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.4, duration: 1 }}
-          >
-            {t('role')}
-          </motion.p>
-
-          <motion.div
-            className={styles.divider}
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 1.5, duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+        <div className={styles.rag}>
+          <Flow
+            compact
+            label={t('ragMiniLabel')}
+            steps={rag.map((title, i) => ({
+              title,
+              tone: i === 0 || i === rag.length - 1 ? 'key' : undefined,
+            }))}
           />
-
-          <motion.p
-            className={styles.tagline}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.7, duration: 0.8 }}
-          >
-            {t('tagline')}
-          </motion.p>
-
-          <motion.div
-            className={styles.lightCta}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.9, duration: 0.8 }}
-          >
-            <Link
-              href="/cv"
-              className="btn btn-outline-light"
-              data-cursor-text="PDF"
-            >
-              <span className={styles.btnText}>{t('cta_secondary')}</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 13l10-10M6 3h7v7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </Link>
-          </motion.div>
-        </motion.div>
-      </motion.div>
-
-      {/* ── Animated Divider ── */}
-      <motion.div 
-        className={styles.centerDivider}
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 1 }}
-        transition={{ duration: 1.5, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
-        style={isMounted ? { opacity: opacityFade } : { opacity: 1 }}
-      />
+        </div>
+      </div>
     </section>
   );
 }
