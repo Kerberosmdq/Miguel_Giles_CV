@@ -1,0 +1,18 @@
+.cards { display: grid; gap: 1rem; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.25rem; display: grid; gap: 0.75rem; align-content: start; }
+.head { display: flex; align-items: center; gap: 0.75rem; }
+.logo { width: 48px; height: 48px; object-fit: contain; border-radius: var(--radius); flex: none; }
+.badge { color: var(--accent); }
+.line { color: var(--ink-2); }
+.bullets { display: grid; gap: 0.25rem; font-size: 0.9375rem; color: var(--ink-2); }
+.bullets li { padding-left: 1rem; position: relative; }
+.bullets li::before { content: '–'; position: absolute; left: 0; color: var(--ink-3); }
+.compact { display: grid; gap: 1rem; margin-top: 1.5rem; }
+.row { display: flex; gap: 0.75rem; align-items: flex-start; border: 1px solid var(--rule); border-radius: var(--radius); padding: 1rem 1.25rem; }
+.rowName { font-size: 1rem; }
+.rowLine { color: var(--ink-2); font-size: 0.9375rem; }
+.links { display: flex; gap: 1.25rem; margin-top: 0.25rem; }
+.links a { display: inline-flex; align-items: center; min-height: 44px; }
+@media (min-width: 900px) {
+  .cards, .compact { grid-template-columns: 1fr 1fr; }
+}

@@ -3,6 +3,10 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { CaseNexindu } from '@/components/sections/CaseNexindu';
+import { HowIWork } from '@/components/sections/HowIWork';
+import { OtherProjects } from '@/components/sections/OtherProjects';
+import { Career } from '@/components/sections/Career';
+import { Education } from '@/components/sections/Education';
 
 export default async function HomePage({
   params,
@@ -18,6 +22,10 @@ export default async function HomePage({
       <main id="main-content">
         <Hero />
         <CaseNexindu />
+        <HowIWork />
+        <OtherProjects />
+        <Career />
+        <Education />
       </main>
       <Footer />
     </>

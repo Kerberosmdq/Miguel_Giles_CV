@@ -1,44 +1,32 @@
-import { NEXINDU_URL } from '@/lib/site';
-
 export type MainProject = {
-  id: 'nexindu' | 'nexkio' | 'nexquipu';
+  id: 'nexkio' | 'nexquipu';
   name: string;
-  /** null = sin URL pública confirmada */
-  url: string | null;
-  stack: string[];
 };
 
 export type OtherProject = {
   id: 'nexpulse' | 'nexplay';
   name: string;
-  url: string | null;
+  url: string;
   repo: string;
 };
 
-// TODO(dato D2): URL pública de NexKio y NexQuipu
+// NexKio y NexQuipu no tienen URL pública: no inventar ninguna.
 export const mainProjects: MainProject[] = [
-  {
-    id: 'nexindu',
-    name: 'NexIndu',
-    url: NEXINDU_URL,
-    stack: ['Next.js', 'TypeScript', 'Supabase', 'Gemini API', 'Playwright', 'GitHub Actions'],
-  },
-  {
-    id: 'nexkio',
-    name: 'NexKio',
-    url: null,
-    stack: ['Next.js', 'TypeScript', 'Supabase', 'PWA', 'Playwright'],
-  },
-  {
-    id: 'nexquipu',
-    name: 'NexQuipu',
-    url: null,
-    stack: ['Next.js', 'TypeScript', 'Supabase', 'Vitest', 'Playwright'],
-  },
+  { id: 'nexkio', name: 'NexKio' },
+  { id: 'nexquipu', name: 'NexQuipu' },
 ];
 
-// TODO(dato): URLs públicas de NexPulse y NexPlay
 export const otherProjects: OtherProject[] = [
-  { id: 'nexpulse', name: 'NexPulse', url: null, repo: 'https://github.com/Kerberosmdq/PokerPulse' },
-  { id: 'nexplay', name: 'NexPlay', url: null, repo: 'https://github.com/Kerberosmdq/NexPlay' },
+  {
+    id: 'nexpulse',
+    name: 'NexPulse',
+    url: 'https://pokerpulse.vercel.app',
+    repo: 'https://github.com/Kerberosmdq/PokerPulse',
+  },
+  {
+    id: 'nexplay',
+    name: 'NexPlay',
+    url: 'https://nex-play-one.vercel.app',
+    repo: 'https://github.com/Kerberosmdq/NexPlay',
+  },
 ];

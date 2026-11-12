@@ -295,5 +295,109 @@
       "english": "Inglés",
       "englishLevel": "Intermedio"
     }
+  },
+  "method": {
+    "label": "§2 · Método",
+    "title": "Agentes de IA en paralelo, con controles de ingeniería",
+    "intro": "Uso varios agentes de IA a la vez, pero con las mismas reglas que en una planta regulada: cada uno trabaja aislado, nada se integra sin revisión y la aprobación final la da una persona.",
+    "figLabel": "Flujo de trabajo con agentes",
+    "steps": [
+      {
+        "title": "Ejecución en paralelo",
+        "desc": "Cada agente trabaja en su propia rama aislada."
+      },
+      {
+        "title": "Revisión cruzada",
+        "desc": "El trabajo de un agente lo revisa otro."
+      },
+      {
+        "title": "Verificación adversarial",
+        "desc": "Un agente intenta refutar o romper el cambio antes de aceptarlo."
+      },
+      {
+        "title": "Aprobación humana",
+        "desc": "Reviso y apruebo yo. Nada se integra sin esa firma."
+      }
+    ],
+    "caption": "Es el principio de doble verificación de las BPF, aplicado al desarrollo de software."
+  },
+  "others": {
+    "label": "§3 · Otros proyectos",
+    "title": "Otros proyectos",
+    "note": "Proyectos propios",
+    "live": "Sitio",
+    "code": "Código",
+    "nexkio": {
+      "badge": "En uso en 4 kioscos",
+      "line": "Punto de venta offline-first para kioscos: sigue vendiendo aunque se corte internet.",
+      "bullets": [
+        "venta con lector de códigos de barras",
+        "inventario, fiado y reportes",
+        "PWA que sincroniza al volver la conexión"
+      ]
+    },
+    "nexquipu": {
+      "badge": "Usada por 3 familias",
+      "line": "Finanzas personales con análisis por IA de los resúmenes de tarjeta.",
+      "bullets": [
+        "lee el resumen en PDF y categoriza los gastos",
+        "detecta suscripciones y gastos ocultos",
+        "alertas con notificaciones push"
+      ]
+    },
+    "nexpulse": "Reloj de ciegas para torneos de póker caseros, con control remoto P2P por WebRTC.",
+    "nexplay": "Juegos de mesa online en tiempo real para jugar en familia (Supabase Realtime)."
+  },
+  "career": {
+    "label": "§4 · Trayectoria",
+    "title": "De planta a IA",
+    "intro": "Trece años diagnosticando fallas en planta me enseñaron a trabajar con evidencia, a documentar cada intervención y a respetar procedimientos validados. Hoy aplico ese mismo criterio al software con IA: que cada respuesta tenga una fuente, cada cambio quede registrado y cada decisión crítica la firme una persona.",
+    "timelineLabel": "Línea de tiempo",
+    "items": [
+      {
+        "period": "2013 – 2017",
+        "role": "Técnico Frigorista Industrial",
+        "org": "Coiron",
+        "text": "Lideré equipos de montaje de cámaras frigoríficas industriales; refrigeración, electricidad y neumática."
+      },
+      {
+        "period": "2017 – hoy",
+        "role": "Técnico de Mantenimiento y Automatización",
+        "org": "B.Braun Medical Argentina, Mar del Plata",
+        "text": "Mantenimiento y automatización (PLC) de líneas de producción en una planta farmacéutica regulada (GxP). Diagnóstico y resolución de fallas críticas. Mejora continua con Lean/5S."
+      },
+      {
+        "period": "2023 – hoy",
+        "role": "Desarrollo de software propio",
+        "org": "",
+        "text": "En mi tiempo libre: NexIndu, NexKio, NexQuipu, NexPulse y NexPlay."
+      },
+      {
+        "period": "2026",
+        "role": "Diplomado Python & Inteligencia Artificial",
+        "org": "UTN FRD + Instituto Linux",
+        "text": ""
+      }
+    ]
+  },
+  "education": {
+    "label": "§5 · Formación",
+    "title": "Formación",
+    "featured": {
+      "title": "Diplomado Python & Inteligencia Artificial",
+      "org": "UTN Facultad Regional Delta + Instituto Linux",
+      "meta": [
+        "144 h",
+        "Calificación 100/100",
+        "Noviembre 2026"
+      ]
+    },
+    "tech": {
+      "title": "Técnico Electromecánico",
+      "org": "Instituto Industrial Pablo Tavelli",
+      "year": "2009"
+    },
+    "languagesLabel": "Idiomas",
+    "languages": "Español (nativo) · Inglés (intermedio)"
   }
 }

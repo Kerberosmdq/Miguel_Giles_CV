@@ -295,5 +295,109 @@
       "english": "English",
       "englishLevel": "Intermediate"
     }
+  },
+  "method": {
+    "label": "§2 · How I work",
+    "title": "Parallel AI agents, with engineering controls",
+    "intro": "I run several AI agents at once, under the same rules as a regulated plant: each one works in isolation, nothing merges without review, and final approval comes from a person.",
+    "figLabel": "Agent workflow",
+    "steps": [
+      {
+        "title": "Parallel execution",
+        "desc": "Each agent works on its own isolated branch."
+      },
+      {
+        "title": "Cross-review",
+        "desc": "One agent's work is reviewed by another."
+      },
+      {
+        "title": "Adversarial verification",
+        "desc": "An agent tries to refute or break the change before it's accepted."
+      },
+      {
+        "title": "Human approval",
+        "desc": "I review and sign off. Nothing merges without it."
+      }
+    ],
+    "caption": "It's the GMP four-eyes principle, applied to software development."
+  },
+  "others": {
+    "label": "§3 · Other projects",
+    "title": "Other projects",
+    "note": "Personal projects",
+    "live": "Site",
+    "code": "Code",
+    "nexkio": {
+      "badge": "In use at 4 kiosks",
+      "line": "Offline-first point of sale for kiosks: keeps selling even when the internet drops.",
+      "bullets": [
+        "barcode-scanner checkout",
+        "inventory, store credit and reports",
+        "PWA that syncs when the connection returns"
+      ]
+    },
+    "nexquipu": {
+      "badge": "Used by 3 families",
+      "line": "Personal finance with AI analysis of credit-card statements.",
+      "bullets": [
+        "reads the PDF statement and categorizes spending",
+        "detects subscriptions and hidden charges",
+        "push-notification alerts"
+      ]
+    },
+    "nexpulse": "Blind timer for home poker tournaments, with P2P remote control over WebRTC.",
+    "nexplay": "Real-time online board games for family play (Supabase Realtime)."
+  },
+  "career": {
+    "label": "§4 · Career",
+    "title": "From the plant floor to AI",
+    "intro": "Thirteen years troubleshooting on the plant floor taught me to work from evidence, document every intervention and follow validated procedures. I apply the same standard to AI software: every answer has a source, every change is recorded, and every critical decision is signed off by a person.",
+    "timelineLabel": "Timeline",
+    "items": [
+      {
+        "period": "2013 – 2017",
+        "role": "Industrial Refrigeration Technician",
+        "org": "Coiron",
+        "text": "Led installation crews for industrial cold rooms; refrigeration, electrical and pneumatic systems."
+      },
+      {
+        "period": "2017 – present",
+        "role": "Maintenance & Automation Technician",
+        "org": "B.Braun Medical Argentina, Mar del Plata",
+        "text": "Maintenance and PLC automation of production lines in a GxP-regulated pharmaceutical plant. Diagnosis and resolution of critical failures. Continuous improvement with Lean/5S."
+      },
+      {
+        "period": "2023 – present",
+        "role": "Independent software development",
+        "org": "",
+        "text": "In my own time: NexIndu, NexKio, NexQuipu, NexPulse and NexPlay."
+      },
+      {
+        "period": "2026",
+        "role": "Diploma in Python & Artificial Intelligence",
+        "org": "UTN FRD + Instituto Linux",
+        "text": ""
+      }
+    ]
+  },
+  "education": {
+    "label": "§5 · Education",
+    "title": "Education",
+    "featured": {
+      "title": "Diploma in Python & Artificial Intelligence",
+      "org": "UTN Facultad Regional Delta + Instituto Linux",
+      "meta": [
+        "144 hours",
+        "Grade 100/100",
+        "November 2026"
+      ]
+    },
+    "tech": {
+      "title": "Electromechanical Technician",
+      "org": "Instituto Industrial Pablo Tavelli",
+      "year": "2009"
+    },
+    "languagesLabel": "Languages",
+    "languages": "Spanish (native) · English (intermediate)"
   }
 }
