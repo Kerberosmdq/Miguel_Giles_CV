@@ -1,6 +1,6 @@
 # Miguel Giles — Portfolio & CV
 
-Personal portfolio and interactive CV for Miguel Giles: electromechanic with 13 years of field experience, self-taught developer since 2023.
+Portfolio and CV of Miguel Giles, Applied AI Engineer focused on software for regulated manufacturing (GxP, 21 CFR Part 11). The main case study is NexIndu, an AI-powered CMMS/EAM with auditable RAG.
 
 Built with Next.js 16, React 19, TypeScript, and next-intl for ES/EN bilingual support. Deployed on Vercel.
 
@@ -46,8 +46,11 @@ src/
   actions/
     contact.ts        # Server Action: email via nodemailer + Gmail SMTP
   components/
-    sections/         # Page sections: Hero, About, Projects, Experience, Contact
+    sections/         # Hero, CaseNexindu, HowIWork, OtherProjects, Career, Education, Contact
+    diagrams/         # Flow (HTML/CSS) + RagFlow, RoutingFlow, AgentFlow
     layout/           # Header, Footer
+    ui/               # SectionLabel, Tag, Button
+  demo/               # Animated NexIndu demo (scoped Tailwind, see ADR-006)
   messages/           # i18n strings (es.json, en.json)
   i18n/               # next-intl configuration
 public/
