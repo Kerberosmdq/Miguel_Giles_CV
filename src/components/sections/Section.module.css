@@ -1,4 +1,4 @@
-.section { padding: 3rem 0; border-top: 1px solid var(--rule); scroll-margin-top: var(--header-h); }
+.section { padding: 3rem 0; border-top: 1px solid var(--rule); }
 .intro { color: var(--ink-2); max-width: 62ch; margin: 0.75rem 0 2rem; }
 .note { margin: 0.5rem 0 2rem; }
 @media (min-width: 900px) {

@@ -71,13 +71,11 @@ export default async function CVPage({ params }: { params: Promise<{ locale: str
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>{t('nexinduTitle')}</h2>
           <div className={styles.item}>
-            <h3 className={styles.itemTitle}>
-              NexIndu
-              <span className={styles.itemMeta}> — {t('nexinduMeta')}</span>
-              {' · '}
+            <h3 className={styles.itemTitle}>{tn('title')}</h3>
+            <p className={styles.itemLine}>
+              {t('nexinduMeta')}
               <a href={NEXINDU_URL} className={styles.itemLink}>{strip(NEXINDU_URL)}</a>
-            </h3>
-            <p className={styles.itemLine}>{tn('title')}</p>
+            </p>
             <ul className={styles.bullets}>
               {approach.map((a) => (
                 <li key={a.k}><strong>{a.k}:</strong> {a.v}</li>

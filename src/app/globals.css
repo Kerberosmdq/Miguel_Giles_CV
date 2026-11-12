@@ -47,8 +47,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-h) + 16px);
   -webkit-font-smoothing: antialiased;
   color-scheme: light dark;
 }
@@ -83,6 +81,8 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 }
 
 ::selection { background: var(--accent); color: var(--accent-ink); }
+
+section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 
 .container {
   width: 100%;
