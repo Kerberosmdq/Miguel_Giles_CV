@@ -36,19 +36,21 @@ export async function generateMetadata({
   return {
     metadataBase: new URL(SITE_URL),
     title: isEs
-      ? 'Miguel Giles — Desarrollador Full Stack | Next.js · TypeScript'
-      : 'Miguel Giles — Full Stack Developer | Next.js · TypeScript',
+      ? 'Miguel Giles — Applied AI Engineer · Software para manufactura regulada (GxP)'
+      : 'Miguel Giles — Applied AI Engineer · Software for regulated manufacturing (GxP)',
     description: isEs
-      ? 'Desarrollador Full Stack con 13 años en la industria (9 en farma GxP). Apps en uso real con Next.js, TypeScript y Supabase. Disponible para trabajo remoto.'
-      : 'Full Stack Developer with 13 years in industry (9 in GxP pharma). Apps in real use built with Next.js, TypeScript and Supabase. Open to remote work.',
+      ? 'Applied AI Engineer: RAG, LLMs y orquestación multiagente para manufactura regulada (GxP, 21 CFR Part 11). Creador de NexIndu. 13+ años en mantenimiento y automatización industrial.'
+      : 'Applied AI Engineer: RAG, LLMs and multi-agent orchestration for regulated manufacturing (GxP, 21 CFR Part 11). Creator of NexIndu. 13+ years in industrial maintenance and automation.',
     keywords: [
-      'Miguel Giles',
-      'Full Stack Developer',
-      'Desarrollador Full Stack',
-      'Next.js',
-      'TypeScript',
-      'Supabase',
+      'Applied AI Engineer',
+      'RAG',
+      'LLM',
+      'pgvector',
+      'multi-agent',
       'GxP',
+      '21 CFR Part 11',
+      'CMMS',
+      'NexIndu',
       'Mar del Plata',
     ],
     authors: [{ name: 'Miguel Giles' }],
@@ -59,21 +61,22 @@ export async function generateMetadata({
       url: `${SITE_URL}/${locale}`,
       siteName: 'Miguel Giles',
       title: isEs
-        ? 'Miguel Giles — Desarrollador Full Stack'
-        : 'Miguel Giles — Full Stack Developer',
+        ? 'Miguel Giles — Applied AI Engineer'
+        : 'Miguel Giles — Applied AI Engineer',
       description: isEs
-        ? 'Apps en uso real con Next.js, TypeScript y Supabase. 13 años en la industria, 9 en farma GxP.'
-        : 'Apps in real use built with Next.js, TypeScript and Supabase. 13 years in industry, 9 in GxP pharma.',
+        ? 'IA que se puede auditar, para manufactura regulada. RAG, trazabilidad y 21 CFR Part 11.'
+        : 'Auditable AI for regulated manufacturing. RAG, traceability and 21 CFR Part 11.',
     },
     twitter: {
       card: 'summary_large_image',
-      title: isEs ? 'Miguel Giles — Desarrollador Full Stack' : 'Miguel Giles — Full Stack Developer',
+      title: 'Miguel Giles — Applied AI Engineer',
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}`,
       languages: {
         es: `${SITE_URL}/es`,
         en: `${SITE_URL}/en`,
+        'x-default': `${SITE_URL}/es`,
       },
     },
     robots: {
@@ -87,8 +90,29 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Miguel Giles',
-  jobTitle: 'Full Stack Developer',
-  knowsAbout: ['Next.js', 'React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Playwright', 'PLC automation', 'GxP'],
+  jobTitle: 'Applied AI Engineer',
+  knowsAbout: [
+    'Retrieval-Augmented Generation',
+    'Large Language Models',
+    'pgvector',
+    'Multi-agent orchestration',
+    'GxP',
+    '21 CFR Part 11',
+    'CMMS',
+    'PLC automation',
+    'Next.js',
+    'TypeScript',
+    'PostgreSQL',
+  ],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'Diplomado Python & Inteligencia Artificial',
+    credentialCategory: 'Diploma',
+    recognizedBy: {
+      '@type': 'EducationalOrganization',
+      name: 'UTN Facultad Regional Delta + Instituto Linux',
+    },
+  },
   url: SITE_URL,
   email: EMAIL,
   address: {
