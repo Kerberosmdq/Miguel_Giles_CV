@@ -41,13 +41,29 @@
   color: var(--ink-3);
 }
 
-.compact { gap: 1rem; }
-.compact .node {
-  padding: 0.25rem 0.5rem;
+/* compact: en celular, una sola línea de texto mono que hace wrap, sin cajas */
+.compact {
+  display: block;
   font-family: var(--font-mono);
   font-size: 0.8125rem;
+  line-height: 1.8;
 }
-.compact .node:not(:last-child)::after { bottom: -1rem; height: 1rem; }
+.compact .node {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: inherit;
+}
+.compact .node.key .title { color: var(--accent); }
+.compact .node:not(:last-child)::after {
+  content: ' → ' / '';
+  position: static;
+  display: inline;
+  transform: none;
+  height: auto;
+  white-space: pre;
+}
 
 @media (min-width: 900px) {
   .flow:not(.vertical) { flex-direction: row; gap: 1.5rem; }
@@ -62,6 +78,19 @@
     transform: translateY(-50%);
     justify-content: center;
   }
-  .compact:not(.vertical) { gap: 1.25rem; }
-  .compact:not(.vertical) .node:not(:last-child)::after { right: -1.25rem; width: 1.25rem; }
+  .compact:not(.vertical) { display: flex; gap: 1.25rem; line-height: 1.4; }
+  .compact:not(.vertical) .node {
+    display: flex;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--rule-strong);
+    background: var(--surface);
+  }
+  .compact:not(.vertical) .node.key { border-color: var(--accent); }
+  .compact:not(.vertical) .node.key .title { color: var(--ink); }
+  .compact:not(.vertical) .node:not(:last-child)::after {
+    position: absolute;
+    display: flex;
+    right: -1.25rem;
+    width: 1.25rem;
+  }
 }

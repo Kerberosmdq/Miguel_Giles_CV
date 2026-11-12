@@ -93,6 +93,8 @@
       "bIntents": "All other queries",
       "bAction": "LLM (Gemini) + RAG · answers with cited sources",
       "bFallback": "Fallback model on failure",
+      "aLabel": "A · deterministic",
+      "bLabel": "B · LLM",
       "bar": "Usage logging · Per-company AI budget · Automated prompt evaluations",
       "caption": "Predictable requests skip the LLM: faster, cheaper and always reproducible. The LLM is reserved for what actually needs language."
     },

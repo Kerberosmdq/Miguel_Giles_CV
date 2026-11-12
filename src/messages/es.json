@@ -93,6 +93,8 @@
       "bIntents": "Resto de las consultas",
       "bAction": "LLM (Gemini) + RAG · responde citando fuentes",
       "bFallback": "Modelo de respaldo si falla",
+      "aLabel": "A · determinista",
+      "bLabel": "B · LLM",
       "bar": "Registro de uso · Presupuesto de IA por empresa · Evaluaciones automáticas de prompts",
       "caption": "Lo predecible se resuelve sin LLM: es más rápido, más barato y da siempre el mismo resultado. El LLM queda para lo que de verdad necesita lenguaje."
     },
