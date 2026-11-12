@@ -143,86 +143,6 @@
     "stackLabel": "Stack",
     "cta": "Visitar nexindu.com.ar"
   },
-  "projects": {
-    "title": "Proyectos",
-    "subtitle": "Apps reales, con usuarios reales",
-    "live": "Ver online",
-    "code": "Código",
-    "otherTitle": "Otros proyectos online",
-    "items": {
-      "nexindu": {
-        "badge": "Pre-lanzamiento",
-        "line": "Software de mantenimiento (CMMS) para plantas farmacéuticas reguladas.",
-        "bullets": [
-          "Órdenes de trabajo, mantenimiento preventivo e inventario de repuestos",
-          "Registro de auditoría inmutable con firma electrónica (FDA 21 CFR Part 11, ALCOA+)",
-          "Asistente de IA (Gemini) con RAG sobre la documentación de planta",
-          "Tests E2E con Playwright y CI con análisis de seguridad (CodeQL, OWASP ZAP)"
-        ]
-      },
-      "nexkio": {
-        "badge": "En uso en 4 kioscos",
-        "line": "Sistema de ventas para kioscos que funciona sin conexión.",
-        "bullets": [
-          "Venta con lector de códigos de barras",
-          "Inventario, fiado y reportes",
-          "PWA: sigue vendiendo aunque se corte internet"
-        ]
-      },
-      "nexquipu": {
-        "badge": "Usada por 3 familias",
-        "line": "Finanzas familiares a partir de los resúmenes de tarjeta.",
-        "bullets": [
-          "Lee el resumen en PDF y categoriza los gastos",
-          "Detecta suscripciones y gastos ocultos",
-          "Alertas con notificaciones push"
-        ]
-      },
-      "nexpulse": {
-        "line": "Reloj de ciegas para torneos de póker caseros, con control remoto P2P por WebRTC."
-      },
-      "nexplay": {
-        "line": "Juegos de mesa online en tiempo real para jugar en familia (Supabase Realtime)."
-      }
-    }
-  },
-  "experience": {
-    "title": "Experiencia",
-    "subtitle": "13 años en la industria, ahora construyendo software",
-    "items": {
-      "dev": {
-        "role": "Desarrollador Full Stack",
-        "company": "Proyectos propios (NEX Apps)",
-        "period": "2023 – Presente",
-        "meta": "Remoto, en paralelo a B.Braun",
-        "bullets": [
-          "Diseño, desarrollo y despliegue de apps web completas con Next.js, TypeScript y Supabase",
-          "Dos apps en uso diario: NexKio (4 kioscos) y NexQuipu (3 familias)",
-          "Desarrollo asistido por IA con tests (Playwright, Vitest), CI en GitHub Actions y decisiones documentadas"
-        ]
-      },
-      "bbraun": {
-        "role": "Técnico Electromecánico y de Automatización",
-        "company": "B.Braun Medical Argentina",
-        "period": "2017 – Presente",
-        "meta": "Mar del Plata",
-        "bullets": [
-          "Mantenimiento y automatización (PLC) de líneas de producción farmacéutica en entorno regulado GxP",
-          "Diagnóstico y resolución de fallas críticas en tiempo real",
-          "Mejora continua con Lean/5S"
-        ]
-      },
-      "coiron": {
-        "role": "Técnico Frigorista Industrial",
-        "company": "Coiron",
-        "period": "2013 – 2017",
-        "bullets": [
-          "Lideré equipos de montaje de cámaras frigoríficas industriales desde cero",
-          "Responsabilidad sobre refrigeración, electricidad y neumática"
-        ]
-      }
-    }
-  },
   "contact": {
     "label": "§6 · Contacto",
     "title": "Hablemos",
@@ -245,55 +165,40 @@
   "cv": {
     "back": "Inicio",
     "download": "Descargar PDF",
-    "role": "Desarrollador Full Stack | Técnico Electromecánico y de Automatización",
+    "role": "Applied AI Engineer · Software para manufactura regulada (GxP · 21 CFR Part 11)",
     "location": "Mar del Plata, Argentina",
     "available": "Disponible: remoto, part-time o full-time",
     "profile": {
       "title": "Perfil",
-      "text": "Desarrollador Full Stack (Next.js, TypeScript, Supabase) con 13 años de experiencia en la industria, 9 de ellos en una planta farmacéutica regulada GxP. Construyo y mantengo apps web que se usan a diario —un sistema de ventas en 4 kioscos y un gestor de finanzas para 3 familias— y un software de mantenimiento para plantas farmacéuticas alineado con FDA 21 CFR Part 11. Busco sumarme a un equipo de desarrollo, en remoto."
+      "text": "Applied AI Engineer con más de 13 años en mantenimiento y automatización industrial, 9 de ellos en una planta farmacéutica regulada (GxP). Creador de NexIndu, un CMMS/EAM con IA para plantas reguladas: RAG sobre pgvector con embeddings locales, enrutamiento híbrido determinista/LLM, LLMOps y controles de 21 CFR Part 11. Busco roles remotos de Applied AI o de software para manufactura regulada."
     },
-    "projectsTitle": "Proyectos de software",
-    "experienceTitle": "Experiencia laboral",
+    "nexinduTitle": "Caso de estudio: NexIndu",
+    "nexinduMeta": "Pre-lanzamiento · Proyecto propio",
+    "othersTitle": "Otros proyectos propios",
+    "experienceTitle": "Experiencia",
     "skills": {
-      "title": "Habilidades técnicas",
+      "title": "Habilidades",
       "items": [
         {
-          "label": "Frontend",
-          "text": "Next.js, React, TypeScript, Tailwind CSS, Framer Motion"
-        },
-        {
-          "label": "Backend y datos",
-          "text": "Supabase (PostgreSQL, Auth, Realtime), Zod, React Hook Form, Resend"
-        },
-        {
-          "label": "Calidad y DevOps",
-          "text": "Playwright, Vitest, GitHub Actions (CodeQL, OWASP ZAP), Vercel, Git"
-        },
-        {
           "label": "IA",
-          "text": "Gemini API, RAG con embeddings"
+          "text": "RAG, pgvector, embeddings ONNX, Gemini API, LLMOps, orquestación multiagente"
+        },
+        {
+          "label": "Desarrollo",
+          "text": "Next.js, React, TypeScript, Supabase/PostgreSQL, Vercel, GitHub Actions"
+        },
+        {
+          "label": "Regulado",
+          "text": "GxP, 21 CFR Part 11, ALCOA+, auditoría, firma electrónica"
         },
         {
           "label": "Industria",
-          "text": "PLC / automatización, GxP y FDA 21 CFR Part 11, Lean/5S, neumática, electricidad, refrigeración industrial"
+          "text": "PLC/automatización, Lean/5S, neumática, electricidad, refrigeración"
         }
       ]
     },
     "educationTitle": "Formación",
-    "education": {
-      "title": "Técnico Electromecánico",
-      "school": "Instituto Industrial Pablo Tavelli",
-      "year": "Egresado 2009",
-      "selfTaught": "Desarrollo de software: autodidacta",
-      "selfTaughtPeriod": "2023 – Presente"
-    },
-    "languagesTitle": "Idiomas",
-    "languages": {
-      "spanish": "Español",
-      "spanishLevel": "Nativo",
-      "english": "Inglés",
-      "englishLevel": "Intermedio"
-    }
+    "languagesTitle": "Idiomas"
   },
   "method": {
     "label": "§2 · Método",

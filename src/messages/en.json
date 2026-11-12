@@ -143,86 +143,6 @@
     "stackLabel": "Stack",
     "cta": "Visit nexindu.com.ar"
   },
-  "projects": {
-    "title": "Projects",
-    "subtitle": "Real apps, real users",
-    "live": "Live demo",
-    "code": "Code",
-    "otherTitle": "Other live projects",
-    "items": {
-      "nexindu": {
-        "badge": "Pre-launch",
-        "line": "Maintenance management software (CMMS) for regulated pharmaceutical plants.",
-        "bullets": [
-          "Work orders, preventive maintenance and spare-parts inventory",
-          "Immutable audit trail with e-signatures (FDA 21 CFR Part 11, ALCOA+)",
-          "AI assistant (Gemini) with RAG over plant documentation",
-          "Playwright E2E tests and CI with security scanning (CodeQL, OWASP ZAP)"
-        ]
-      },
-      "nexkio": {
-        "badge": "Used daily in 4 shops",
-        "line": "Offline-first point-of-sale system for small shops.",
-        "bullets": [
-          "Barcode-scanner checkout",
-          "Inventory, store credit and reports",
-          "PWA: keeps selling when the internet goes down"
-        ]
-      },
-      "nexquipu": {
-        "badge": "Used by 3 families",
-        "line": "Family finances built from credit-card statements.",
-        "bullets": [
-          "Reads the PDF statement and categorizes spending",
-          "Detects subscriptions and hidden charges",
-          "Push-notification alerts"
-        ]
-      },
-      "nexpulse": {
-        "line": "Blind timer for home poker tournaments, with P2P remote control over WebRTC."
-      },
-      "nexplay": {
-        "line": "Real-time online board games for family play (Supabase Realtime)."
-      }
-    }
-  },
-  "experience": {
-    "title": "Experience",
-    "subtitle": "13 years in industry, now building software",
-    "items": {
-      "dev": {
-        "role": "Full Stack Developer",
-        "company": "Independent projects (NEX Apps)",
-        "period": "2023 – Present",
-        "meta": "Remote, alongside B.Braun",
-        "bullets": [
-          "Design, build and deploy full web apps with Next.js, TypeScript and Supabase",
-          "Two apps in daily use: NexKio (4 shops) and NexQuipu (3 families)",
-          "AI-assisted development backed by tests (Playwright, Vitest), GitHub Actions CI and documented decisions"
-        ]
-      },
-      "bbraun": {
-        "role": "Electromechanical & Automation Technician",
-        "company": "B.Braun Medical Argentina",
-        "period": "2017 – Present",
-        "meta": "Mar del Plata",
-        "bullets": [
-          "Maintenance and PLC automation of pharmaceutical production lines in a GxP-regulated plant",
-          "Real-time diagnosis and resolution of critical failures",
-          "Continuous improvement with Lean/5S"
-        ]
-      },
-      "coiron": {
-        "role": "Industrial Refrigeration Technician",
-        "company": "Coiron",
-        "period": "2013 – 2017",
-        "bullets": [
-          "Led installation teams building industrial cold rooms from scratch",
-          "Responsible for refrigeration, electrical and pneumatic systems"
-        ]
-      }
-    }
-  },
   "contact": {
     "label": "§6 · Contact",
     "title": "Let's talk",
@@ -245,55 +165,40 @@
   "cv": {
     "back": "Home",
     "download": "Download PDF",
-    "role": "Full Stack Developer | Electromechanical & Automation Technician",
+    "role": "Applied AI Engineer · Software for regulated manufacturing (GxP · 21 CFR Part 11)",
     "location": "Mar del Plata, Argentina",
     "available": "Available: remote, part-time or full-time",
     "profile": {
       "title": "Profile",
-      "text": "Full Stack Developer (Next.js, TypeScript, Supabase) with 13 years of experience in industry, 9 of them in a regulated GxP pharmaceutical plant. I build and maintain web apps used every day —a point-of-sale system in 4 shops and a finance tracker for 3 families— and maintenance software for pharmaceutical plants aligned with FDA 21 CFR Part 11. I'm looking to join a development team, remotely."
+      "text": "Applied AI Engineer with 13+ years in industrial maintenance and automation, 9 of them in a GxP-regulated pharmaceutical plant. Creator of NexIndu, an AI-powered CMMS/EAM for regulated plants: RAG on pgvector with local embeddings, hybrid deterministic/LLM routing, LLMOps and 21 CFR Part 11 controls. Looking for remote Applied AI or regulated-manufacturing software roles."
     },
-    "projectsTitle": "Software projects",
-    "experienceTitle": "Work experience",
+    "nexinduTitle": "Case study: NexIndu",
+    "nexinduMeta": "Pre-launch · Personal project",
+    "othersTitle": "Other personal projects",
+    "experienceTitle": "Experience",
     "skills": {
-      "title": "Technical skills",
+      "title": "Skills",
       "items": [
         {
-          "label": "Frontend",
-          "text": "Next.js, React, TypeScript, Tailwind CSS, Framer Motion"
-        },
-        {
-          "label": "Backend & data",
-          "text": "Supabase (PostgreSQL, Auth, Realtime), Zod, React Hook Form, Resend"
-        },
-        {
-          "label": "Quality & DevOps",
-          "text": "Playwright, Vitest, GitHub Actions (CodeQL, OWASP ZAP), Vercel, Git"
-        },
-        {
           "label": "AI",
-          "text": "Gemini API, RAG with embeddings"
+          "text": "RAG, pgvector, ONNX embeddings, Gemini API, LLMOps, multi-agent orchestration"
+        },
+        {
+          "label": "Development",
+          "text": "Next.js, React, TypeScript, Supabase/PostgreSQL, Vercel, GitHub Actions"
+        },
+        {
+          "label": "Regulated",
+          "text": "GxP, 21 CFR Part 11, ALCOA+, auditing, electronic signatures"
         },
         {
           "label": "Industry",
-          "text": "PLC / automation, GxP and FDA 21 CFR Part 11, Lean/5S, pneumatics, electrical systems, industrial refrigeration"
+          "text": "PLC/automation, Lean/5S, pneumatics, electrical, refrigeration"
         }
       ]
     },
     "educationTitle": "Education",
-    "education": {
-      "title": "Electromechanical Technician",
-      "school": "Instituto Industrial Pablo Tavelli",
-      "year": "Graduated 2009",
-      "selfTaught": "Software development: self-taught",
-      "selfTaughtPeriod": "2023 – Present"
-    },
-    "languagesTitle": "Languages",
-    "languages": {
-      "spanish": "Spanish",
-      "spanishLevel": "Native",
-      "english": "English",
-      "englishLevel": "Intermediate"
-    }
+    "languagesTitle": "Languages"
   },
   "method": {
     "label": "§2 · How I work",

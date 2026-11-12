@@ -11,11 +11,11 @@ export async function generateMetadata({
 
   return {
     title: isEs
-      ? 'CV — Miguel Giles · Desarrollador Full Stack'
-      : 'Resume — Miguel Giles · Full Stack Developer',
+      ? 'CV — Miguel Giles · Applied AI Engineer'
+      : 'Resume — Miguel Giles · Applied AI Engineer',
     description: isEs
-      ? 'CV de Miguel Giles: desarrollador Full Stack (Next.js, TypeScript, Supabase) con 13 años en la industria farmacéutica e industrial.'
-      : 'Resume of Miguel Giles: Full Stack developer (Next.js, TypeScript, Supabase) with 13 years in the pharmaceutical and industrial sectors.',
+      ? 'CV de Miguel Giles: Applied AI Engineer para manufactura regulada (GxP, 21 CFR Part 11). RAG, LLMs y orquestación multiagente. 13+ años en mantenimiento y automatización industrial.'
+      : 'Resume of Miguel Giles: Applied AI Engineer for regulated manufacturing (GxP, 21 CFR Part 11). RAG, LLMs and multi-agent orchestration. 13+ years in industrial maintenance and automation.',
     alternates: {
       canonical: `${SITE_URL}/${locale}/cv`,
       languages: {
