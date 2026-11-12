@@ -25,17 +25,16 @@ export async function sendContactEmail(formData: FormData) {
   // Strip newlines to prevent header injection; escape HTML entities in user content
   const name = raw.name.replace(/[\r\n]/g, ' ');
   const email = raw.email.replace(/[\r\n]/g, '');
-  const messageSafe = raw.message
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/\n/g, '<br>');
+  const esc = (s: string) =>
+    s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const nameSafe = esc(name);
+  const emailSafe = esc(email);
+  const messageSafe = esc(raw.message).replace(/\n/g, '<br>');
 
   const appPassword = process.env.GMAIL_APP_PASSWORD?.trim();
   if (!appPassword) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.error('[contact] GMAIL_APP_PASSWORD not set');
-    }
+    // Sin datos del visitante: solo el motivo, para poder diagnosticarlo en los logs de Vercel
+    console.error('[contact] not_configured: falta GMAIL_APP_PASSWORD en este entorno');
     return { success: false, error: 'not_configured' };
   }
 
@@ -57,8 +56,8 @@ export async function sendContactEmail(formData: FormData) {
       html: `
         <div style="font-family: sans-serif; max-width: 600px;">
           <h2 style="color: #0A0A0A;">Nuevo mensaje desde tu portfolio</h2>
-          <p><strong>Nombre:</strong> ${name}</p>
-          <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+          <p><strong>Nombre:</strong> ${nameSafe}</p>
+          <p><strong>Email:</strong> <a href="mailto:${emailSafe}">${emailSafe}</a></p>
           <hr style="border-color: #eee;" />
           <p style="white-space: pre-line;">${messageSafe}</p>
         </div>
@@ -67,9 +66,9 @@ export async function sendContactEmail(formData: FormData) {
 
     return { success: true };
   } catch (err) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.error('[contact] nodemailer error:', err);
-    }
+    // Solo código y mensaje del error (sin datos del visitante ni credenciales)
+    const e = err as { code?: string; responseCode?: number; message?: string };
+    console.error('[contact] send_failed:', e.code ?? '', e.responseCode ?? '', e.message ?? '');
     return { success: false, error: 'send_failed' };
   }
 }
